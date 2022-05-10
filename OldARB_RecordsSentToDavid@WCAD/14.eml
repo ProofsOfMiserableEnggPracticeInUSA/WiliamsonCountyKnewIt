@@ -1,0 +1,179 @@
+Delivered-To: anderson.mill.road@gmail.com
+Received: by 2002:ab0:6595:0:0:0:0:0 with SMTP id v21csp21437335uam;
+        Sat, 4 Jan 2020 23:02:26 -0800 (PST)
+X-Received: by 2002:a2e:804c:: with SMTP id p12mr55254032ljg.31.1578207746099;
+        Sat, 04 Jan 2020 23:02:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578207746; cv=none;
+        d=google.com; s=arc-20160816;
+        b=v9gyjvRgIAPIyJBDAFVnRlCc1DLBhwjVkFlZeZQCsGVNkZBaSsf6aooI6qn1sNnwIF
+         fKAmgrGgqRH+YhqF+CqKsF3sqZCDOSpXxIfQPpd3sCrvl0kLFF6sU0a6siI+Q6PAWMWr
+         /L7u80zk2wqID12KP5f2V6QdsGHHcYpkE5YL7LdV2N1AeSffRQWtwEPPaHlrH7aNdqAx
+         rgdnYCpazUenniaNu/2sq3/tjdwjMoooq1Cv3f9lADgHeqt2sNlEYI+zYLvPwKdidFJb
+         oM1ATy77M4tlBMk98NubMNeoJpCdtGb3K3jCKnXYdFoh+D0duaewdhmgFWpYiAFOL8OA
+         7ocA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=NJCk8uOV7iZrBAmR04P5TX7OhlAqF48yJoalNY6F4OA=;
+        b=J9VL9dTW2LcpLd9ANo8/Kwnmynk1O93GC29kETW+FwVojKZ4ITO9ISjx2LoHyiJGxT
+         Ngeyfbz94gSXM1A5vqV8d+g9gBmY9S/I2NtIRVeXqHAtJiaKPh2M+6mAE6myVudLGvH2
+         Hgnjw1OiKGK7cl9NzHWMu/ilna6lSDGv3iDaRogJVfJqx0Nt262Rd7phl42ZrdE4VkMq
+         gg/PUoJ3Jpc8GIibNQFmJ0E6RDleUAWGMqnnsjHgB2ulqK26OHG9YiD8prBmnCAgI3pl
+         9jReXVcT2DljUVvBxNxh6fZxbj7wVxq67Vt06FmVExJ9zc/x6o4kzbElFdxYALjVJtcr
+         T1mQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=e5vrIOMx;
+       spf=pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sandeep.kalra@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <sandeep.kalra@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id b80sor13340474lfg.11.2020.01.04.23.02.25
+        for <anderson.mill.road@gmail.com>
+        (Google Transport Security);
+        Sat, 04 Jan 2020 23:02:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=e5vrIOMx;
+       spf=pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sandeep.kalra@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to:cc;
+        bh=NJCk8uOV7iZrBAmR04P5TX7OhlAqF48yJoalNY6F4OA=;
+        b=e5vrIOMxAVjqwrvlQ04/dETPapkcvOTezJZ9OMwvEU1YUF65yS+Y9LufZSewAGMn4Y
+         dPiM+fq6W0LcCg5dAz0AVmW3bdcw2vG/DR8wGjoEuh0gKNYFaXpMeWgnskCjHigqEx2r
+         P/y9QNsmpUgoATAwIHCf59jXmrvOZRdTyOWxvLmI5vnhies+PMyQcqCCKTzGH9Kie0+A
+         MCi5sxFpQFhvw4VHBtMZXEXoHS1Y3jM3opzKYfyW3fzgquC8fdr9xbQ3nRFZlQHhhGvv
+         oa+5iRxMh0diCzRDy/beuNTN8+BDlawofMA1bUMdm3m16UaGOuyFkTHLt3L2I5zS8bzb
+         HSpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+        bh=NJCk8uOV7iZrBAmR04P5TX7OhlAqF48yJoalNY6F4OA=;
+        b=g+v7SaVZz7dj17uLAWzTIHqAxkkY+IfRgf4n/MBfzR+3Z+/FAxGVoyc7V3vqrsCh/f
+         GWKTA5JkVWslDGxlGcCDcLh/PRQiwG9BcoxwfukSH5zlIqDiwshJmdcP6g5DST+xPgOm
+         dP8c9ez46j9Rsbodgwl8rAHY23lKYxYd1sLBOwRfNMfTUW6Y2d5ypuJICHIzYdFJeoJY
+         cbklzKA7pH0pFBQfZPmm8i4VbuTjQfW+W2eNmkIvS/bvh3WmF3VuuE6ktxgyF65OCtGP
+         kv+lMzw95yIQgjaxzFryQN8zkNrHt6xXunlCWSgn1dk+dHydIUKSzJoJ5H2JnE6Xc5Uo
+         y62Q==
+X-Gm-Message-State: APjAAAXqnjhlbjHjIEpn1HN41IL3Le5lOGgViF9ObBN/797Cn477ZmDO
+	gm+/o9cHnViAQ0DGAopW8fKfxju6bG1xLHWTvZ/oOu3L
+X-Google-Smtp-Source: APXvYqxiLtmtt65Gh72K6ijiaSmqeDwTjSA1MBxn3LFzRjJ/vDI47pEFovgfSO6V9sVcxk/5UEwu65KA8mQv5Evm/JM=
+X-Received: by 2002:a05:6512:25c:: with SMTP id b28mr81188lfo.184.1578207745473;
+ Sat, 04 Jan 2020 23:02:25 -0800 (PST)
+MIME-Version: 1.0
+From: Sandeep Kalra <sandeep.kalra@gmail.com>
+Date: Sun, 5 Jan 2020 01:02:14 -0600
+Message-ID: <CAKfW+R7KkSQD-HN31XfHS4LQy8ONf_hn4cV8V5OvJapiUpvWXg@mail.gmail.com>
+Subject: Request for copy of contract
+To: bccp@traviscountytx.gov
+Cc: LeAnn Quinn <leann.quinn@cedarparktexas.gov>, anderson.mill.road@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000000d02ea059b5f2089"
+
+--0000000000000d02ea059b5f2089
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi, I live on 201 Gaspar Bend cedar Park tx.
+
+The city of Cedar Park TX expanded the road next to my house (it is on BCCP
+corridor), *and  I would like to get the copy of contract and permit to
+review their construction of expansion of Anderson Mill road that they did
+starting May-2017 and ended Aug-2018.  I am marking Cedar Park TX official
+in CC for them to officially know of this request as well.*
+
+Before you read below: Please reply all and try to keep all in loop.
+
+Under BCCP, there must be *no major construction (major =3D beyond 3000 sq
+ft) without permit (ref: Table3 of book mentioned below)*. Also, any
+construction should have maintained at least 30 feet of distance from BCCP
+boundary in an urban settings. I see City of Cedar Park violating all rules
+when they worked on the expansion project. They have left less than 1 feet
+distance right now between road and BCCP boundary and also messed up many
+things related to safety and noise prevention and many more compliances
+laid down by them.
+
+In my understanding there is some relaxation to the distance rule only if
+the count of vehicles passing is less than 750 or else AASHTO road
+standards says so. I have reviewed on my end and AASHTO does not reduce the
+distance to mere 1 feet and the vehicle count is way way more than 750
+every day. This road is now a highway and with no safety.
+
+Given the speed at which vehicles pass day and night and the count (Well
+above 750 per day for sure), and the loud noise the road is producing (at
+nuisance level if measured) I think very soon they will destroy the
+habitat.
+
+Ref:
+https://books.google.com/books?id=3DcTc3AQAAMAAJ&pg=3DRA6-PA1&lpg=3DRA6-PA1=
+&dq=3DBCCP+Infrastructure+Corridors&source=3Dbl&ots=3D_Eo3sbzQOK&sig=3DACfU=
+3U0A-yfjuqfmPKHpOlkEV1gbKalGdA&hl=3Den&sa=3DX&ved=3D2ahUKEwi49ciP4ebmAhWJGs=
+0KHYrLANkQ6AEwBnoECAoQAQ#v=3Donepage&q=3DBCCP%20Infrastructure%20Corridors&=
+f=3Dfalse
+
+Best Regards,
+Sandeep Kalra
+
+--0000000000000d02ea059b5f2089
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_defa=
+ult" style=3D"font-family:tahoma,sans-serif;font-size:small">Hi, I live on =
+201 Gaspar Bend cedar Park tx.</div><div class=3D"gmail_default" style=3D"f=
+ont-family:tahoma,sans-serif;font-size:small"><br></div><div class=3D"gmail=
+_default"><font face=3D"tahoma, sans-serif">The city of Cedar Park TX expan=
+ded the road next to my house (it is on BCCP corridor), </font><b><u><font =
+face=3D"tahoma, sans-serif">and =C2=A0I would like to get the copy of contr=
+act and permit to review their=C2=A0construction of expansion of Anderson=
+=C2=A0Mill road that they did starting May-2017 and ended Aug-2018.=C2=A0 I=
+ am marking Cedar Park TX official in CC for them to officially know of thi=
+s request as well.</font></u></b></div><div class=3D"gmail_default" style=
+=3D"font-family:tahoma,sans-serif;font-size:small"><br></div><div class=3D"=
+gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:small"><spa=
+n style=3D"color:rgb(0,0,0);font-family:-webkit-standard;font-size:medium">=
+Before you read below: Please reply all and try to keep all in loop.</span>=
+<br></div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-ser=
+if;font-size:small"><br></div><div class=3D"gmail_default" style=3D"font-fa=
+mily:tahoma,sans-serif;font-size:small">Under BCCP, there must be <b>no maj=
+or construction=C2=A0(major =3D beyond 3000 sq ft) without permit (ref: Tab=
+le3 of book mentioned below)</b>. Also, any construction should=C2=A0have m=
+aintained at least 30 feet of distance from BCCP boundary in an urban setti=
+ngs. I see City of Cedar Park violating all rules when they worked on the e=
+xpansion project. They have left less than 1 feet distance right now betwee=
+n road and BCCP boundary and also messed up many things related to safety a=
+nd noise prevention and many more compliances laid down by them.=C2=A0</div=
+><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-s=
+ize:small"><br></div><div class=3D"gmail_default" style=3D"font-family:taho=
+ma,sans-serif;font-size:small">In my understanding there is some relaxation=
+ to the distance rule=C2=A0only if the count of vehicles passing is less th=
+an 750 or else AASHTO road standards says so. I have reviewed on my end and=
+ AASHTO does not reduce the distance to mere 1 feet and the vehicle count i=
+s way way more than 750 every day. This road is now a highway and with no s=
+afety.</div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-s=
+erif;font-size:small"><br></div><div class=3D"gmail_default" style=3D"font-=
+family:tahoma,sans-serif;font-size:small">Given the speed at which vehicles=
+ pass day and night and the count (Well above 750 per day for sure), and th=
+e loud noise the road is producing (at nuisance level if measured) I think =
+very soon they will destroy the habitat.=C2=A0</div><div class=3D"gmail_def=
+ault" style=3D"font-family:tahoma,sans-serif;font-size:small"><br></div><di=
+v class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:=
+small"></div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-=
+serif;font-size:small">Ref:=C2=A0<a href=3D"https://books.google.com/books?=
+id=3DcTc3AQAAMAAJ&amp;pg=3DRA6-PA1&amp;lpg=3DRA6-PA1&amp;dq=3DBCCP+Infrastr=
+ucture+Corridors&amp;source=3Dbl&amp;ots=3D_Eo3sbzQOK&amp;sig=3DACfU3U0A-yf=
+juqfmPKHpOlkEV1gbKalGdA&amp;hl=3Den&amp;sa=3DX&amp;ved=3D2ahUKEwi49ciP4ebmA=
+hWJGs0KHYrLANkQ6AEwBnoECAoQAQ#v=3Donepage&amp;q=3DBCCP%20Infrastructure%20C=
+orridors&amp;f=3Dfalse" target=3D"_blank" style=3D"font-family:Arial,Helvet=
+ica,sans-serif">https://books.google.com/books?id=3DcTc3AQAAMAAJ&amp;pg=3DR=
+A6-PA1&amp;lpg=3DRA6-PA1&amp;dq=3DBCCP+Infrastructure+Corridors&amp;source=
+=3Dbl&amp;ots=3D_Eo3sbzQOK&amp;sig=3DACfU3U0A-yfjuqfmPKHpOlkEV1gbKalGdA&amp=
+;hl=3Den&amp;sa=3DX&amp;ved=3D2ahUKEwi49ciP4ebmAhWJGs0KHYrLANkQ6AEwBnoECAoQ=
+AQ#v=3Donepage&amp;q=3DBCCP%20Infrastructure%20Corridors&amp;f=3Dfalse</a><=
+/div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;fo=
+nt-size:small"><br></div><div><div dir=3D"ltr" class=3D"gmail_signature"><d=
+iv dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D=
+"ltr"><font face=3D"arial, helvetica, sans-serif" size=3D"2">Best Regards,<=
+br>Sandeep Kalra<br></font><div><br></div></div></div></div></div></div></d=
+iv></div></div></div></div></div></div>
+
+--0000000000000d02ea059b5f2089--

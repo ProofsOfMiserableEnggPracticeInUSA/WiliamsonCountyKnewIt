@@ -1,0 +1,403 @@
+Delivered-To: anderson.mill.road@gmail.com
+Received: by 2002:ab0:6595:0:0:0:0:0 with SMTP id v21csp1635585uam;
+        Fri, 14 Feb 2020 01:27:48 -0800 (PST)
+X-Received: by 2002:a2e:9f47:: with SMTP id v7mr1497858ljk.124.1581672468726;
+        Fri, 14 Feb 2020 01:27:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581672468; cv=none;
+        d=google.com; s=arc-20160816;
+        b=rPbtPkafHyIo15NYnK1XRpsKUHl7TI/sWfbmtOCcdtFF+brkjYtrbKrA2TyllO54xL
+         2hkbbKONKbjRI/o+kA/YbJKqHW2j45FpSP6j5aBB0p4bYSJkhjmEuEHmuEJYlVfmjOjp
+         ZNK4NSnaH9EE3uG3VgnASyCPHcOvURttkQtBpCIBBfBNWBcqK2EGtEvEjsoQNBn/GEN+
+         vJcjfTm7FbdclcWN5WCU2J1CKzXc+mlNCCe10epBNGz4RtwtqT3CBz5BDSrFX+B33OmU
+         nPyCu4j6kOB7m8hcowggIMEcxDbjIALUJv3rLhN4+pfiMOFMMJCRtyR+YoOF55K56ppV
+         Vmlg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=1Nwdrz+DTTV2fYad5gauFq5Kdjjitdzu4adJ7YXYtvo=;
+        b=KeLIu5/UPqcsnSAo89+P0WlXV86G0N699oh5SFXVolpFBVCUSHzbeTxLniRQlzRXHc
+         lv+xe2XRdnfEzVhLK9eSVwn7cANTQphLuHuaGIqBz+oaMvJISXovScef373me+76+2VM
+         U5GpyijJR6uTXQDEwsWaWvMvjXkwt+uAN4ZXWpeHU2o8CrBB1VxOpA99/6okgiagoUNI
+         aLVmKKQ3Cd58QckBoT7G226r+6UWScwTcavlDda6djkuXcu3X4a3mzyPhYk85MkkpImp
+         raOXqwMFlo0W9FSiqEa23b3cPuSO34b+4Zy72g0+yDmmEV1q/oInlSrolKEXMcf4LlHi
+         i1+w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Xtth+sri;
+       spf=pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sandeep.kalra@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <sandeep.kalra@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id r2sor1449142lfi.66.2020.02.14.01.27.48
+        (Google Transport Security);
+        Fri, 14 Feb 2020 01:27:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Xtth+sri;
+       spf=pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sandeep.kalra@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:date:message-id:subject:to;
+        bh=1Nwdrz+DTTV2fYad5gauFq5Kdjjitdzu4adJ7YXYtvo=;
+        b=Xtth+sriuSnwkbBlT6ty8WaSjnVmV691OBEVwG2l9O2UjVlr8nhrW1mzg35zZ05VMG
+         Cu+CIGDgHFILw6EaIlRBorKB+mY5csk1AmSWPkFEH3cyCt+EfinK81iVlo0PgoduZr4j
+         3wOOX3GQRuHKanGgZ9b2xF1R35d/3bf1i/FaAhi1zfwZQNXCdorOoWUs1DQoa0ujrWOp
+         uQqeSH6bxW2ARB0EWFCRbCx4Ro9KuUayyV9xuCoVMMbbZLocsHeptcs/FgXdj4cyhkrT
+         VPWx2a7WrvL+C8GRzepuwSAA7Lx/C4NiF9M5H6KeLTxYsWK9X8TLBiYldnao4HNPuiio
+         OIAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+        bh=1Nwdrz+DTTV2fYad5gauFq5Kdjjitdzu4adJ7YXYtvo=;
+        b=ZkrcDvwyHYgfEtCnA3SPxCU+9xmAf+wdke2K2dzNAQUi8ASeC3K12bWUbtyclcUw2z
+         H1++o4DHkGv02tz3LTKT9uTTeUINFMh43QR4JXgXJcakECeWSZVm7FtP4qH9G9dIKgP3
+         //xR32A0Cb/qLuy9tn0jXCdpZl2FlLE24SisnPYaV2IbTvG6TEi29Dit0McLd23B935G
+         nOL1/EWwrKVXUc1VV9FXOX79Sn7zNRLHI3OZO3rWvPHClAzvcZ5opwaRe3qN53eHCV6Y
+         oB6Xu8Q+CsLkkHyut2JdVkZiHapeFjnJyoXM0EYfd8VWYucccV4QNFSGy+jsz5IwPICD
+         +N/Q==
+X-Gm-Message-State: APjAAAWuoB6EHeqnj4Pb/NQi6F999Lc/WEAAbI9UCVCcmuGDLuAXmUz8
+	lKO3j89UJPiFEeW/pGbLqtvoT53EWyFJW45Z0W742+9d
+X-Google-Smtp-Source: APXvYqx8VWZxsoID4N25HL6B07osLXwDUr/0goEk9rvIpaszZdxAxyZBNY/i66O32nFw6U3ADWd73898lGDZH0PGsTU=
+X-Received: by 2002:a19:2213:: with SMTP id i19mr1217321lfi.83.1581672467503;
+ Fri, 14 Feb 2020 01:27:47 -0800 (PST)
+MIME-Version: 1.0
+From: Sandeep Kalra <sandeep.kalra@gmail.com>
+Date: Fri, 14 Feb 2020 03:27:36 -0600
+Message-ID: <CAKfW+R63dkdCPFNW8Q6LvTju1rYPNcsGMxbid9eN+n7SxNNuSw@mail.gmail.com>
+Subject: Anderson Mill Rd - meeting 2 ( 02/14/2020)
+To: "G-9 FF * Sandeep kalra" <Sandeep.kalra@gmail.com>, anderson.mill.road@gmail.com
+Content-Type: multipart/alternative; boundary="00000000000093c8af059e85d1ca"
+
+--00000000000093c8af059e85d1ca
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=3D
+=3D
+=3D
+=3D
+=3D
+=3D
+
+
+I have been to the =E2=80=98Anderson mill road phase-1 expansion=E2=80=99 m=
+eeting once when
+the city of cedar park invited me and other residents to tell their
+concerns. I was hopeful on that day and wrote concern.pdf where I have
+clearly laid down concerns that I thought to cover at least what I was
+foreseeing. I am not that hopeful today.
+
+They say: Fool me once, shame on you. Fool me twice, shame on me.
+
+I am no more than the =E2=80=9Cfool=E2=80=9D they said in that proverb. I s=
+till came here
+because the cost of not doing this meeting is direr than accepting =E2=80=
+=98fool=E2=80=99.
+It may be activism inside me that is telling me to voice my concerns for
+not just my family, but for others, and for the animals and wildlife which
+otherwise cannot say or tell anything.
+
+
+When I was pulled for the first time, it was because the expansion would
+directly impact me and It did. From the last 1+ yrs I have lost sleep,
+peace of mind, and more so, have lost health. But this is not the end of
+it.
+
+When I looked further, and thorough investigation of my own, I found that
+all of it could have been saved if the city paid some attention to feedback
+it got from the first meeting, and things can still turn around if I can
+wake-up someone from the city to take steps.
+
+Over the last 1+ year, I have seen gross negligence on part of not just
+city engineers, but almost everyone (including city-management, the mayor
+and his council) and my purpose of meeting with you-all again is to remind
+you-all about the duty you have towards the city.
+
+
+[ CITY ENGINEERS ]
+
+   -
+
+   The city-engineers have not done any safety calculations for this
+   project even when their own documents suggest that it as a mandatory ste=
+p,
+   and even after I raised red-flag that doing this is basically paving the
+   road on a null-drawing. All I got in return were arguments that were mer=
+e
+   speculation, and not facts and stats. I am now increasingly becoming
+   skeptical that they have ever done it for any public work throughout the=
+ir
+   career with this city.
+
+
+Why is the JD (Job Description) of a city engineer? Does the city really
+need such engineers? and How they are better than any =E2=80=98plumber=E2=
+=80=99 who could
+have executed the project by reading drawings and asking workers to pave
+the road.
+
+
+
+[ CITY MANAGEMENT ]
+
+   -
+
+   The city has made the road that is proving hazardous to me and the
+   vegetation on my property. This road is next to the BCCP property. Throu=
+gh
+   an earlier study done by the city, The city was already aware of wildlif=
+e
+   and endangered species in the BCCP area, yet they felt that there is no
+   need to take the permits from BCCP or from US fish and wildlife
+   services.
+
+
+The road is currently paved 1 foot away from BCCP land when AASHTO
+standards suggest 30 feet distance in a high traffic zone.  Just to let you
+know: I and others have started seeing the effect of this road on wildlife.
+The deers, birds, and wildlife that I and other residents used to see have
+gone down drastically.
+
+I will not be surprised if in the next 10 yrs or so some land mafia may
+propose to buy this land on the argument that now all the endangered
+species are extinct, so let's make a multiplex and grocery mart instead,
+and the city will gladly give them tax break and other goodies in the name
+of development.
+
+
+[ WORK ETHICS of OFFICIALS ]
+
+What is the meaning of the word =E2=80=98public=E2=80=99 in =E2=80=98public=
+ sector jobs=E2=80=99 and what
+is your charter for work-ethics?
+
+I have worked with many elementary schools( as a volunteer) for an extended
+period of time (6 yrs or so). When you visit any school in the USA, the
+teachers and volunteers are trained to look for potential problems and
+report immediately even when it is not really a problem because not
+reporting can be more painful when real lives matter.
+
+The engineers in this city do want to understand what I am saying. They are
+essentially corrupt in their minds and are simply supporting each other
+because that is how they can survive in such situations. Maybe all are part
+of this.
+
+The mayor and other officials are ready to take up hours and hours of email
+complaints from me, but will never question the other staff members' work.
+Officials here (if they can=E2=80=99t act on it themselves) would not even =
+report
+it further even when the lives of residents, wildlife and travelers may be
+at risk. To me, the elementary school teachers and volunteers are doing a
+better job of holding work ethics than officials here.
+
+Ask yourself: Did your duty to =E2=80=98public=E2=80=99 genuinely solve pro=
+blems for the
+public or is it just a feeding ground for land-mafias?
+
+
+
+In the name of development, the city has cheated with lives in my family,
+with other residents who are not a fool-enough like me to report it (or
+they got tired), with the disabled wildlife who cannot represent
+themselves, and with every student, joggers, and other pedestrian for years
+to come.
+
+            You may call this city - cedar park, but to me, it is
+ 'cheaters park'.
+
+--00000000000093c8af059e85d1ca
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_defa=
+ult" style=3D"font-family:tahoma,sans-serif;font-size:small"><span id=3D"gm=
+ail-m_-389746091340847993gmail-docs-internal-guid-16a125dc-7fff-3a0a-f28e-6=
+fc65aac1ab5" style=3D"color:rgb(0,0,0)"><br>=3D</span></div><div class=3D"g=
+mail_default" style=3D"font-family:tahoma,sans-serif;font-size:small"><span=
+ style=3D"color:rgb(0,0,0)">=3D</span></div><div class=3D"gmail_default" st=
+yle=3D"font-family:tahoma,sans-serif;font-size:small"><span style=3D"color:=
+rgb(0,0,0)">=3D</span></div><div class=3D"gmail_default" style=3D"font-fami=
+ly:tahoma,sans-serif;font-size:small"><span style=3D"color:rgb(0,0,0)">=3D<=
+/span></div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-s=
+erif;font-size:small"><span style=3D"color:rgb(0,0,0)">=3D</span></div><div=
+ class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:s=
+mall"><span style=3D"color:rgb(0,0,0)">=3D</span></div><div class=3D"gmail_=
+default" style=3D"font-family:tahoma,sans-serif;font-size:small"><span styl=
+e=3D"color:rgb(0,0,0)"><br></span></div><div class=3D"gmail_default" style=
+=3D"font-family:tahoma,sans-serif;font-size:small"><span style=3D"color:rgb=
+(0,0,0)"><br><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin=
+-bottom:0pt"><span style=3D"font-size:11pt;font-family:Arial;background-col=
+or:transparent;font-variant-ligatures:normal;font-variant-east-asian:normal=
+;vertical-align:baseline;white-space:pre-wrap">I have been to the =E2=80=98=
+Anderson mill road phase-1 expansion=E2=80=99 meeting once when the city of=
+ cedar park invited me and other residents to tell their concerns. I was ho=
+peful on that day and wrote concern.pdf where I have clearly laid down conc=
+erns that I thought to cover at least what I was foreseeing.=C2=A0I am not =
+that hopeful today.</span></p><br><p dir=3D"ltr" style=3D"line-height:1.38;=
+margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;font-family=
+:Arial;background-color:transparent;font-variant-ligatures:normal;font-vari=
+ant-east-asian:normal;vertical-align:baseline;white-space:pre-wrap">They sa=
+y: Fool me once, shame on you. Fool me twice, shame on me.</span></p><p dir=
+=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span =
+style=3D"font-size:11pt;font-family:Arial;background-color:transparent;font=
+-variant-ligatures:normal;font-variant-east-asian:normal;vertical-align:bas=
+eline;white-space:pre-wrap">I am no more than the =E2=80=9Cfool=E2=80=9D th=
+ey said in that proverb. I still came here because the cost of not doing th=
+is meeting is direr than accepting =E2=80=98fool=E2=80=99. It may be activi=
+sm inside me that is telling me to voice my concerns for not just my family=
+, but for others, and for the animals and wildlife which otherwise cannot s=
+ay or tell anything.</span></p><br><br><p dir=3D"ltr" style=3D"line-height:=
+1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;font-f=
+amily:Arial;background-color:transparent;font-variant-ligatures:normal;font=
+-variant-east-asian:normal;vertical-align:baseline;white-space:pre-wrap">Wh=
+en I was pulled for the first time, it was because the expansion would dire=
+ctly impact me and It did. From the last 1+ yrs I have lost sleep, peace of=
+ mind, and more so, have lost health. But this is not the end of it.=C2=A0<=
+/span></p><br><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margi=
+n-bottom:0pt"><span style=3D"font-size:11pt;font-family:Arial;background-co=
+lor:transparent;font-variant-ligatures:normal;font-variant-east-asian:norma=
+l;vertical-align:baseline;white-space:pre-wrap">When I looked further, and =
+thorough investigation of my own, I found that all of it could have been sa=
+ved if the city paid some attention to feedback it got from the first meeti=
+ng, and things can still turn around if I can wake-up someone from the city=
+ to take steps.</span></p><br><p dir=3D"ltr" style=3D"line-height:1.38;marg=
+in-top:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;font-family:Ari=
+al;background-color:transparent;font-variant-ligatures:normal;font-variant-=
+east-asian:normal;vertical-align:baseline;white-space:pre-wrap">Over the la=
+st 1+ year, I have seen </span><span style=3D"font-size:11pt;font-family:Ar=
+ial;background-color:transparent;font-weight:700;font-variant-ligatures:nor=
+mal;font-variant-east-asian:normal;text-decoration:underline;text-decoratio=
+n-skip:none;vertical-align:baseline;white-space:pre-wrap">gross negligence<=
+/span><span style=3D"font-size:11pt;font-family:Arial;background-color:tran=
+sparent;font-variant-ligatures:normal;font-variant-east-asian:normal;vertic=
+al-align:baseline;white-space:pre-wrap"> on part of not just city engineers=
+, but almost everyone (including city-management, the mayor and his council=
+) and my purpose of meeting with you-all again is to remind you-all about t=
+he duty you have towards the city.</span></p><br><br><p dir=3D"ltr" style=
+=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-=
+size:11pt;font-family:Arial;background-color:transparent;font-variant-ligat=
+ures:normal;font-variant-east-asian:normal;vertical-align:baseline;white-sp=
+ace:pre-wrap">[ CITY ENGINEERS ]</span></p><ul style=3D"margin-top:0px;marg=
+in-bottom:0px"><li dir=3D"ltr" style=3D"list-style-type:disc;font-size:11pt=
+;font-family:Arial;background-color:transparent;font-variant-ligatures:norm=
+al;font-variant-east-asian:normal;vertical-align:baseline;white-space:pre-w=
+rap"><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:=
+0pt"><span style=3D"font-size:11pt;background-color:transparent;font-varian=
+t-ligatures:normal;font-variant-east-asian:normal;vertical-align:baseline;w=
+hite-space:pre-wrap">The city-engineers have not done any safety calculatio=
+ns for this project even when their own documents suggest that it as a mand=
+atory step, and even after I raised red-flag that doing this is basically p=
+aving the road on a null-drawing. All I got in return were arguments that w=
+ere mere speculation, and not facts and stats. I am now increasingly becomi=
+ng skeptical that they have ever done it for any public work throughout the=
+ir career with this city.=C2=A0</span></p></li></ul><br><p dir=3D"ltr" styl=
+e=3D"line-height:1.38;margin-left:36pt;margin-top:0pt;margin-bottom:0pt"><s=
+pan style=3D"font-size:11pt;font-family:Arial;background-color:transparent;=
+font-variant-ligatures:normal;font-variant-east-asian:normal;vertical-align=
+:baseline;white-space:pre-wrap">Why is the JD (Job Description) of a city e=
+ngineer? Does the city really need such engineers? and How they are better =
+than any =E2=80=98plumber=E2=80=99 who could have executed the project by r=
+eading drawings and asking workers to pave the road.=C2=A0</span></p><br><b=
+r><br><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom=
+:0pt"><span style=3D"font-size:11pt;font-family:Arial;background-color:tran=
+sparent;font-variant-ligatures:normal;font-variant-east-asian:normal;vertic=
+al-align:baseline;white-space:pre-wrap">[ CITY MANAGEMENT ]</span></p><ul s=
+tyle=3D"margin-top:0px;margin-bottom:0px"><li dir=3D"ltr" style=3D"list-sty=
+le-type:disc;font-size:11pt;font-family:Arial;background-color:transparent;=
+font-variant-ligatures:normal;font-variant-east-asian:normal;vertical-align=
+:baseline;white-space:pre-wrap"><p dir=3D"ltr" style=3D"line-height:1.38;ma=
+rgin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;background-co=
+lor:transparent;font-variant-ligatures:normal;font-variant-east-asian:norma=
+l;vertical-align:baseline;white-space:pre-wrap">The city has made the road =
+that is proving hazardous to me and the vegetation on my property. This roa=
+d is next to the BCCP property. Through an earlier study done by the city, =
+The city was already aware of wildlife and endangered species in the BCCP a=
+rea, yet they felt that there is no need to take the permits from BCCP or f=
+rom </span><span style=3D"font-size:11pt;color:rgb(34,34,34);font-variant-l=
+igatures:normal;font-variant-east-asian:normal;vertical-align:baseline;whit=
+e-space:pre-wrap">US fish and wildlife services.=C2=A0</span></p></li></ul>=
+<br><p dir=3D"ltr" style=3D"line-height:1.38;margin-left:36pt;margin-top:0p=
+t;margin-bottom:0pt"><span style=3D"font-size:11pt;font-family:Arial;color:=
+rgb(34,34,34);font-variant-ligatures:normal;font-variant-east-asian:normal;=
+vertical-align:baseline;white-space:pre-wrap">The road is currently paved 1=
+ foot away from BCCP land when AASHTO standards suggest 30 feet distance in=
+ a high traffic zone.=C2=A0 Just to let you know: I and others have started=
+ seeing the effect of this road on wildlife. The deers, birds, and wildlife=
+ that I and other residents used to see have gone down drastically. </span>=
+</p><br><p dir=3D"ltr" style=3D"line-height:1.38;margin-left:36pt;margin-to=
+p:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;font-family:Arial;co=
+lor:rgb(34,34,34);font-variant-ligatures:normal;font-variant-east-asian:nor=
+mal;vertical-align:baseline;white-space:pre-wrap">I will not be surprised i=
+f in the next 10 yrs or so some land mafia may propose to buy this land on =
+the argument that now all the endangered species are extinct, so let&#39;s =
+make a multiplex and grocery mart instead, and the city will gladly give th=
+em tax break and other goodies in the name of development.</span></p><br><b=
+r><p dir=3D"ltr" style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt=
+"><span style=3D"font-size:11pt;font-family:Arial;color:rgb(34,34,34);font-=
+variant-ligatures:normal;font-variant-east-asian:normal;vertical-align:base=
+line;white-space:pre-wrap">[ WORK ETHICS of OFFICIALS ]</span></p><br><p di=
+r=3D"ltr" style=3D"line-height:1.38;margin-left:36pt;margin-top:0pt;margin-=
+bottom:0pt"><span style=3D"font-size:11pt;font-family:Arial;background-colo=
+r:transparent;font-variant-ligatures:normal;font-variant-east-asian:normal;=
+vertical-align:baseline;white-space:pre-wrap">What is the meaning of the wo=
+rd =E2=80=98public=E2=80=99 in =E2=80=98public sector jobs=E2=80=99 and wha=
+t is your charter for work-ethics?</span></p><br><p dir=3D"ltr" style=3D"li=
+ne-height:1.38;margin-left:36pt;margin-top:0pt;margin-bottom:0pt"><span sty=
+le=3D"font-size:11pt;font-family:Arial;color:rgb(34,34,34);font-variant-lig=
+atures:normal;font-variant-east-asian:normal;vertical-align:baseline;white-=
+space:pre-wrap">I have worked with many elementary schools( as a volunteer)=
+ for an extended period of time (6 yrs or so). When you visit any school in=
+ the USA, the teachers and volunteers are trained to look for potential pro=
+blems and report immediately even when it is not really a problem because n=
+ot reporting can be more painful when real lives matter.</span></p><br><p d=
+ir=3D"ltr" style=3D"line-height:1.38;margin-left:36pt;margin-top:0pt;margin=
+-bottom:0pt"><span style=3D"font-size:11pt;font-family:Arial;background-col=
+or:transparent;font-variant-ligatures:normal;font-variant-east-asian:normal=
+;vertical-align:baseline;white-space:pre-wrap">The engineers in this city d=
+o want to understand what I am saying. They are essentially corrupt in thei=
+r minds and are simply supporting each other because that is how they can s=
+urvive in such situations. Maybe all are part of this.</span></p><br><p dir=
+=3D"ltr" style=3D"line-height:1.38;margin-left:36pt;margin-top:0pt;margin-b=
+ottom:0pt"><span style=3D"font-size:11pt;font-family:Arial;background-color=
+:transparent;font-variant-ligatures:normal;font-variant-east-asian:normal;v=
+ertical-align:baseline;white-space:pre-wrap">The mayor and other officials =
+are ready to take up hours and hours of email complaints from me, but will =
+never question the other staff members&#39; work. Officials here=C2=A0</spa=
+n><span style=3D"font-family:-webkit-standard;font-size:medium">(if they ca=
+n=E2=80=99t act on it themselves)</span><span style=3D"font-family:Arial;fo=
+nt-size:11pt;white-space:pre-wrap;background-color:transparent"> would not =
+even report it further even when the lives of residents, wildlife and trave=
+lers may be at risk. To me, the elementary school teachers and volunteers a=
+re doing a better job of holding work ethics than officials here.</span></p=
+></span><span style=3D"color:rgb(0,0,0)"><br><p dir=3D"ltr" style=3D"line-h=
+eight:1.38;margin-left:36pt;margin-top:0pt;margin-bottom:0pt"><span style=
+=3D"font-size:11pt;font-family:Arial;background-color:transparent;font-vari=
+ant-ligatures:normal;font-variant-east-asian:normal;vertical-align:baseline=
+;white-space:pre-wrap">Ask yourself: Did your duty to =E2=80=98public=E2=80=
+=99 genuinely solve problems for the public or is it just a feeding ground =
+for land-mafias?</span></p><p dir=3D"ltr" style=3D"line-height:1.38;margin-=
+left:36pt;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:11pt;f=
+ont-family:Arial;background-color:transparent;font-variant-ligatures:normal=
+;font-variant-east-asian:normal;vertical-align:baseline;white-space:pre-wra=
+p"><br></span></p><p dir=3D"ltr" style=3D"line-height:1.38;margin-left:36pt=
+;margin-top:0pt;margin-bottom:0pt"><br></p><p dir=3D"ltr" style=3D"line-hei=
+ght:1.38;margin-left:36pt;margin-top:0pt;margin-bottom:0pt"><span style=3D"=
+font-size:11pt;font-family:Arial;color:rgb(34,34,34);font-variant-ligatures=
+:normal;font-variant-east-asian:normal;vertical-align:baseline;white-space:=
+pre-wrap">In the name of development, the city has cheated with lives in my=
+ family, with other residents who are not a fool-enough like me to report i=
+t (or they got tired), with the disabled wildlife who cannot represent them=
+selves, and with every student, joggers, and other pedestrian </span><span =
+style=3D"font-size:11pt;font-family:Arial;color:rgb(34,34,34);font-variant-=
+ligatures:normal;font-variant-east-asian:normal;text-decoration:underline;t=
+ext-decoration-skip:none;vertical-align:baseline;white-space:pre-wrap">for =
+years to come</span><span style=3D"font-size:11pt;font-family:Arial;color:r=
+gb(34,34,34);font-variant-ligatures:normal;font-variant-east-asian:normal;v=
+ertical-align:baseline;white-space:pre-wrap">.</span></p><div class=3D"gmai=
+l_default" style=3D"font-family:tahoma,sans-serif;font-size:small"><span st=
+yle=3D"color:rgb(0,0,0)"><br></span></div><div class=3D"gmail_default" styl=
+e=3D"font-family:tahoma,sans-serif;font-size:small"><span style=3D"color:rg=
+b(0,0,0)">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 You may call this city =
+- cedar park, but to me, it is =C2=A0&#39;cheaters park&#39;.</span></div><=
+br><br></span></div></div></div></div>
+
+--00000000000093c8af059e85d1ca--
