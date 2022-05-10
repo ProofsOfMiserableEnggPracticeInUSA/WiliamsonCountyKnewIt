@@ -1,0 +1,4142 @@
+Delivered-To: anderson.mill.road@gmail.com
+Received: by 2002:a54:388d:0:0:0:0:0 with SMTP id n13csp47832ecs;
+        Thu, 2 Sep 2021 15:21:16 -0700 (PDT)
+X-Received: by 2002:a25:c402:: with SMTP id u2mr704454ybf.19.1630621275557;
+        Thu, 02 Sep 2021 15:21:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1630621275; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Klm/Qw5G97H1ICr76cBzW/YQIC6ZF0HB3v8zjIXpgXGhnFHpvA81BnqgjAkwqxvncX
+         H+5L1vRqvqGVOR+5nJYnjc9Ou8S+nehuH9nR5IfZgZ+O3qeKj1y76avkiHAhQmKk+MlQ
+         c9vpa9Tm18W2o9i9+rLnw9LFfgb9nhAx4HQHeDleuDnejSaaCGsthTbsHkii1NMayLMj
+         Yat02+FUMq4Jz2CHZxj3iE4/KNEtyTquwpc7rYsxFfP62bktSOo/HFbQMaSPU83GBz64
+         JjfmUgs3qlU7W+FurOxhPOznexjdkiBMqY/cnTB6xEXb6pN/DZU+SuFug+nOycVj/fcO
+         XG0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=DUxVsNt8xFVWyjXn3wFleg4HT2pJDZuN83YKuDjz2yU=;
+        b=mXhmhZ4psepdCCo935ngQ24ZinUT1fqbZEAhuKLIY3V2OYOL9DzSBjfquceizLvfW+
+         PezUFOPRWwjUVxKvJMjwSvobrCnNhS2PU2i4qO84fscwCVZ7XNLqIWEn0To+u+92LPaF
+         aSZnH7czSob6oM/a8nv4fAdiCdaVvv4VOnEj+N4ERVw9uS9S7yCMogl8Skd2jr9TqdNy
+         lRFaecRwA2e4T2hN44lWBnCGkqGsLrkiPjtjzTZHGx8IOpMchCGvuHx5MX9WQMz898+I
+         /JknmFegkaWOHKHJCxN8NnahLtcgIVCF1rN2EaB+DpAmj08d5Dnt/6qeDk7erwqrj4XI
+         //JQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=gmhRS5YF;
+       spf=pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sandeep.kalra@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <sandeep.kalra@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id o18sor1291010ybp.46.2021.09.02.15.21.15
+        (Google Transport Security);
+        Thu, 02 Sep 2021 15:21:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=gmhRS5YF;
+       spf=pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=sandeep.kalra@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=DUxVsNt8xFVWyjXn3wFleg4HT2pJDZuN83YKuDjz2yU=;
+        b=gmhRS5YFIoW67fy3KMkCtmDnqW2hvnnPSDFnDfFD1alaICnr4EiRFmxVBkehNatFF3
+         B2aKYyS+ot8RIo9aSrETojI4rmNTwQNBOqfvLTmFaSKzmBZu/vKr1DwKdYwxqYstHiBV
+         0NJ8SBj3CjB1FIWPKDdeS3uGrofCZp2zLX4VbXySOctuJrzITnp4E7QBnWd+QdeMqCcg
+         diS1/9jMOC0xQsJNS+blfvcfa2+4eK+++ce4w2kG8AyBkwQPXorpKsu/Zi9Z6LcTrBlq
+         PjMd9PwpOBf/NklOwVMoPMMfB6Cqscb2mmrOfq/61XSna5MQxbX7/MOFzAalDlPPN6Ip
+         85+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=DUxVsNt8xFVWyjXn3wFleg4HT2pJDZuN83YKuDjz2yU=;
+        b=Ck8zYvtHoYmZJI9VDmxctp5MXs1ojSGiP269Jc5Wb0jAZzBgv97HXJq4ZVTiEzTf8Y
+         AbgPp5w0AdeQegwEnM5Gne6Mz1OSYPA8c9u9Hh0bVgktQp/2J18Uzy5LYsqU6eNfH3cP
+         btSixjIQpmt1B3oAfGmcJGN165bXOlGwU0kMEjZl4sm5v7Ontxhyp9CYHC8hnyKrf66+
+         bxT5zks0Mhqb7WpS4ISmH7fOso45NqkBOkyF8c4M5XdY8aCl+dqeVQjZg6vcJ3lHWWKl
+         2+EeOtaFiSVbykppZSuaho0+lP9mNE2/zybYaVZWSmd/8zp5aoruRJVnnfbEl+4uSqap
+         LcpA==
+X-Gm-Message-State: AOAM531KoRGcZ+zHRGqrrGVYMKOryY35Aq5SCyphcW2OvSIv1xGQOTV8
+	eQbqIfi8QgoiMmTfeuFZAhPX4iQ1JAS0zUW/5a7eNsXC
+X-Google-Smtp-Source: ABdhPJwPtGw/G+ZWfnR/m0wK8jIHYkSbVYNdHwoDUMYDQGeNW4HdwZj1/8sOnAuxstH8svHrey3Gtoi+FbWyUPBfLSI=
+X-Received: by 2002:a25:bec2:: with SMTP id k2mr840728ybm.234.1630621274134;
+ Thu, 02 Sep 2021 15:21:14 -0700 (PDT)
+MIME-Version: 1.0
+References: <SN6PR12MB4702D1866BFD50CF17EC28CBA0C09@SN6PR12MB4702.namprd12.prod.outlook.com>
+ <CAKfW+R5O8y8WYQKhpUxJVo_9Uq2PwhYh-T-hjsK-=Oa8q3d+TQ@mail.gmail.com>
+ <DM6PR12MB41568A8716C702927290D325B8C09@DM6PR12MB4156.namprd12.prod.outlook.com>
+ <CAKfW+R45yeyZTBvn8G6W9sjU+yx7J2gQ_B2BzH2H57RC0-k+Lg@mail.gmail.com>
+ <SN6PR12MB4702F9064B4FDED67D539D37A0C19@SN6PR12MB4702.namprd12.prod.outlook.com>
+ <CAKfW+R658OVPNrhbuFX_BNjyz1kCkec9ezJ+x8JqgdZbhoTkBg@mail.gmail.com>
+ <CAKfW+R4d35A3cm5-VuoOeM8ffwUsFBty9-HTjpS8Wg=ECRKddA@mail.gmail.com> <SN6PR12MB470241476BA920717EF16FB4A0CE9@SN6PR12MB4702.namprd12.prod.outlook.com>
+In-Reply-To: <SN6PR12MB470241476BA920717EF16FB4A0CE9@SN6PR12MB4702.namprd12.prod.outlook.com>
+From: Sandeep Kalra <sandeep.kalra@gmail.com>
+Date: Thu, 2 Sep 2021 17:21:02 -0500
+Message-ID: <CAKfW+R7QrFMC1pW8Sub2r3_zE8P+mjoQUz_-ViaSfcZc6_U4kw@mail.gmail.com>
+Subject: Fwd: Mr Darwin's participation
+To: "anderson.mill.road@gmail.com" <anderson.mill.road@gmail.com>, 
+	"collegelanes@gmail.com" <collegelanes@gmail.com>, "gasparbend@gmail.com" <gasparbend@gmail.com>
+Content-Type: multipart/related; boundary="000000000000cf553405cb0a9959"
+
+--000000000000cf553405cb0a9959
+Content-Type: multipart/alternative; boundary="000000000000cf553305cb0a9958"
+
+--000000000000cf553305cb0a9958
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+From: Lance Kinney <Lance.Kinney@pels.texas.gov>
+Date: Thu, Sep 2, 2021 at 1:47 PM
+Subject: RE: Mr Darwin's participation
+To: Sandeep Kalra <sandeep.kalra@gmail.com>
+CC: Michael Sims <Michael.Sims@pels.texas.gov>
+
+
+Good afternoon Mr. Kalra,
+
+
+
+I have spoken at length with Mr. Sims concerning your situation and the
+options we have going forward.  Below is an in-depth discussion of several
+items (note =E2=80=93 it is somewhat long but we feel necessary to re-set t=
+he
+foundation for this discussion.)
+
+
+
+The Board understands your concern with the safety of Anderson Mill Road
+and your home and your frustration with the City of Cedar Park.  These are
+important issues and we will try to assist you in areas in which we have
+the legal authority and jurisdiction to do so.
+
+
+
+First, I feel some background on the authority, jurisdiction, and
+limitations of the Board is needed.  The Board was created by the Texas
+Legislature to license professional engineers and assure individuals are
+complying with the Texas Engineering Practice Act (TEPA) and Board rules.
+This authority includes investigating allegations that a licensed engineer
+has practiced engineering in a manner that violates TEPA or Board rules or
+that an unlicensed individual has engaged in the practice of engineering.
+
+
+
+The Board does not necessarily have any jurisdiction over acts taken by a
+professional engineer when he or she is not engaged in the practice of
+engineering (for example, a P.E.=E2=80=99s management style or decision mak=
+ing when
+he or she is not engaged in the practice of engineering).
+
+
+
+The Board also does not have jurisdiction over cities.  Each city is its
+own sovereign jurisdiction that has oversight of its roads, construction
+requirements, ordinances, internal operations, etc.  The plans for
+buildings, roadways, and other engineering projects are not submitted to
+the Board for review or approval and we do not have any role in the
+acceptance, construction, bidding, etc. of a project.  We are not involved
+in the oversight of a city or a city department as to what codes they adopt
+or implement, or the internal workings of the city itself.  The Board does
+not have the authority to audit a City=E2=80=99s Public Works or Engineerin=
+g
+Department or to conduct studies (safety studies, traffic studies, etc).
+Those are matters under the jurisdiction of the city itself =E2=80=93 the c=
+ity
+council, mayor, or whatever structure the city leadership takes.  Again, we
+are charged with the licensure of individual engineers and engineering
+firms and compliance as it relates directly to the TEPA.
+
+
+
+One additional note =E2=80=93 as discussed previously, the Board also is no=
+t in the
+position to advocate for or against individuals in disagreements with a
+city.  The Board can investigate complaints, but has no role in an
+individual actions against a city.
+
+
+
+From reviewing the information you have provided, it is clear that you have
+concerns about the decision making coming out of the City of Cedar Park=E2=
+=80=99s
+Engineering Department as it relates to Anderson Mill and your home, and
+want consideration from the city (such as a fence or wall, etc.).  While
+the Board can investigate violations of TEPA, the Board has no authority to
+ask or demand a City or City Department to take specific actions.   We are
+not charged with overseeing projects such as roadways =E2=80=93 that is the=
+ purview
+of the jurisdiction itself.  For example =E2=80=93 for a Texas highway, TXD=
+OT is
+responsible for the roadway, its design, construction, and maintenance.
+The same framework is in place for roadways within a city =E2=80=93 Cedar P=
+ark is
+responsible for its portion of this road.  The Board only has limited
+jurisdiction related to municipalities.  Our jurisdiction over a city is to
+ensure that they hire engineers to do engineering work, which the City of
+Cedar Park seems to have done in this project.  The Board does not have the
+authority to undertake many of the additional tasks of which you are asking
+(conducting independent traffic studies or a safety study).   This would be
+something that the city would do, if required by a code, ordinance, law, or
+other guidance, or if they agree to do so independently.
+
+
+
+Based on the information you have provided to date, we also do not see that
+Section 1001.407 of the Texas Engineering Practice Act has been violated.
+The law requires that a municipality engage a P.E. for engineering plans,
+specifications, and estimates.  This means engineering plans, engineering
+specifications, and engineering estimates.  It does not call out any
+particular kind of plan or estimate, such as a safety plan or analysis.  It
+simply means that any engineering work that is done must be done by a P.E.
+It seems that they have met this requirement through Binkley Barfield or
+internal engineering staff.  As a note, engineering estimates are generally
+considered to be the engineering portion of a materials estimate, such as
+quantities and grades / specifications of different construction materials
+for a project.  While the costing portion can be done by an engineer (and
+if done by an engineer should be signed/sealed), in some instances, the
+actual pricing of materials would be done by procurement or purchasing
+staff as they are better equipped to know the contracting and procurement
+side of things.  Non-engineers doing a cost estimate would not necessarily
+be considered a violation of the TEPA or Board rules.
+
+
+
+The City indicated that they have adopted and use the standards published
+by AASHTO and the City of Austin Transportation Manual in designing roads
+within the city.  This type of design is consistent with the Act.  If you
+have concerns that there are specific design problems, a complaint should
+be filed against the design engineer, who appears to be Gregory Calkins,
+P.E.
+
+
+
+In your communications you also discuss the lack of a sound barrier.  For
+this to be a potential violation, you would need to provide a local or
+state code or ordinance that is being violated by not constructing a sound
+barrier.  The Board understands that you believe such a barrier is
+warranted, but the lack of the barrier would need to be tied back to an
+engineer violating a specific local or state code or ordinance.
+
+
+
+For the Board to move forward with investigating a complaint, you would
+need to provide specific instances and examples, with supporting
+documentation, of where the design is inconsistent with generally accepted
+engineering practice, is in conflict with the AASHTO standards or the City
+of Austin Transportation Manual, or violates a Board rule.   An example
+might be related to the safety analysis you have mentioned =E2=80=93 while =
+TEPA
+does not mandate any particular report or analysis be done, if a safety
+analysis is required by a standard or code and it was not done or done
+incorrectly, then it would be something that a P.E. should have done and
+could be a violation.
+
+
+
+All of this being said, we are here to investigate potential violations of
+TEPA as set out above. If you believe that individual engineers made
+mistakes involving the design of the road or road expansion, then a
+complaint can be filed against the individual engineers that did the
+design.  If you believe that there are design issues by an engineer at
+Binkley Barfield, the complaint would be against that individual.  If an
+engineer from the City of Cedar Park made specific mistakes in the practice
+of engineering and in violation of TEPA, then we can investigate that.
+Please note a belief that there is a violation is not sufficient for the
+Board to take action; you need to indicate a specific code or ordinance
+that is being violated in the complaint.
+
+
+
+One final note - outside of specific engineering issues that are related to
+violations of TEPA and under the jurisdiction of the Board, we note that it
+appears many of the other concerns with the engineering department would
+best be addressed to the city government (city council or mayor) of Cedar
+Park.  It is possible that your State Representative or State Senator could
+assist with your issues with the city.
+
+
+
+I know this is a long email with a lot of information, but please
+understand that there are restrictions on the jurisdiction of the Board and
+what we can / cannot do.  We need certain specific information to move
+forward with a case.  We can definitely work with you to make sure your
+complaint is filed correctly with the information needed and focused on
+possible violations of the Act that we can address, and then we can begin
+an inquiry and see where that leads us.
+
+
+
+Sincerely,
+
+
+
+
+
+Lance Kinney, Ph.D., P.E.
+Executive Director
+
+Texas Board of Professional Engineers and Land Surveyors
+
+
+
+
+512-440-3080 | http://pels.texas.gov
+
+1917 S. Interstate 35, Austin, TX 78741-3702
+<https://www.google.com/maps/search/1917+S.+Interstate+35,+Austin,+TX+78741=
+-3702?entry=3Dgmail&source=3Dg>
+
+
+
+Please let us know how we are doing by taking a short survey:
+http://pels.texas.gov/feedback
+
+
+
+CONFIDENTIALITY NOTICE:  This e-mail and any files transmitted with it may
+contain confidential and privileged material intended solely for the use of
+the individual or entity to which they are addressed.  If you are not the
+intended recipient or the person responsible for delivering the e-mail to
+the intended recipient, be advised that you have received this e-mail in
+error and that any use, dissemination, forwarding, printing, or copying of
+this e-mail is strictly prohibited.  If you have received this e-mail in
+error, immediately delete same and contact the sender.
+
+
+
+
+
+
+
+
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Wednesday, September 01, 2021 12:45 PM
+*To:* Lance Kinney <Lance.Kinney@pels.texas.gov>
+*Cc:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Subject:* Re: Mr Darwin's participation
+
+
+
+Mr. Lance,  Mr. Sims:
+
+Do you have any update for me?
+
+
+
+On Fri, Aug 20, 2021 at 2:05 PM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+Okay, I will wait for your response.
+
+
+
+I sincerely hope TBPE takes care of this by reopening my wife's and my
+cases and do an internal investigation and officially come here to review
+the structure that doing paper reviews. At the end if any life can be
+saved, then it it the duty to do so.
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Fri, Aug 20, 2021 at 9:45 AM Lance Kinney <Lance.Kinney@pels.texas.gov>
+wrote:
+
+Mr. Kalra,
+
+
+
+I will work with Mr. Sims and we will provide some feedback to you
+concerning these items early next week.
+
+
+
+Have a good weekend.
+
+
+
+Lance
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Thursday, August 19, 2021 2:37 PM
+*To:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Cc:* Lance Kinney <Lance.Kinney@pels.texas.gov>
+*Subject:* Re: Mr Darwin's participation
+
+
+
+Your email was a bit longer so I had to take some additional time to
+consume it.
+
+
+
+There was of course some miscommunication because I do not recall any
+request for additional complain or reasons tell me to split the complaint
+into 2.
+
+
+
+Anyways, I want to start by sharing few things.
+
+
+
+1. Cedar Park(Just a 15-20 min drive from your TBPE HQ) has an Engineering
+Department that has been developing roads and taking up similar public
+domain projects. The engineers here (Not just Mr. Darwin, Mr. Alan, but
+all) are in the malpractice of doing projects *without* any due diligence,
+w/o any calculations, nor asking for the calculations from the companies
+that develop drawings, project layouts, and material requirements from the =
+last
+20+ years *(I have this in writing from Mr. Darwin, Licensed PE Engineer)*.
+Proof of it was in the complaints. Does this even make sense? Is that Texas
+standard? Why is even a PE engineer required?
+
+
+
+2. When raised concerns of safety, they nor any other engineering came to
+review. They are *not* ready to review the safety part. Part of this was in
+complaint. I do not know if you all are just paper reviewers or can come
+down to review.. and what is the process here.
+
+
+
+3. Licensed Engineers nor unlicensed engineer tool Any permits for the
+construction of the roads. The road "Anderson Mill Rd" is next to a Federal
+Structure called BCCP that needs special permits for construction. A simple
+call or FOIA would reveal to you the same that I am claiming. I can also
+help you find the rules if someone is struggling.
+
+
+
+4.  FOIA to the local police will reveal the high traffic and accidents in
+the area. The roads, the turns, and crossings are NOT safe. There is no way
+you can even get to the merge lane without violation of safety law and pass
+10 ft. beyond stop signs.
+
+
+
+I do not have any confidence in the city or their engineering for the
+safety parameters if they have any. Now whall all do you need from me to
+start an inquiry so that I can at least have safety tests performed by TBPE
+to validate if this is safe?
+
+
+
+Is there anything that you can do for me, my family, travelers, and
+pedestrian's safety?
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Thu, Aug 19, 2021 at 1:02 PM Michael Sims <Michael.Sims@pels.texas.gov>
+wrote:
+
+Mr. Kalra:
+
+
+
+It appears there has been some miscommunication or misunderstanding on this
+issue.
+
+
+
+I rereviewed our previous correspondence on this issue.  My review shows
+that we corresponded throughout early February 2020 via email and then
+culminated with a telephone call on February 11.  From my recollection,
+during that phone call I relayed to you the jurisdiction and authority of
+the Board.  I communicated that the Board only has jurisdiction over
+unlicensed individuals if they have engaged in the practice of engineering
+and over professional engineers if they have violated the Texas Engineering
+Practice Act or Board rules.
+
+
+
+I still have the original complaint you sent via email on February 4,
+2020.  During the February 11, 2020 telephone call, I believe I relayed to
+you that none of the evidence you provided with your complaint showed that
+Mr. Green (a non P.E.) had engaged in the practice of engineering or that
+Mr. Marchell (a P.E.) had violated any Board rules.  I also relayed the
+type of evidence we would need to move forward with a complaint and also
+that we would need separate complaint forms against each individual rather
+than one form addressing both individuals.  I was under the impression that
+you were clear on what the Board would need to move forward.  Absent one
+additional email on February 18, 2020, I do not see where we ever received
+the separate complaint forms from you (one against Mr. Green only and a
+separate one against Mr. Marchell only).  As such, I was under the
+impression that you were no longer pursuing this matter with the Board.  I
+have no record of any additional communication until you reached out on
+August 13, 2021.
+
+
+
+The Board does not have a statute of limitations, so I am unclear what
+timing out in court you are referencing in your 8:40 PM email from August
+18.  If you wish to proceed with the complaints, you still can as long as
+they are filed correctly (separate complaint forms with supporting
+documentation against each individual) and we will begin the investigation
+process.
+
+
+
+Please let me know if you have any additional questions.
+
+
+
+Michael Sims, P.E.
+Director of Compliance & Enforcement
+
+Texas Board of Professional Engineers and Land Surveyors
+
+
+
+
+512-440-3082 | *http://pels.texas.gov
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fpels.te=
+xas.gov%2F&data=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f=
+076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584=
+230336%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6=
+Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DhPONR5A99sZw49y82aYOkSw9CpuHgVDawGt7n=
+HaLp9s%3D&reserved=3D0>*
+
+1917 S. Interstate 35, Austin, TX 78741-3702
+<https://www.google.com/maps/search/1917+S.+Interstate+35,+Austin,+TX+78741=
+-3702?entry=3Dgmail&source=3Dg>
+
+
+
+CONFIDENTIALITY NOTICE:  This e-mail and any files transmitted with it may
+contain confidential and privileged material intended solely for the use of
+the individual or entity to which they are addressed.  If you are not the
+intended recipient or the person responsible for delivering the e-mail to
+the intended recipient, be advised that you have received this e-mail in
+error and that any use, dissemination, forwarding, printing, or copying of
+this e-mail is strictly prohibited.  If you have received this e-mail in
+error, immediately delete same and contact the sender.
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Thursday, August 19, 2021 12:57 PM
+*To:* Lance Kinney <Lance.Kinney@pels.texas.gov>
+*Cc:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Subject:* Re: Mr Darwin's participation
+
+
+
+
+
+Thanks. For all legal reasons I have to work via email and or records do
+sessions.
+
+I will see what you all have in mind
+
+
+
+
+
+On Thu, Aug 19, 2021 at 12:46 PM Lance Kinney <Lance.Kinney@pels.texas.gov>
+wrote:
+
+Thank you for your emails.  I have discussed this with Mr. Sims and was
+passing along what he relayed to me.  I have instructed him to reach out to
+you as mentioned to see what we can do next.  I understand your concerns
+and we will work to move this process forward.
+
+
+
+Lance
+
+
+
+
+
+Lance Kinney, Ph.D., P.E.
+Executive Director
+
+Texas Board of Professional Engineers and Land Surveyors
+
+
+
+
+512-440-3080 | http://pels.texas.gov
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fpels.te=
+xas.gov%2F&data=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f=
+076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584=
+230336%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6=
+Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DhPONR5A99sZw49y82aYOkSw9CpuHgVDawGt7n=
+HaLp9s%3D&reserved=3D0>
+
+1917 S. Interstate 35, Austin, TX 78741-3702
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fwww.go=
+ogle.com%2Fmaps%2Fsearch%2F1917%2BS.%2BInterstate%2B35%2C%2BAustin%2C%2BTX%=
+2B78741-3702%3Fentry%3Dgmail%26source%3Dg&data=3D04%7C01%7CLance.Kinney%40p=
+els.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2=
+d6b11045%7C0%7C0%7C637661151584240331%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wL=
+jAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DZ9yLJO=
+TYJOfa5oaCshQuf2%2Bh5lfbABgurI4s%2F5nv5hA%3D&reserved=3D0>
+
+
+
+Please let us know how we are doing by taking a short survey:
+http://pels.texas.gov/feedback
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fpels.te=
+xas.gov%2Ffeedback&data=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173=
+d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C6376=
+61151584240331%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIi=
+LCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3Dhx%2B5BNJ6XzKb00LA4d13ePPvJJ7=
+IiR09D0jQJVwL%2FG0%3D&reserved=3D0>
+
+
+
+CONFIDENTIALITY NOTICE:  This e-mail and any files transmitted with it may
+contain confidential and privileged material intended solely for the use of
+the individual or entity to which they are addressed.  If you are not the
+intended recipient or the person responsible for delivering the e-mail to
+the intended recipient, be advised that you have received this e-mail in
+error and that any use, dissemination, forwarding, printing, or copying of
+this e-mail is strictly prohibited.  If you have received this e-mail in
+error, immediately delete same and contact the sender.
+
+
+
+
+
+
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Thursday, August 19, 2021 12:07 PM
+*To:* Lance Kinney <Lance.Kinney@pels.texas.gov>
+*Cc:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Subject:* Re: Mr Darwin's participation
+
+
+
+Just forwarded you email with the subject "Fwd: Case E-38585" for your and
+Mr. Sims recollection.
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Thu, Aug 19, 2021 at 11:50 AM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+Mr. Lance:
+
+
+
+TBPE helping me to file a complaint is "new news" to me. It never happened.
+Unless you have proof, please do not go there.
+
+
+
+My only interaction outside of email with Mr. Michael was on this 1 phone
+call where the subject of discussion was "Mr. Darwin's Participation". He
+clearly mentioned to me that all drawings, projects are made by some 3rd
+party and Mr. Alan is executing it. There is no Mr. Darwin's participation
+and hence TBPE is unable to pursue the case. All other parts of complaints
+that I or my wife has made are outside the window of review (** As if he
+wanted this to land outside the window of the review too, and he did it. **=
+)
+
+
+
+Do you keep recordings of phone calls?
+
+
+
+Best Regards,
+
+Sandeep Kalra
+
+
+
+
+
+
+
+On Thu, Aug 19, 2021 at 10:32 AM Lance Kinney <Lance.Kinney@pels.texas.gov>
+wrote:
+
+Mr. Kalra,
+
+
+
+Thank you for your email.  I spoke to Mr. Sims about this at length today
+and he passed along that he worked with you last year about how to file a
+complaint and provide evidence, etc.  We understand that you have concerns
+and he will be in contact with you soon to clarify where this issue stands
+and what the options are going forward.
+
+
+
+As for his role =E2=80=93 he is the Director in charge of the compliance an=
+d
+enforcement division and oversees investigations and the investigative
+team.
+
+
+
+Sincerely,
+
+
+
+
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Wednesday, August 18, 2021 8:40 PM
+*To:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Cc:* Lance Kinney <Lance.Kinney@pels.texas.gov>
+*Subject:* Re: Mr Darwin's participation
+
+
+
+Mr. Michael:
+
+
+
+We are talking of real lives on the road being risked here.
+
+
+
+I will bring you back to speed with this. *We filed the complaint two times
+but were ignored by TBPE for one reason or others. *[I guess you and many
+were waiting for me to be timed out (in court). Isn't it?]
+
+
+
+The complaint and request to take action were with TBPE the day my wife
+filed officially while the project was being executed, and then I forced
+myself into filing a complaint again (online).  Moreover, I also involved
+Mr. Lance in later stages to make sure that I am talking to someone correct
+in authority, and then it was you who showed up to give me arguments that
+Mr. Darwin is in fact not part of the project. Mr. Alan was the engineer
+executing it. All I am asking is that if you did any research then give it
+to me in writing.
+
+
+
+
+
+Mr. Lance:
+
+
+
+Mr. Michaels title says '*Director of Compliance & Enforcement'*.  Can you
+kindly point me to the webpage or documentation that lists his Roles and
+Responsibilities?
+
+
+
+
+
+Best Regards,
+
+Sandeep Kalra
+
+
+
+
+
+
+
+On Wed, Aug 18, 2021 at 8:16 PM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+I have not edited the title "Re: Mr Darwin's participation" of this email
+since the day it came to me. Was it for *any* random unlicensed engineer?
+
+
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Wed, Aug 18, 2021 at 11:16 AM Michael Sims <Michael.Sims@pels.texas.gov>
+wrote:
+
+Mr. Kalra:
+
+
+
+Unfortunately, I do not remember a lot of the specifics about this case 18
+months later other than what I was able to find from our previous e-mail
+correspondence.  That being said, based on this review, it is my
+understanding that you wanted to file complaints against employees with the
+City of Cedar Park about a road design but had no evidence to show that
+they designed the road themselves or even engaged in the practice of
+engineering as it relates to the project.  I recall the design was done by
+a third party engineering firm, but could not find anything to verify
+this.  From the correspondence I could review from February 2020, it looks
+like we had a teleconference about this issue and discussed what
+information the Board would need to be able to move forward and no
+additional information was ever provided.
+
+
+
+If you would like to formally file the complaint you can, but without
+evidence that the individual either violated Board rules while engaged in
+the practice of engineering or was unlicensed and practiced engineering,
+the Board would not be able to move forward.
+
+
+
+Regards.
+
+
+
+Michael Sims, P.E.
+Director of Compliance & Enforcement
+
+Texas Board of Professional Engineers and Land Surveyors
+
+
+
+
+512-440-3082 | *http://pels.texas.gov
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fpels.te=
+xas.gov%2F&data=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f=
+076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584=
+250327%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6=
+Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DlGg7RV4YkJnhIN7c4%2FazuMS1YWpFKqUTKO6=
+dmGaLvNI%3D&reserved=3D0>*
+
+1917 S. Interstate 35, Austin, TX 78741-3702
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fwww.go=
+ogle.com%2Fmaps%2Fsearch%2F1917%2BS.%2BInterstate%2B35%2C%2BAustin%2C%2BTX%=
+2B78741-3702%3Fentry%3Dgmail%26source%3Dg&data=3D04%7C01%7CLance.Kinney%40p=
+els.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2=
+d6b11045%7C0%7C0%7C637661151584250327%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wL=
+jAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DMo2gGA=
+Sch4MSE5%2FUc0pRJ4jcooOeEqrlzhA6pIlUzG8%3D&reserved=3D0>
+
+
+
+CONFIDENTIALITY NOTICE:  This e-mail and any files transmitted with it may
+contain confidential and privileged material intended solely for the use of
+the individual or entity to which they are addressed.  If you are not the
+intended recipient or the person responsible for delivering the e-mail to
+the intended recipient, be advised that you have received this e-mail in
+error and that any use, dissemination, forwarding, printing, or copying of
+this e-mail is strictly prohibited.  If you have received this e-mail in
+error, immediately delete same and contact the sender.
+
+
+
+*PLEASE NOTE THAT I AM TELEWORKING FOR THE TIME BEING AND DO NOT HAVE
+ACCESS TO MY PHONE OR VOICEMAIL.  IF A RESPONSE IS NEEDED, PLEASE RESPOND
+VIA E-MAIL.*
+
+
+
+
+
+
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Wednesday, August 18, 2021 11:00 AM
+*To:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Cc:* Lance Kinney <Lance.Kinney@pels.texas.gov>
+*Subject:* Re: Mr Darwin's participation
+
+
+
+Dear Mr. Michael
+
+This is yet another request or reminder. I am looking for a written results
+to your investigation for the case that i raised with concerns of gross
+negligence by city officials in building the road. I was told that TBPE can
+not investigate because it was Mr. Green who is non PE and has been the
+engineer in the project. I am marking Mr. Lance in cc here.
+
+
+
+On Fri, Aug 13, 2021 at 1:55 AM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+Dear Mr. Michael:
+
+
+
+Can you please give me in 'writing' that Mr. Darwin was NOT involved in the
+development of the Road project as this was your grounds for discontinuing
+the investigation on behalf of TBPE?
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Fri, Feb 7, 2020 at 1:24 PM Michael Sims <Michael.Sims@pels.texas.gov>
+wrote:
+
+Sandeep,
+
+
+
+I=E2=80=99ll mark it down on my calendar for 2 PM on Tuesday, February 18. =
+ I will
+be the only person on the call.  You can reach me at 512.440.3082.
+
+
+
+Regards.
+
+
+
+Michael Sims, P.E.
+Director of Compliance & Enforcement
+
+Texas Board of Professional Engineers and Land Surveyors
+
+
+
+
+512-440-3082 | *http://pels.texas.gov
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fpels.te=
+xas.gov%2F&data=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f=
+076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584=
+260318%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6=
+Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DT6S3b7Vm3djIngzB9d%2Fdqo%2B2H3o2DUFL1=
+nT3%2BDXKEvg%3D&reserved=3D0>*
+
+1917 S. Interstate 35, Austin, TX 78741-3702
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fwww.go=
+ogle.com%2Fmaps%2Fsearch%2F1917%2BS.%2BInterstate%2B35%2C%2BAustin%2C%2BTX%=
+2B78741-3702%3Fentry%3Dgmail%26source%3Dg&data=3D04%7C01%7CLance.Kinney%40p=
+els.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2=
+d6b11045%7C0%7C0%7C637661151584260318%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wL=
+jAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DdNdTc1=
+p4VzHiTv3tff8zw%2BLjgG9dcnFpp3a3J3GEu7U%3D&reserved=3D0>
+
+
+
+CONFIDENTIALITY NOTICE:  This e-mail and any files transmitted with it may
+contain confidential and privileged material intended solely for the use of
+the individual or entity to which they are addressed.  If you are not the
+intended recipient or the person responsible for delivering the e-mail to
+the intended recipient, be advised that you have received this e-mail in
+error and that any use, dissemination, forwarding, printing, or copying of
+this e-mail is strictly prohibited.  If you have received this e-mail in
+error, immediately delete same and contact the sender.
+
+
+
+
+
+
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Friday, February 07, 2020 1:19 PM
+*To:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Subject:* Re: Mr Darwin's participation
+
+
+
+I can call in on Tuesday 2:00 pm. Please give me the best number to reach
+you.  Will anyone else also participate?
+
+
+
+On Fri, Feb 7, 2020 at 1:05 PM Michael Sims <Michael.Sims@pels.texas.gov>
+wrote:
+
+I am on vacation Wednesday through Friday of next week.  I could do 9 AM, 2
+PM, or 3 PM on Tuesday, February 18.  Would one of those times work?
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Friday, February 07, 2020 11:20 AM
+*To:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Subject:* Re: Mr Darwin's participation
+
+
+
+Hi Mr. Sims:
+
+
+
+Monday and Tuesday are a bit tight for me. I can do Wednesday 2-nd half at
+3 PM CST.
+
+
+
+If you don't mind, you must ask city to give in writing the involvement of
+their engineers in this project.
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Fri, Feb 7, 2020 at 8:35 AM Michael Sims <Michael.Sims@pels.texas.gov>
+wrote:
+
+Sandeep:
+
+
+
+I think there is some confusion as to the jurisdiction of the Texas Board
+of Professional Engineers and Land Surveyors and the types of
+investigations for possible enforcement action that we can pursue.  Are you
+available at 11 AM or 3 PM on Monday, February 10 to discuss these issues
+in a phone call?
+
+
+
+Thanks.
+
+Michael
+
+
+
+Michael Sims, P.E.
+Director of Compliance & Enforcement
+
+Texas Board of Professional Engineers and Land Surveyors
+
+
+
+
+512-440-3082 | *http://pels.texas.gov
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fpels.te=
+xas.gov%2F&data=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f=
+076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584=
+270315%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6=
+Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DS4KXjLMyC35d6WyHc%2BHmE9D3sOK2%2BmRq1=
+1KMWJHdEMk%3D&reserved=3D0>*
+
+1917 S. Interstate 35, Austin, TX 78741
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fwww.go=
+ogle.com%2Fmaps%2Fsearch%2F1917%2BS.%2BInterstate%2B35%2C%2BAustin%2C%2BTX%=
+2B78741%3Fentry%3Dgmail%26source%3Dg&data=3D04%7C01%7CLance.Kinney%40pels.t=
+exas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11=
+045%7C0%7C0%7C637661151584270315%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMD=
+AiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3DWAzHdfkLT%2=
+BHb9l%2BMXLK5hTjq2ODMY%2BvKupVtuCAKxoU%3D&reserved=3D0>
+-3702
+
+
+
+CONFIDENTIALITY NOTICE:  This e-mail and any files transmitted with it may
+contain confidential and privileged material intended solely for the use of
+the individual or entity to which they are addressed.  If you are not the
+intended recipient or the person responsible for delivering the e-mail to
+the intended recipient, be advised that you have received this e-mail in
+error and that any use, dissemination, forwarding, printing, or copying of
+this e-mail is strictly prohibited.  If you have received this e-mail in
+error, immediately delete same and contact the sender.
+
+
+
+
+
+
+
+
+
+*From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Sent:* Thursday, February 06, 2020 11:08 AM
+*To:* Michael Sims <Michael.Sims@pels.texas.gov>
+*Subject:* Mr Darwin's participation
+
+
+
+The project started in May-2018 and wasn't close to completion in
+Aug-03-2018 (Actually I think it officially got completed in Aug or Sept of
+2019) when I got this email below.
+
+
+
+Highlighted in red(in his email below) that shows Mr. Darwin overlooked the
+progress and was responsible to work with engineers who developed design
+and must have produced calculations for the development.
+
+
+
+Mr. Darwin and Mr. Alan were there at the site and met my wife to do the
+readings.  Mr. Darwin and others Knew that the calculations did not exist,
+yet they proceeded without them.
+
+
+
+How can Mr. Darwin not be part of this project? In my understanding, Mr.
+Alan, Mr. Sam Roberts, and Mr. Darwin all were involved in the project.
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+---------- Forwarded message ---------
+From: *Darwin Marchell* <darwin.marchell@cedarparktexas.gov>
+Date: Fri, Aug 3, 2018 at 11:05 AM
+Subject: RE: Project : Anderson Mill Rd Expansion
+To: Sandeep Kalra <sandeep.kalra@gmail.com>
+Cc: Alan Green <Alan.Green@cedarparktexas.gov>
+
+
+
+Sandeep,
+
+I would like to respond to your request for the =E2=80=9CS=E2=80=9D (specif=
+ications) and
+=E2=80=9CE=E2=80=9D (Estimate) part of the PS&E for the project.  We provid=
+ed you with the
+specifications for the project as well as links to where those
+specifications can be found on Wednesday.  We also provided the estimate
+although we disagree as to what the term =E2=80=9Cestimate=E2=80=9D is defi=
+ned as.  The
+estimate is required to be provided by the engineer so that he can assure
+his client as to what the probable cost will be for the project so that the
+client will know if it is within their budget and they can proceed with
+construction of the project.
+
+
+
+The calculations that you have requested simply do not exist.  I have
+checked with the engineer that designed these construction plans and the
+only calculations that they performed are the drainage calculations which
+are found in the plans.  As I previously stated, design of the roadway is
+based upon design criteria provided in the AASHTO green book, the City of
+Austin Transportation Criteria Manual (which the City of Cedar Park has
+adopted), and TxDOT=E2=80=99s Design Manual.  These manuals are used as a b=
+asis for
+the cross section design of the roadway as well as the geometric design of
+the roadway.  These design criteria are used by transportation engineers
+throughout Texas and the United States.
+
+
+
+I was hoping to relay this information and discuss it further with you
+during our 9:00 meeting yesterday at your house.  We met with your wife
+instead and measured and verified that the dimensions shown on the plans
+are correct and meet the design criteria shown in the design manuals.
+
+
+
+I noticed that you have CC=E2=80=99ed LeAnn Quinn on your email.  I would s=
+uggest
+contacting Ms. Quinn directly and she can help you through the open records
+request process.  Please let me know if you have any additional questions.
+
+
+
+Thanks,
+Darwin
+
+
+
+
+
+*From:* Sandeep Kalra [mailto:sandeep.kalra@gmail.com]
+*Sent:* Friday, August 3, 2018 6:41 AM
+*To:* Darwin Marchell <darwin.marchell@cedarparktexas.gov>
+*Cc:* Alan Green <Alan.Green@cedarparktexas.gov>; dkalra111 <
+dkalra111@gmail.com>; anderson.mill.road@gmail.com; Mayor Van Arsdale <
+Mayor.vanarsdale@cedarparktexas.gov>; LeAnn Quinn <
+LeAnn.Quinn@cedarparktexas.gov>
+*Subject:* Re: Project : Anderson Mill Rd Expansion
+
+
+
+Dear City Engineers:
+
+
+
+I have been waiting for "calculations or estimates" for last 2 days and
+today will be the last day of wait. I will wait till COB Aug-03-2018 for
+them. If there are somethings not turned in, I will assume that you all do
+not have in your possession.
+
+
+
+I am now requesting you "ALL VERSIONS of ALL DRAWINGs", their respective
+"ESTIMATES or CALCULATIONS" along with their  "SPECIFICATIONS" specific to
+this Anderson Mill expansion project.
+
+
+
+Please send all copies to Anderson.Mill.Road@gmail.com.
+
+(This is my alias email to hold big files and records).
+
+
+
+I am also attaching in CC a copy of this thread to the Administrative and
+Legislative office of Cedar Park ("Mayor of Cedar Park", and "City
+Secretary").
+
+
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Thu, Aug 2, 2018 at 2:07 PM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+Still waiting.
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Wed, Aug 1, 2018 at 1:25 PM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+Thanks. I am also waiting on design calculations.
+
+
+
+On Wed, Aug 1, 2018 at 12:30 PM Darwin Marchell <
+darwin.marchell@cedarparktexas.gov> wrote:
+
+Here are the links to find that information.
+
+http://www.dot.state.tx.us/apps-cg/specs/SearchForm.asp?type=3D7
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.dot=
+.state.tx.us%2Fapps-cg%2Fspecs%2FSearchForm.asp%3Ftype%3D7&data=3D04%7C01%7=
+CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99=
+873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584280309%7CUnknown%7CTWFpbGZs=
+b3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C10=
+00&sdata=3DLdfU1PomGSNSOd2McUFHwJVjyEh%2BiHJIh1z073uSe6k%3D&reserved=3D0>
+
+
+
+https://library.municode.com/tx/austin/codes/standard_specifications_manual
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Flibrar=
+y.municode.com%2Ftx%2Faustin%2Fcodes%2Fstandard_specifications_manual&data=
+=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d7033=
+62%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584280309%7CUnknow=
+n%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI=
+6Mn0%3D%7C1000&sdata=3DsTrsQ0B1K6KID5s7iub1cjgQnFhzuIlR9ul%2BtzmvssI%3D&res=
+erved=3D0>
+
+
+
+
+
+
+
+*From:* Sandeep Kalra [mailto:sandeep.kalra@gmail.com]
+*Sent:* Wednesday, August 1, 2018 2:10 PM
+*To:* Alan Green <Alan.Green@cedarparktexas.gov>
+*Cc:* Darwin Marchell <darwin.marchell@cedarparktexas.gov>; dkalra111 <
+dkalra111@gmail.com>
+
+
+*Subject:* Re: Project : Anderson Mill Rd Expansion
+
+
+
+As of now, I need a copy of following items mentioned in specifications
+Item#512, 514, 529, 530, 531, 536, and 542.
+
+I may come back for more information.
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Wed, Aug 1, 2018 at 11:57 AM Alan Green <Alan.Green@cedarparktexas.gov>
+wrote:
+
+Attached is the requested estimate and specifications.
+
+
+
+Thanks,
+
+Alan
+
+
+
+*From:* Sandeep Kalra [mailto:sandeep.kalra@gmail.com]
+*Sent:* Wednesday, August 01, 2018 1:49 PM
+*To:* Darwin Marchell <darwin.marchell@cedarparktexas.gov>
+*Cc:* Alan Green <Alan.Green@cedarparktexas.gov>; dkalra111 <
+dkalra111@gmail.com>
+*Subject:* Re: Project : Anderson Mill Rd Expansion
+
+
+
+Section 1001.407 TBPE Guide for any license engineer working on "Public
+Work" must support his work with 3 parts (a) Plan (b) Specifications and
+(3) Estimates.
+
+I am asking for the (b) and (c). They must be in your possession from the
+person who sealed the design plan.
+
+
+
+Am I wrong in assuming that licensed engineers have to abide to the TBPE
+Rule guide?
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Wed, Aug 1, 2018 at 11:27 AM Darwin Marchell <
+darwin.marchell@cedarparktexas.gov> wrote:
+
+Sandeep,
+
+Let address some of the issues that you mention below.
+
+First, the distance from the roadway to the property line is measured from
+the face of curb of the *through lane*, not the right turn lane.  As I
+mentioned in my earlier email, it is measured that way because the vehicles
+traveling in the right turn lane are decelerating.
+
+Second, we have not lied, hidden information or misled you in any way.  In
+the drawing you have zoomed into below, your property line is the dashed
+one below the bold line that is labeled as the handrail.   The handrail is
+not located on the property line.  There are several feet between your
+property line and the sidewalk.  The wooden stake that you show in your
+picture is an offset stake, not where the edge of the roadway is going to
+be.
+
+Third, the 12 foot sitting right in the middle is there to keep opposing
+lanes of traffic separated.  These medians are used on most of our arterial
+roadways.
+
+Fourth, I am not sure what specs and calculations you are looking for.  The
+roadway cross sections can be found in the City of Austin=E2=80=99s Transpo=
+rtation
+Criteria Manual which the City of Cedar Park has adopted.  The cross
+sections and other design parameters are what the design engineer uses to
+design the roadways as they are based upon the AASHTO (American Association
+of State Highway Transportation Officials) design manual.  This manual is
+used all over the United States by professional engineers.
+
+Alan will be happy to meet you tomorrow morning at 9am to measure these
+distances as was discussed in his earlier email.
+
+
+
+Darwin
+
+
+
+*From:* Sandeep Kalra [mailto:sandeep.kalra@gmail.com]
+*Sent:* Wednesday, August 1, 2018 12:25 PM
+*To:* Alan Green <Alan.Green@cedarparktexas.gov>
+*Cc:* dkalra111 <dkalra111@gmail.com>; Darwin Marchell <
+darwin.marchell@cedarparktexas.gov>
+*Subject:* Re: Project : Anderson Mill Rd Expansion
+
+
+
+Alan, Darwin,
+
+
+
+When I talked to you and others in first meeting at CP main office, you all
+kept saying lies that there is a 10+ ft distance between the property line
+and the any road... When I asked for barrier you gave it but then removed
+because as per you they wanted them in other location... The drawings had
+only the distance of a walkway between fence and turn road from day-01. You
+all traumatized us for 1.5 yrs with lies about the plan and deliberately
+keep it hidden so that you all can execute this without resistance. The
+drawings are clearly showing only a walkway distance and nothing more
+(zoomed part here).
+
+
+
+There is a 12 ft sitting right in between the road for nothing. There can
+be a simple barrier from stopping southbound to enter but instead you all
+took that land from my side and is now jeopardizing everyone life.
+
+
+
+I am not buying your speculations and assumptions and speculation about the
+traffic. Send me the specs and calculations that were used to make this
+drawing and in determining that the slow traffic on straight road in this
+situation will not cause a impact to human. What probability was calculated=
+?
+
+
+
+If I find flaw in calculations or no calculations to support at all, then I
+am going with this to the TBPE for reporting this. If the engineers would
+have read the TBPE Lawrule at least once they would have seen 32 places
+it's mentioned about safety in clauses and sub-clauses.
+
+ref: https://engineers.texas.gov/downloads/lawrules.pdf
+<https://nam02.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fengine=
+ers.texas.gov%2Fdownloads%2Flawrules.pdf&data=3D04%7C01%7CLance.Kinney%40pe=
+ls.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2d=
+6b11045%7C0%7C0%7C637661151584290303%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLj=
+AwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=3Dnm%2FAx=
+kvqdRSUEiXJZBwBV%2BUmcTvExxBMh%2BwjpXx%2FxJA%3D&reserved=3D0>
+
+
+
+
+
+
+
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Wed, Aug 1, 2018 at 9:05 AM Alan Green <Alan.Green@cedarparktexas.gov>
+wrote:
+
+Deepshikha:
+
+Attached are the requested plan sheets.  For your information when looking
+at these plan sheets, the turn lane has been reduced from 12 feet to 11
+feet wide and this change is not depicted.  I will be in the field at 9:00
+AM tomorrow morning to measure and I have requested that the contractor and
+our inspector be present as well.
+
+
+
+Thanks,
+
+Alan
+
+
+
+*From:* Deepshikha Kalra [mailto:dkalra111@gmail.com]
+*Sent:* Wednesday, August 01, 2018 10:16 AM
+*To:* Alan Green <Alan.Green@cedarparktexas.gov>; Darwin Marchell <
+darwin.marchell@cedarparktexas.gov>
+*Cc:* Sandeep Kalra <sandeep.kalra@gmail.com>
+*Subject:* Re: Project : Anderson Mill Rd Expansion
+
+
+
+Darwin,
+
+
+
+I am a licensed P.E. and I want to evaluate the drawings for the Anderson
+mill road adjacent to our home.
+
+Please send me all revisions of the stamped  drawings of the road adjacent
+to my property.
+
+
+
+Please call me at5129991426 before coming here to measure the distance of
+road to our property line.
+
+
+
+Regards
+
+Deepshikha
+
+
+
+On Tue, Jul 31, 2018 at 9:52 PM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+Darwin,
+
+
+
+Are you available for coming down to the property and show us the 11 ft
+distance that you talked about? Also, Please send a copy of the
+drawings (or bring it for us to scan it) of the road that shows the claimed
+distance from my property line.
+
+
+
+My wife (in CC) who is also a P.E. Engineer and works with TMC will be
+there to see the drawings and confirm if the road is actually 11 ft from
+the property line.
+
+
+
+Please give me the window when you can be available.
+
+
+
+
+
+Best Regards,
+Sandeep Kalra
+
+
+
+
+
+
+
+On Mon, Jul 30, 2018 at 11:10 PM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+Hi Darwin,
+
+
+
+There are a lot of "assumptions" you are making (drivers will be slowing
+down, and as the road is straight, so they will drive straight), and unless
+you have very solid stats to prove it, I have every reason to believe that
+they do not always hold true.
+
+
+
+The fact is that the *only* safety aspect that you have in place is the
+*basic* "
+
+--=20
+---
+Best Regards,
+Sandeep Kalra
+
+--000000000000cf553305cb0a9958
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div><br></div><div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>From: <strong cla=
+ss=3D"gmail_sendername" dir=3D"auto">Lance Kinney</strong> <span dir=3D"aut=
+o">&lt;<a href=3D"mailto:Lance.Kinney@pels.texas.gov">Lance.Kinney@pels.tex=
+as.gov</a>&gt;</span><br>Date: Thu, Sep 2, 2021 at 1:47 PM<br>Subject: RE: =
+Mr Darwin&#39;s participation<br>To: Sandeep Kalra &lt;<a href=3D"mailto:sa=
+ndeep.kalra@gmail.com">sandeep.kalra@gmail.com</a>&gt;<br>CC: Michael Sims =
+&lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov">Michael.Sims@pels.texas.=
+gov</a>&gt;<br></div><br><br>
+
+
+
+
+
+<div lang=3D"EN-US" link=3D"blue" vlink=3D"purple" style=3D"word-wrap:break=
+-word">
+<div class=3D"m_2147047715814097894WordSection1">
+<p class=3D"MsoNormal">Good afternoon Mr. Kalra,<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">I have spoken at length with Mr. Sims concerning you=
+r situation and the options we have going forward.=C2=A0 Below is an in-dep=
+th discussion of several items (note =E2=80=93 it is somewhat long but we f=
+eel necessary to re-set the foundation for this
+ discussion.)<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">The Board understands your concern with the safety o=
+f Anderson Mill Road and your home and your frustration with the City of Ce=
+dar Park.=C2=A0 These are important issues and we will try to assist you in=
+ areas in which we have the legal authority
+ and jurisdiction to do so.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">First, I feel some background on the authority, juri=
+sdiction, and limitations of the Board is needed.=C2=A0 The Board was creat=
+ed by the Texas Legislature to license professional engineers and assure in=
+dividuals are complying with the Texas
+ Engineering Practice Act (TEPA) and Board rules.=C2=A0 This authority incl=
+udes investigating allegations that a licensed engineer has practiced engin=
+eering in a manner that violates TEPA or Board rules or that an unlicensed =
+individual has engaged in the practice
+ of engineering.=C2=A0 <u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">The Board does not necessarily have any jurisdiction=
+ over acts taken by a professional engineer when he or she is not engaged i=
+n the practice of engineering (for example, a P.E.=E2=80=99s management sty=
+le or decision making when he or she is not
+ engaged in the practice of engineering).=C2=A0 <u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">The Board also does not have jurisdiction over citie=
+s.=C2=A0 Each city is its own sovereign jurisdiction that has oversight of =
+its roads, construction requirements, ordinances, internal operations, etc.=
+=C2=A0 The plans for buildings, roadways, and
+ other engineering projects are not submitted to the Board for review or ap=
+proval and we do not have any role in the acceptance, construction, bidding=
+, etc. of a project.=C2=A0 We are not involved in the oversight of a city o=
+r a city department as to what codes
+ they adopt or implement, or the internal workings of the city itself.=C2=
+=A0 The Board does not have the authority to audit a City=E2=80=99s Public =
+Works or Engineering Department or to conduct studies (safety studies, traf=
+fic studies, etc).=C2=A0 Those are matters under the
+ jurisdiction of the city itself =E2=80=93 the city council, mayor, or what=
+ever structure the city leadership takes.=C2=A0 Again, we are charged with =
+the licensure of individual engineers and engineering firms and compliance =
+as it relates directly to the TEPA.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">One additional note =E2=80=93 as discussed previousl=
+y, the Board also is not in the position to advocate for or against individ=
+uals in disagreements with a city.=C2=A0 The Board can investigate complain=
+ts, but has no role in an individual actions against
+ a city.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">From reviewing the information you have provided, it=
+ is clear that you have concerns about the decision making coming out of th=
+e City of Cedar Park=E2=80=99s Engineering Department as it relates to Ande=
+rson Mill and your home, and want consideration
+ from the city (such as a fence or wall, etc.).=C2=A0 While the Board can i=
+nvestigate violations of TEPA, the Board has no authority to ask or demand =
+a City or City Department to take specific actions.=C2=A0=C2=A0 We are not =
+charged with overseeing projects such as roadways
+ =E2=80=93 that is the purview of the jurisdiction itself.=C2=A0 For exampl=
+e =E2=80=93 for a Texas highway, TXDOT is responsible for the roadway, its =
+design, construction, and maintenance.=C2=A0 The same framework is in place=
+ for roadways within a city =E2=80=93 Cedar Park is responsible for
+ its portion of this road.=C2=A0 The Board only has limited jurisdiction re=
+lated to municipalities.=C2=A0 Our jurisdiction over a city is to ensure th=
+at they hire engineers to do engineering work, which the City of Cedar Park=
+ seems to have done in this project.=C2=A0 The
+ Board does not have the authority to undertake many of the additional task=
+s of which you are asking (conducting independent traffic studies or a safe=
+ty study).=C2=A0=C2=A0 This would be something that the city would do, if r=
+equired by a code, ordinance, law, or other
+ guidance, or if they agree to do so independently.=C2=A0 <u></u><u></u></p=
+>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Based on the information you have provided to date, =
+we also do not see that Section 1001.407 of the Texas Engineering Practice =
+Act has been violated.=C2=A0 The law requires that a municipality engage a =
+P.E. for engineering plans, specifications,
+ and estimates.=C2=A0 This means engineering plans, engineering specificati=
+ons, and engineering estimates.=C2=A0 It does not call out any particular k=
+ind of plan or estimate, such as a safety plan or analysis.=C2=A0 It simply=
+ means that any engineering work that is done must
+ be done by a P.E.=C2=A0 It seems that they have met this requirement throu=
+gh Binkley Barfield or internal engineering staff.=C2=A0 As a note, enginee=
+ring estimates are generally considered to be the engineering portion of a =
+materials estimate, such as quantities and
+ grades / specifications of different construction materials for a project.=
+=C2=A0 While the costing portion can be done by an engineer (and if done by=
+ an engineer should be signed/sealed), in some instances, the actual pricin=
+g of materials would be done by procurement
+ or purchasing staff as they are better equipped to know the contracting an=
+d procurement side of things.=C2=A0 Non-engineers doing a cost estimate wou=
+ld not necessarily be considered a violation of the TEPA or Board rules.=C2=
+=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">The City indicated that they have adopted and use th=
+e standards published by AASHTO and the City of Austin Transportation Manua=
+l in designing roads within the city.=C2=A0 This type of design is consiste=
+nt with the Act.=C2=A0 If you have concerns
+ that there are specific design problems, a complaint should be filed again=
+st the design engineer, who appears to be Gregory Calkins, P.E.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">In your communications you also discuss the lack of =
+a sound barrier.=C2=A0 For this to be a potential violation, you would need=
+ to provide a local or state code or ordinance that is being violated by no=
+t constructing a sound barrier.=C2=A0 The Board
+ understands that you believe such a barrier is warranted, but the lack of =
+the barrier would need to be tied back to an engineer violating a specific =
+local or state code or ordinance.
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">For the Board to move forward with investigating a c=
+omplaint, you would need to provide specific instances and examples, with s=
+upporting documentation, of where the design is inconsistent with generally=
+ accepted engineering practice, is
+ in conflict with the AASHTO standards or the City of Austin Transportation=
+ Manual, or violates a Board rule.=C2=A0=C2=A0 An example might be related =
+to the safety analysis you have mentioned =E2=80=93 while TEPA does not man=
+date any particular report or analysis be done, if
+ a safety analysis is required by a standard or code and it was not done or=
+ done incorrectly, then it would be something that a P.E. should have done =
+and could be a violation.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">All of this being said, we are here to investigate p=
+otential violations of TEPA as set out above. If you believe that individua=
+l engineers made mistakes involving the design of the road or road expansio=
+n, then a complaint can be filed against
+ the individual engineers that did the design.=C2=A0 If you believe that th=
+ere are design issues by an engineer at Binkley Barfield, the complaint wou=
+ld be against that individual.=C2=A0 If an engineer from the City of Cedar =
+Park made specific mistakes in the practice
+ of engineering and in violation of TEPA, then we can investigate that.=C2=
+=A0 Please note a belief that there is a violation is not sufficient for th=
+e Board to take action; you need to indicate a specific code or ordinance t=
+hat is being violated in the complaint.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">One final note - outside of specific engineering iss=
+ues that are related to violations of TEPA and under the jurisdiction of th=
+e Board, we note that it appears many of the other concerns with the engine=
+ering department would best be addressed
+ to the city government (city council or mayor) of Cedar Park.=C2=A0 It is =
+possible that your State Representative or State Senator could assist with =
+your issues with the city.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">I know this is a long email with a lot of informatio=
+n, but please understand that there are restrictions on the jurisdiction of=
+ the Board and what we can / cannot do.=C2=A0 We need certain specific info=
+rmation to move forward with a case.=C2=A0 We
+ can definitely work with you to make sure your complaint is filed correctl=
+y with the information needed and focused on possible violations of the Act=
+ that we can address, and then we can begin an inquiry and see where that l=
+eads us.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Sincerely,<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt">Lance Kinney, Ph.D., =
+P.E. <br>
+Executive Director <u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt">Texas Board of Profes=
+sional Engineers and Land Surveyors<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt"><u></u>=C2=A0<u></u><=
+/span></p>
+<p class=3D"MsoNormal"><img src=3D"cid:17ba899c32cb11963102" style=3D"width=
+:240px;max-width:100%"><span style=3D"font-size:12pt"><u></u><u></u></span>=
+</p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt"><br>
+</span><span style=3D"font-size:12pt">512-440-3080 | <a href=3D"http://pels=
+.texas.gov/" target=3D"_blank">
+<span style=3D"color:blue">http://pels.texas.gov</span></a><u></u><u></u></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt"><a href=3D"https://ww=
+w.google.com/maps/search/1917+S.+Interstate+35,+Austin,+TX+78741-3702?entry=
+=3Dgmail&amp;source=3Dg">1917 S. Interstate 35, Austin, TX 78741-3702</a><u=
+></u><u></u></span></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Please let us know how we are doing by taking a shor=
+t survey:=C2=A0
+<a href=3D"http://pels.texas.gov/feedback" target=3D"_blank"><span style=3D=
+"color:blue">http://pels.texas.gov/feedback</span></a><u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">CONFIDENTIALITY NOTICE=
+:=C2=A0 This e-mail and any files transmitted with it may contain confident=
+ial and privileged material intended solely for the use of the individual o=
+r entity to which they are addressed.=C2=A0 If
+ you are not the intended recipient or the person responsible for deliverin=
+g the e-mail to the intended recipient, be advised that you have received t=
+his e-mail in error and that any use, dissemination, forwarding, printing, =
+or copying of this e-mail is strictly
+ prohibited.=C2=A0 If you have received this e-mail in error, immediately d=
+elete same and contact the sender.<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div style=3D"border-style:solid none none;border-top-width:1pt;padding:3pt=
+ 0in 0in;border-top-color:rgb(225,225,225)">
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt; <br=
+>
+<b>Sent:</b> Wednesday, September 01, 2021 12:45 PM<br>
+<b>To:</b> Lance Kinney &lt;<a href=3D"mailto:Lance.Kinney@pels.texas.gov" =
+target=3D"_blank">Lance.Kinney@pels.texas.gov</a>&gt;<br>
+<b>Cc:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Mr Darwin&#39;s participation<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<p class=3D"MsoNormal">Mr. Lance, =C2=A0Mr. Sims:<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Do you have any update for me?<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Fri, Aug 20, 2021 at 2:05 PM Sandeep Kalra &lt;<a=
+ href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gm=
+ail.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin-left:4.8pt;margin-right:0in;border-left-co=
+lor:rgb(204,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Okay, I will wait for your response.<u style=3D"font-family:Tahoma=
+,sans-serif"></u><u style=3D"font-family:Tahoma,sans-serif"></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif"><u style=3D"font-family:Tahoma,sans-serif"></u>=C2=A0<u style=3D"f=
+ont-family:Tahoma,sans-serif"></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">I sincerely=C2=A0hope TBPE takes care of this by reopening my wife=
+&#39;s and my cases and do an internal investigation and officially come he=
+re to review the structure that doing paper
+ reviews. At the end if any life can be saved, then it it the duty to do so=
+.<u style=3D"font-family:Tahoma,sans-serif"></u><u style=3D"font-family:Tah=
+oma,sans-serif"></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif"><u style=3D"font-family:Tahoma,sans-serif"></u>=C2=A0<u style=3D"f=
+ont-family:Tahoma,sans-serif"></u></span></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif;color:black">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Fri, Aug 20, 2021 at 9:45 AM Lance Kinney &lt;<a =
+href=3D"mailto:Lance.Kinney@pels.texas.gov" target=3D"_blank">Lance.Kinney@=
+pels.texas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin-left:4.8pt;margin-right:0in;border-left-co=
+lor:rgb(204,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Mr. Kalra,<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">I will work with Mr. Sims and we will provide some f=
+eedback to you concerning these items early next week.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Have a good weekend.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Lance<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div style=3D"border-style:solid none none;border-top-width:1pt;padding:3pt=
+ 0in 0in;border-top-color:rgb(225,225,225)">
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Thursday, August 19, 2021 2:37 PM<br>
+<b>To:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Cc:</b> Lance Kinney &lt;<a href=3D"mailto:Lance.Kinney@pels.texas.gov" =
+target=3D"_blank">Lance.Kinney@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Mr Darwin&#39;s participation<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Your email was a bit longer so I had to take some additional time =
+to consume it.</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">There was of course=C2=A0some miscommunication=C2=A0because I do n=
+ot recall any request for additional complain or reasons tell
+ me to split the complaint into 2.=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Anyways, I want to start by sharing few things.=C2=A0</span><u></u=
+><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:Tahoma,sans-serif">=C2=A0=
+</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">1. Cedar Park(Just a 15-20 min drive from your TBPE HQ) has an Eng=
+ineering Department that has been developing roads
+ and taking up similar public domain projects. The engineers here (Not just=
+ Mr. Darwin, Mr. Alan, but all) are in the malpractice of doing projects
+<u style=3D"font-family:Tahoma,sans-serif">without</u> any due=C2=A0diligen=
+ce, w/o any calculations, nor asking for the calculations from the companie=
+s that develop drawings, project layouts, and material requirements from th=
+e
+</span><span style=3D"font-family:Tahoma,sans-serif;color:red">last 20+ yea=
+rs</span><span style=3D"font-family:Tahoma,sans-serif">
+</span><b><span style=3D"font-size:12pt;font-family:Tahoma,sans-serif">(I h=
+ave this in writing from Mr. Darwin, Licensed PE Engineer)</span></b><span =
+style=3D"font-family:Tahoma,sans-serif">. Proof of it was in the complaints=
+. Does this even make sense? Is
+ that Texas standard? Why is even a PE engineer required?</span><u></u><u><=
+/u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:Tahoma,sans-serif">=C2=A0=
+</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">2. When raised concerns of safety, they nor any other engineering =
+came to review. They are *not* ready to review the
+ safety part. Part of this was in complaint. I do not know if you all are j=
+ust paper reviewers or can come down to review.. and what is the process he=
+re.</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">3. Licensed Engineers nor unlicensed engineer=C2=A0tool Any permit=
+s for the construction of the roads. The road &quot;Anderson
+ Mill Rd&quot; is next to a Federal Structure called BCCP that needs specia=
+l permits for construction. A simple call or FOIA would reveal to you the s=
+ame that I am claiming. I can also help you find the rules if someone is st=
+ruggling.=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">4.=C2=A0 FOIA to the local police will reveal the high traffic and=
+ accidents in the area. The roads, the turns, and crossings
+ are NOT safe. There is no way you can even get to the merge lane without v=
+iolation of safety law and pass 10 ft. beyond stop signs.=C2=A0</span><u></=
+u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">I do not have any confidence in the city or their engineering for =
+the safety parameters if they have any.=C2=A0Now whall
+ all do you need from me to start an inquiry so that I can at least=C2=A0ha=
+ve safety tests=C2=A0performed by TBPE to validate if this is safe?
+</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Is there anything that=C2=A0you can do for=C2=A0me, my family, tra=
+velers, and pedestrian&#39;s safety?</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Thu, Aug 19, 2021 at 1:02 PM Michael Sims &lt;<a =
+href=3D"mailto:Michael.Sims@pels.texas.gov" target=3D"_blank">Michael.Sims@=
+pels.texas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Mr. Kalra:<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">It appears there has been some miscommunication or m=
+isunderstanding on this issue.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">I rereviewed our previous correspondence on this iss=
+ue.=C2=A0 My review shows that we corresponded throughout early February 20=
+20 via email and then culminated with a telephone call
+ on February 11.=C2=A0 From my recollection, during that phone call I relay=
+ed to you the jurisdiction and authority of the Board.=C2=A0 I communicated=
+ that the Board only has jurisdiction over unlicensed individuals if they h=
+ave engaged in the practice of engineering
+ and over professional engineers if they have violated the Texas Engineerin=
+g Practice Act or Board rules.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">I still have the original complaint you sent via ema=
+il on February 4, 2020.=C2=A0 During the February 11, 2020 telephone call, =
+I believe I relayed to you that none of the evidence you
+ provided with your complaint showed that Mr. Green (a non P.E.) had engage=
+d in the practice of engineering or that Mr. Marchell (a P.E.) had violated=
+ any Board rules.=C2=A0 I also relayed the type of evidence we would need t=
+o move forward with a complaint and also
+ that we would need separate complaint forms against each individual rather=
+ than one form addressing both individuals.=C2=A0 I was under the impressio=
+n that you were clear on what the Board would need to move forward.=C2=A0 A=
+bsent one additional email on February 18,
+ 2020, I do not see where we ever received the separate complaint forms fro=
+m you (one against Mr. Green only and a separate one against Mr. Marchell o=
+nly).=C2=A0 As such, I was under the impression that you were no longer pur=
+suing this matter with the Board.=C2=A0 I
+ have no record of any additional communication until you reached out on Au=
+gust 13, 2021.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">The Board does not have a statute of limitations, so=
+ I am unclear what timing out in court you are referencing in your 8:40 PM =
+email from August 18.=C2=A0 If you wish to proceed with
+ the complaints, you still can as long as they are filed correctly (separat=
+e complaint forms with supporting documentation against each individual) an=
+d we will begin the investigation process.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Please let me know if you have any additional questi=
+ons.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Michael Sims, P.E.<br>
+Director of Compliance &amp; Enforcement<u></u><u></u></p>
+<p class=3D"MsoNormal">Texas Board of Professional Engineers and Land Surve=
+yors<u></u><u></u></p>
+<p class=3D"MsoNormal"><br>
+<img border=3D"0" src=3D"cid:17ba899c32c4cd34f0f1" style=3D"width:240px;max=
+-width:100%"><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">512-440-3082 |
+<u><span style=3D"color:blue"><a href=3D"https://nam02.safelinks.protection=
+.outlook.com/?url=3Dhttp%3A%2F%2Fpels.texas.gov%2F&amp;data=3D04%7C01%7CLan=
+ce.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c998733=
+14ccc8ef647a2d6b11045%7C0%7C0%7C637661151584230336%7CUnknown%7CTWFpbGZsb3d8=
+eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&a=
+mp;sdata=3DhPONR5A99sZw49y82aYOkSw9CpuHgVDawGt7nHaLp9s%3D&amp;reserved=3D0"=
+ target=3D"_blank">http://pels.texas.gov</a></span></u><u></u><u></u></p>
+<p class=3D"MsoNormal"><a href=3D"https://www.google.com/maps/search/1917+S=
+.+Interstate+35,+Austin,+TX+78741-3702?entry=3Dgmail&amp;source=3Dg">1917 S=
+. Interstate 35, Austin, TX 78741-3702</a><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">=C2=A0</span><u></u><u=
+></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">CONFIDENTIALITY NOTICE=
+:=C2=A0 This e-mail and any files transmitted with it may contain confident=
+ial and privileged material intended solely for the use
+ of the individual or entity to which they are addressed.=C2=A0 If you are =
+not the intended recipient or the person responsible for delivering the e-m=
+ail to the intended recipient, be advised that you have received this e-mai=
+l in error and that any use, dissemination,
+ forwarding, printing, or copying of this e-mail is strictly prohibited.=C2=
+=A0 If you have received this e-mail in error, immediately delete same and =
+contact the sender.</span><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div style=3D"border-style:solid none none;border-top-width:1pt;padding:3pt=
+ 0in 0in;border-top-color:rgb(225,225,225)">
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Thursday, August 19, 2021 12:57 PM<br>
+<b>To:</b> Lance Kinney &lt;<a href=3D"mailto:Lance.Kinney@pels.texas.gov" =
+target=3D"_blank">Lance.Kinney@pels.texas.gov</a>&gt;<br>
+<b>Cc:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Mr Darwin&#39;s participation<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Thanks. For all legal=C2=A0reasons I have to work vi=
+a email and or records do sessions.=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I will see what you all have=C2=A0in mind<u></u><u><=
+/u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Thu, Aug 19, 2021 at 12:46 PM Lance Kinney &lt;<a=
+ href=3D"mailto:Lance.Kinney@pels.texas.gov" target=3D"_blank">Lance.Kinney=
+@pels.texas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Thank you for your emails.=C2=A0 I have discussed th=
+is with Mr. Sims and was passing along what he relayed to me.=C2=A0 I have =
+instructed him to reach out to you as mentioned to see what
+ we can do next.=C2=A0 I understand your concerns and we will work to move =
+this process forward.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Lance<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt">Lance Kinney, Ph.D., =
+P.E.
+<br>
+Executive Director </span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt">Texas Board of Profes=
+sional Engineers and Land Surveyors</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt">=C2=A0</span><u></u><=
+u></u></p>
+<p class=3D"MsoNormal"><img border=3D"0" src=3D"cid:17ba899c32cb11963102" s=
+tyle=3D"width:240px;max-width:100%"><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt"><br>
+512-440-3080 | <a href=3D"https://nam02.safelinks.protection.outlook.com/?u=
+rl=3Dhttp%3A%2F%2Fpels.texas.gov%2F&amp;data=3D04%7C01%7CLance.Kinney%40pel=
+s.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2d6=
+b11045%7C0%7C0%7C637661151584230336%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjA=
+wMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp;sdata=3DhPON=
+R5A99sZw49y82aYOkSw9CpuHgVDawGt7nHaLp9s%3D&amp;reserved=3D0" target=3D"_bla=
+nk">
+http://pels.texas.gov</a></span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt"><a href=3D"https://na=
+m02.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fwww.google.com%2F=
+maps%2Fsearch%2F1917%2BS.%2BInterstate%2B35%2C%2BAustin%2C%2BTX%2B78741-370=
+2%3Fentry%3Dgmail%26source%3Dg&amp;data=3D04%7C01%7CLance.Kinney%40pels.tex=
+as.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2d6b1104=
+5%7C0%7C0%7C637661151584240331%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAi=
+LCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp;sdata=3DZ9yLJOTYJ=
+Ofa5oaCshQuf2%2Bh5lfbABgurI4s%2F5nv5hA%3D&amp;reserved=3D0" target=3D"_blan=
+k">1917
+ S. Interstate 35, Austin, TX 78741-3702</a></span><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Please let us know how we are doing by taking a shor=
+t survey:=C2=A0
+<a href=3D"https://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F=
+%2Fpels.texas.gov%2Ffeedback&amp;data=3D04%7C01%7CLance.Kinney%40pels.texas=
+.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11045%=
+7C0%7C0%7C637661151584240331%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLC=
+JQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp;sdata=3Dhx%2B5BNJ6X=
+zKb00LA4d13ePPvJJ7IiR09D0jQJVwL%2FG0%3D&amp;reserved=3D0" target=3D"_blank"=
+>
+http://pels.texas.gov/feedback</a><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">CONFIDENTIALITY NOTICE=
+:=C2=A0 This e-mail and any files transmitted with it may contain confident=
+ial and privileged material intended solely for the use
+ of the individual or entity to which they are addressed.=C2=A0 If you are =
+not the intended recipient or the person responsible for delivering the e-m=
+ail to the intended recipient, be advised that you have received this e-mai=
+l in error and that any use, dissemination,
+ forwarding, printing, or copying of this e-mail is strictly prohibited.=C2=
+=A0 If you have received this e-mail in error, immediately delete same and =
+contact the sender.</span><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div style=3D"border-style:solid none none;border-top-width:1pt;padding:3pt=
+ 0in 0in;border-top-color:rgb(225,225,225)">
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Thursday, August 19, 2021 12:07 PM<br>
+<b>To:</b> Lance Kinney &lt;<a href=3D"mailto:Lance.Kinney@pels.texas.gov" =
+target=3D"_blank">Lance.Kinney@pels.texas.gov</a>&gt;<br>
+<b>Cc:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Mr Darwin&#39;s participation<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:Verdana,sans-serif">Just =
+forwarded you email with the subject &quot;<span style=3D"font-family:Verda=
+na,sans-serif;color:rgb(32,33,36)">Fwd: Case E-38585&quot; for your and Mr.=
+ Sims recollection.=C2=A0</span></span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Thu, Aug 19, 2021 at 11:50 AM Sandeep Kalra &lt;<=
+a href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@g=
+mail.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Mr. Lance:</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">TBPE helping me to file a complaint=C2=A0is &quot;new news&quot; t=
+o me. It never happened. Unless you have proof, please do not go
+ there.</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">My only interaction outside of email with Mr. Michael was on this =
+1 phone call where the subject of discussion was
+ &quot;Mr. Darwin&#39;s Participation&quot;. He clearly mentioned to me tha=
+t all drawings, projects=C2=A0are made by some 3rd party and Mr. Alan is ex=
+ecuting it. There is no Mr. Darwin&#39;s participation and hence TBPE is un=
+able to pursue=C2=A0the case. All other parts of complaints
+ that I or my wife has made are outside the window of review (** As if he w=
+anted this to land outside the window of the review too, and he did it. **)=
+</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Do you keep recordings of phone calls?=C2=A0</span><u></u><u></u><=
+/p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Arial,sans=
+-serif">Best Regards,</span><u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Thu, Aug 19, 2021 at 10:32 AM Lance Kinney &lt;<a=
+ href=3D"mailto:Lance.Kinney@pels.texas.gov" target=3D"_blank">Lance.Kinney=
+@pels.texas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Mr. Kalra,<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Thank you for your email.=C2=A0 I spoke to Mr. Sims =
+about this at length today and he passed along that he worked with you last=
+ year about how to file a complaint and provide evidence,
+ etc.=C2=A0 We understand that you have concerns and he will be in contact =
+with you soon to clarify where this issue stands and what the options are g=
+oing forward.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">As for his role =E2=80=93 he is the Director in char=
+ge of the compliance and enforcement division and oversees investigations a=
+nd the investigative team.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Sincerely,<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div style=3D"border-style:solid none none;border-top-width:1pt;padding:3pt=
+ 0in 0in;border-top-color:rgb(225,225,225)">
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Wednesday, August 18, 2021 8:40 PM<br>
+<b>To:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Cc:</b> Lance Kinney &lt;<a href=3D"mailto:Lance.Kinney@pels.texas.gov" =
+target=3D"_blank">Lance.Kinney@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Mr Darwin&#39;s participation<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Mr. Michael:</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">We are talking of real lives on the road being risked here. =C2=A0=
+=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">I will bring you back to speed with this.
+<b style=3D"font-family:Tahoma,sans-serif">We filed the complaint two times=
+ but were ignored by=C2=A0TBPE for one reason or others.
+</b>[I guess you and many were waiting for=C2=A0me to be timed out (in cour=
+t). Isn&#39;t it?]</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">The complaint and request to take action were with TBPE the day my=
+ wife filed officially while the project was being
+ executed, and then I forced myself into filing a complaint again (online).=
+=C2=A0 Moreover, I also involved Mr. Lance in later stages to make sure tha=
+t I am talking to someone correct in authority, and then it was you who sho=
+wed up to give me arguments that Mr.
+ Darwin is in fact=C2=A0not part of the project. Mr. Alan was the engineer =
+executing it. All I am asking is that if you did any research=C2=A0then giv=
+e it to me in writing.</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Mr. Lance:</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Mr. Michaels title says &#39;</span><b><span style=3D"font-size:12=
+pt;font-family:Arial,sans-serif">Director of Compliance
+ &amp; Enforcement&#39;</span></b><span style=3D"font-size:12pt;font-family=
+:Arial,sans-serif">.=C2=A0 Can you kindly point me to the webpage or docume=
+ntation that lists his Roles and Responsibilities?=C2=A0</span><u></u><u></=
+u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Arial,sans=
+-serif">Best Regards,</span><u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Aug 18, 2021 at 8:16 PM Sandeep Kalra &lt;<a=
+ href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gm=
+ail.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">I have not edited the title &quot;Re: Mr Darwin&#39;s participatio=
+n&quot;=C2=A0of this email since the day it came to me. Was it for
+ *any* random unlicensed engineer?</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Aug 18, 2021 at 11:16 AM Michael Sims &lt;<a=
+ href=3D"mailto:Michael.Sims@pels.texas.gov" target=3D"_blank">Michael.Sims=
+@pels.texas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Mr. Kalra:<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Unfortunately, I do not remember a lot of the specif=
+ics about this case 18 months later other than what I was able to find from=
+ our previous e-mail correspondence.=C2=A0 That being said,
+ based on this review, it is my understanding that you wanted to file compl=
+aints against employees with the City of Cedar Park about a road design but=
+ had no evidence to show that they designed the road themselves or even eng=
+aged in the practice of engineering
+ as it relates to the project.=C2=A0 I recall the design was done by a thir=
+d party engineering firm, but could not find anything to verify this.=C2=A0=
+ From the correspondence I could review from February 2020, it looks like w=
+e had a teleconference about this issue and
+ discussed what information the Board would need to be able to move forward=
+ and no additional information was ever provided.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">If you would like to formally file the complaint you=
+ can, but without evidence that the individual either violated Board rules =
+while engaged in the practice of engineering or was
+ unlicensed and practiced engineering, the Board would not be able to move =
+forward.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Regards.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Michael Sims, P.E.<br>
+Director of Compliance &amp; Enforcement<u></u><u></u></p>
+<p class=3D"MsoNormal">Texas Board of Professional Engineers and Land Surve=
+yors<u></u><u></u></p>
+<p class=3D"MsoNormal"><br>
+<img border=3D"0" src=3D"cid:17ba899c32c4cd34f0f1" style=3D"width:240px;max=
+-width:100%"><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">512-440-3082 |
+<u><span style=3D"color:blue"><a href=3D"https://nam02.safelinks.protection=
+.outlook.com/?url=3Dhttp%3A%2F%2Fpels.texas.gov%2F&amp;data=3D04%7C01%7CLan=
+ce.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c998733=
+14ccc8ef647a2d6b11045%7C0%7C0%7C637661151584250327%7CUnknown%7CTWFpbGZsb3d8=
+eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&a=
+mp;sdata=3DlGg7RV4YkJnhIN7c4%2FazuMS1YWpFKqUTKO6dmGaLvNI%3D&amp;reserved=3D=
+0" target=3D"_blank">http://pels.texas.gov</a></span></u><u></u><u></u></p>
+<p class=3D"MsoNormal"><a href=3D"https://nam02.safelinks.protection.outloo=
+k.com/?url=3Dhttps%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F1917%2BS.%2BInt=
+erstate%2B35%2C%2BAustin%2C%2BTX%2B78741-3702%3Fentry%3Dgmail%26source%3Dg&=
+amp;data=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308=
+d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584250327%=
+7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWw=
+iLCJXVCI6Mn0%3D%7C1000&amp;sdata=3DMo2gGASch4MSE5%2FUc0pRJ4jcooOeEqrlzhA6pI=
+lUzG8%3D&amp;reserved=3D0" target=3D"_blank">1917
+ S. Interstate 35, Austin, TX 78741-3702</a><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">=C2=A0</span><u></u><u=
+></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">CONFIDENTIALITY NOTICE=
+:=C2=A0 This e-mail and any files transmitted with it may contain confident=
+ial and privileged material intended solely for the use
+ of the individual or entity to which they are addressed.=C2=A0 If you are =
+not the intended recipient or the person responsible for delivering the e-m=
+ail to the intended recipient, be advised that you have received this e-mai=
+l in error and that any use, dissemination,
+ forwarding, printing, or copying of this e-mail is strictly prohibited.=C2=
+=A0 If you have received this e-mail in error, immediately delete same and =
+contact the sender.</span><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal"><b>PLEASE NOTE THAT I AM TELEWORKING FOR THE TIME BE=
+ING AND DO NOT HAVE ACCESS TO MY PHONE OR VOICEMAIL.=C2=A0 IF A RESPONSE IS=
+ NEEDED, PLEASE RESPOND VIA E-MAIL.</b><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div style=3D"border-style:solid none none;border-top-width:1pt;padding:3pt=
+ 0in 0in;border-top-color:rgb(225,225,225)">
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Wednesday, August 18, 2021 11:00 AM<br>
+<b>To:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Cc:</b> Lance Kinney &lt;<a href=3D"mailto:Lance.Kinney@pels.texas.gov" =
+target=3D"_blank">Lance.Kinney@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Mr Darwin&#39;s participation<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">Dear Mr. Michael=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">This is yet another request or reminder. I am lookin=
+g for a written results to your investigation for the case that i raised wi=
+th concerns of gross negligence by city officials
+ in building the road. I was told that TBPE can not investigate because it =
+was Mr. Green who is non PE and has been the engineer in the project. I am =
+marking Mr. Lance in cc here.=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Fri, Aug 13, 2021 at 1:55 AM Sandeep Kalra &lt;<a=
+ href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gm=
+ail.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Dear Mr. Michael:</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Can you please give me in &#39;writing&#39; that Mr. Darwin was NO=
+T involved in the development of the Road project as this
+ was your grounds for discontinuing the investigation on behalf of TBPE?</s=
+pan><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif;color:black">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Fri, Feb 7, 2020 at 1:24 PM Michael Sims &lt;<a h=
+ref=3D"mailto:Michael.Sims@pels.texas.gov" target=3D"_blank">Michael.Sims@p=
+els.texas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Sandeep,<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">I=E2=80=99ll mark it down on my calendar for 2 PM on=
+ Tuesday, February 18.=C2=A0 I will be the only person on the call.=C2=A0 Y=
+ou can reach me at 512.440.3082.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Regards.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Michael Sims, P.E.<br>
+Director of Compliance &amp; Enforcement<u></u><u></u></p>
+<p class=3D"MsoNormal">Texas Board of Professional Engineers and Land Surve=
+yors<u></u><u></u></p>
+<p class=3D"MsoNormal"><br>
+<img border=3D"0" src=3D"cid:17ba899c32c155f77113" style=3D"width:192px;max=
+-width:100%"><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">512-440-3082 |
+<u><span style=3D"color:blue"><a href=3D"https://nam02.safelinks.protection=
+.outlook.com/?url=3Dhttp%3A%2F%2Fpels.texas.gov%2F&amp;data=3D04%7C01%7CLan=
+ce.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c998733=
+14ccc8ef647a2d6b11045%7C0%7C0%7C637661151584260318%7CUnknown%7CTWFpbGZsb3d8=
+eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&a=
+mp;sdata=3DT6S3b7Vm3djIngzB9d%2Fdqo%2B2H3o2DUFL1nT3%2BDXKEvg%3D&amp;reserve=
+d=3D0" target=3D"_blank">http://pels.texas.gov</a></span></u><u></u><u></u>=
+</p>
+<p class=3D"MsoNormal"><a href=3D"https://nam02.safelinks.protection.outloo=
+k.com/?url=3Dhttps%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F1917%2BS.%2BInt=
+erstate%2B35%2C%2BAustin%2C%2BTX%2B78741-3702%3Fentry%3Dgmail%26source%3Dg&=
+amp;data=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308=
+d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584260318%=
+7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWw=
+iLCJXVCI6Mn0%3D%7C1000&amp;sdata=3DdNdTc1p4VzHiTv3tff8zw%2BLjgG9dcnFpp3a3J3=
+GEu7U%3D&amp;reserved=3D0" target=3D"_blank">1917
+ S. Interstate 35, Austin, TX 78741-3702</a><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">=C2=A0</span><u></u><u=
+></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">CONFIDENTIALITY NOTICE=
+:=C2=A0 This e-mail and any files transmitted with it may contain confident=
+ial and privileged material intended solely for the use
+ of the individual or entity to which they are addressed.=C2=A0 If you are =
+not the intended recipient or the person responsible for delivering the e-m=
+ail to the intended recipient, be advised that you have received this e-mai=
+l in error and that any use, dissemination,
+ forwarding, printing, or copying of this e-mail is strictly prohibited.=C2=
+=A0 If you have received this e-mail in error, immediately delete same and =
+contact the sender.</span><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Friday, February 07, 2020 1:19 PM<br>
+<b>To:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Mr Darwin&#39;s participation<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">I can call in on Tuesday 2:00 pm. Please give me the=
+ best number to reach you.=C2=A0 Will anyone else also participate?<u></u><=
+u></u></p>
+</div>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Fri, Feb 7, 2020 at 1:05 PM Michael Sims &lt;<a h=
+ref=3D"mailto:Michael.Sims@pels.texas.gov" target=3D"_blank">Michael.Sims@p=
+els.texas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">I am on vacation Wednesday through Friday of next we=
+ek.=C2=A0 I could do 9 AM, 2 PM, or 3 PM on Tuesday, February 18.=C2=A0 Wou=
+ld one of those times work?<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Friday, February 07, 2020 11:20 AM<br>
+<b>To:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Mr Darwin&#39;s participation<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Hi Mr. Sims:=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Monday and Tuesday are a bit tight for me. I can do Wednesday 2-nd=
+ half at 3 PM CST.=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">If you don&#39;t mind, you must ask city to give in writing the in=
+volvement of their engineers in this project.</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Fri, Feb 7, 2020 at 8:35 AM Michael Sims &lt;<a h=
+ref=3D"mailto:Michael.Sims@pels.texas.gov" target=3D"_blank">Michael.Sims@p=
+els.texas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Sandeep:<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">I think there is some confusion as to the jurisdicti=
+on of the Texas Board of Professional Engineers and Land Surveyors and the =
+types of investigations for possible enforcement action
+ that we can pursue.=C2=A0 Are you available at 11 AM or 3 PM on Monday, Fe=
+bruary 10 to discuss these issues in a phone call?<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Thanks.<u></u><u></u></p>
+<p class=3D"MsoNormal">Michael<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Michael Sims, P.E.<br>
+Director of Compliance &amp; Enforcement<u></u><u></u></p>
+<p class=3D"MsoNormal">Texas Board of Professional Engineers and Land Surve=
+yors<u></u><u></u></p>
+<p class=3D"MsoNormal"><br>
+<img border=3D"0" src=3D"cid:17ba899c32c155f77113" style=3D"width:192px;max=
+-width:100%"><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">512-440-3082 |
+<u><span style=3D"color:blue"><a href=3D"https://nam02.safelinks.protection=
+.outlook.com/?url=3Dhttp%3A%2F%2Fpels.texas.gov%2F&amp;data=3D04%7C01%7CLan=
+ce.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c998733=
+14ccc8ef647a2d6b11045%7C0%7C0%7C637661151584270315%7CUnknown%7CTWFpbGZsb3d8=
+eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&a=
+mp;sdata=3DS4KXjLMyC35d6WyHc%2BHmE9D3sOK2%2BmRq11KMWJHdEMk%3D&amp;reserved=
+=3D0" target=3D"_blank">http://pels.texas.gov</a></span></u><u></u><u></u><=
+/p>
+<p class=3D"MsoNormal"><a href=3D"https://nam02.safelinks.protection.outloo=
+k.com/?url=3Dhttps%3A%2F%2Fwww.google.com%2Fmaps%2Fsearch%2F1917%2BS.%2BInt=
+erstate%2B35%2C%2BAustin%2C%2BTX%2B78741%3Fentry%3Dgmail%26source%3Dg&amp;d=
+ata=3D04%7C01%7CLance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d7=
+03362%7C1098c99873314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584270315%7CUnk=
+nown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJX=
+VCI6Mn0%3D%7C1000&amp;sdata=3DWAzHdfkLT%2BHb9l%2BMXLK5hTjq2ODMY%2BvKupVtuCA=
+KxoU%3D&amp;reserved=3D0" target=3D"_blank">1917
+ S. Interstate 35, Austin, TX 78741</a>-3702<u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">=C2=A0</span><u></u><u=
+></u></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:8pt">CONFIDENTIALITY NOTICE=
+:=C2=A0 This e-mail and any files transmitted with it may contain confident=
+ial and privileged material intended solely for the use
+ of the individual or entity to which they are addressed.=C2=A0 If you are =
+not the intended recipient or the person responsible for delivering the e-m=
+ail to the intended recipient, be advised that you have received this e-mai=
+l in error and that any use, dissemination,
+ forwarding, printing, or copying of this e-mail is strictly prohibited.=C2=
+=A0 If you have received this e-mail in error, immediately delete same and =
+contact the sender.</span><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra &lt;<a href=3D"mailto:san=
+deep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>&gt;
+<br>
+<b>Sent:</b> Thursday, February 06, 2020 11:08 AM<br>
+<b>To:</b> Michael Sims &lt;<a href=3D"mailto:Michael.Sims@pels.texas.gov" =
+target=3D"_blank">Michael.Sims@pels.texas.gov</a>&gt;<br>
+<b>Subject:</b> Mr Darwin&#39;s participation<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">The project started in May-2018 and wasn&#39;t close to completion=
+ in Aug-03-2018 (Actually I think it officially got
+ completed in Aug or Sept of 2019) when I got this email below.</span><u></=
+u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Highlighted in red(in his email below) that shows Mr. Darwin overl=
+ooked the progress and was responsible to work with
+ engineers who developed design and must have produced calculations for the=
+ development.=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">Mr. Darwin and Mr. Alan were there at the site and met my wife to =
+do the readings. =C2=A0<span style=3D"font-family:Tahoma,sans-serif;color:b=
+lack">Mr.
+ Darwin and others Knew that the calculations did not exist, yet they proce=
+eded without them.=C2=A0</span></span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">How can Mr. Darwin not be part of this project? In my understandin=
+g, Mr. Alan, Mr. Sam Roberts, and Mr. Darwin all
+ were involved in the project.</span><u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:12pt;font-family:Tahoma,san=
+s-serif">=C2=A0</span><u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12pt">=C2=A0<u></u><u></u></p=
+>
+<div>
+<div>
+<p class=3D"MsoNormal">---------- Forwarded message ---------<br>
+From: <strong><span style=3D"font-family:Calibri,sans-serif">Darwin Marchel=
+l</span></strong> &lt;<a href=3D"mailto:darwin.marchell@cedarparktexas.gov"=
+ target=3D"_blank">darwin.marchell@cedarparktexas.gov</a>&gt;<br>
+Date: Fri, Aug 3, 2018 at 11:05 AM<br>
+Subject: RE: Project : Anderson Mill Rd Expansion<br>
+To: Sandeep Kalra &lt;<a href=3D"mailto:sandeep.kalra@gmail.com" target=3D"=
+_blank">sandeep.kalra@gmail.com</a>&gt;<br>
+Cc: Alan Green &lt;<a href=3D"mailto:Alan.Green@cedarparktexas.gov" target=
+=3D"_blank">Alan.Green@cedarparktexas.gov</a>&gt;<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12pt">=C2=A0<u></u><u></u></p=
+>
+<div>
+<div>
+<p class=3D"MsoNormal">Sandeep,<u></u><u></u></p>
+<p class=3D"MsoNormal">I would like to respond to your request for the =E2=
+=80=9CS=E2=80=9D (specifications) and =E2=80=9CE=E2=80=9D (Estimate) part o=
+f the PS&amp;E for the project.=C2=A0 We provided you with the specificatio=
+ns for the project
+ as well as links to where those specifications can be found on Wednesday.=
+=C2=A0 We also provided the estimate although we disagree as to what the te=
+rm =E2=80=9Cestimate=E2=80=9D is defined as.=C2=A0 The estimate is required=
+ to be provided by the engineer so that he can assure his client
+ as to what the probable cost will be for the project so that the client wi=
+ll know if it is within their budget and they can proceed with construction=
+ of the project.=C2=A0
+<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">The calculations that you have requested simply do n=
+ot exist.=C2=A0<span style=3D"color:red"> I have checked with the engineer =
+that designed these construction plans and the only calculations
+ that they performed are the drainage calculations which are found in the p=
+lans.=C2=A0
+</span>As I previously stated, design of the roadway is based upon design c=
+riteria provided in the AASHTO green book, the City of Austin Transportatio=
+n Criteria Manual (which the City of Cedar Park has adopted), and TxDOT=E2=
+=80=99s Design Manual.=C2=A0 These manuals are
+ used as a basis for the cross section design of the roadway as well as the=
+ geometric design of the roadway.=C2=A0 These design criteria are used by t=
+ransportation engineers throughout Texas and the United States.=C2=A0 =C2=
+=A0=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">I was hoping to relay this information and discuss i=
+t further with you during our 9:00 meeting yesterday at your house.=C2=A0<s=
+pan style=3D"color:red"> We met with your wife instead and
+ measured and verified that the dimensions shown on the plans are correct a=
+nd meet the design criteria shown in the design manuals.=C2=A0
+</span><u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">I noticed that you have CC=E2=80=99ed LeAnn Quinn on=
+ your email.=C2=A0 I would suggest contacting Ms. Quinn directly and she ca=
+n help you through the open records request process.=C2=A0 Please let
+ me know if you have any additional questions.<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<p class=3D"MsoNormal">Thanks,<br>
+Darwin<u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra [mailto:<a href=3D"mailto=
+:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>]
+<br>
+<b>Sent:</b> Friday, August 3, 2018 6:41 AM<br>
+<b>To:</b> Darwin Marchell &lt;<a href=3D"mailto:darwin.marchell@cedarparkt=
+exas.gov" target=3D"_blank">darwin.marchell@cedarparktexas.gov</a>&gt;<br>
+<b>Cc:</b> Alan Green &lt;<a href=3D"mailto:Alan.Green@cedarparktexas.gov" =
+target=3D"_blank">Alan.Green@cedarparktexas.gov</a>&gt;; dkalra111 &lt;<a h=
+ref=3D"mailto:dkalra111@gmail.com" target=3D"_blank">dkalra111@gmail.com</a=
+>&gt;;
+<a href=3D"mailto:anderson.mill.road@gmail.com" target=3D"_blank">anderson.=
+mill.road@gmail.com</a>; Mayor Van Arsdale &lt;<a href=3D"mailto:Mayor.vana=
+rsdale@cedarparktexas.gov" target=3D"_blank">Mayor.vanarsdale@cedarparktexa=
+s.gov</a>&gt;; LeAnn Quinn &lt;<a href=3D"mailto:LeAnn.Quinn@cedarparktexas=
+.gov" target=3D"_blank">LeAnn.Quinn@cedarparktexas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Project : Anderson Mill Rd Expansion<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">Dear City Engineers:<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I have been waiting for &quot;calculations or estima=
+tes&quot; for last 2 days and today will be the last day of wait. I will wa=
+it till COB Aug-03-2018 for them. If there are somethings not
+ turned in, I will assume that you all do not have in your possession.<u></=
+u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I am now requesting you &quot;ALL VERSIONS of ALL DR=
+AWINGs&quot;, their respective &quot;ESTIMATES or CALCULATIONS&quot; along =
+with their=C2=A0 &quot;SPECIFICATIONS&quot; specific to this Anderson Mill =
+expansion
+ project.=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Please send all copies to
+<a href=3D"mailto:Anderson.Mill.Road@gmail.com" target=3D"_blank">Anderson.=
+Mill.Road@gmail.com</a>.=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">(This is my alias email to hold big files and record=
+s).<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I am also attaching in CC a copy of this thread to t=
+he Administrative and Legislative office of Cedar Park (&quot;Mayor of Ceda=
+r Park&quot;, and &quot;City Secretary&quot;).=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Thu, Aug 2, 2018 at 2:07 PM Sandeep Kalra &lt;<a =
+href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gma=
+il.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Still waiting.<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><br clear=3D"all">
+<u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Aug 1, 2018 at 1:25 PM Sandeep Kalra &lt;<a =
+href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gma=
+il.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Thanks. I am also waiting on design calculations.=C2=
+=A0<u></u><u></u></p>
+</div>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Aug 1, 2018 at 12:30 PM Darwin Marchell &lt;=
+<a href=3D"mailto:darwin.marchell@cedarparktexas.gov" target=3D"_blank">dar=
+win.marchell@cedarparktexas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Here are the li=
+nks to find that information.</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)"><a href=3D"http=
+s://nam02.safelinks.protection.outlook.com/?url=3Dhttp%3A%2F%2Fwww.dot.stat=
+e.tx.us%2Fapps-cg%2Fspecs%2FSearchForm.asp%3Ftype%3D7&amp;data=3D04%7C01%7C=
+Lance.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c998=
+73314ccc8ef647a2d6b11045%7C0%7C0%7C637661151584280309%7CUnknown%7CTWFpbGZsb=
+3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C100=
+0&amp;sdata=3DLdfU1PomGSNSOd2McUFHwJVjyEh%2BiHJIh1z073uSe6k%3D&amp;reserved=
+=3D0" target=3D"_blank">http://www.dot.state.tx.us/apps-cg/specs/SearchForm=
+.asp?type=3D7</a></span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><a href=3D"https://nam02.safelinks.protection.outloo=
+k.com/?url=3Dhttps%3A%2F%2Flibrary.municode.com%2Ftx%2Faustin%2Fcodes%2Fsta=
+ndard_specifications_manual&amp;data=3D04%7C01%7CLance.Kinney%40pels.texas.=
+gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c99873314ccc8ef647a2d6b11045%7=
+C0%7C0%7C637661151584280309%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJ=
+QIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&amp;sdata=3DsTrsQ0B1K6KI=
+D5s7iub1cjgQnFhzuIlR9ul%2BtzmvssI%3D&amp;reserved=3D0" target=3D"_blank">ht=
+tps://library.municode.com/tx/austin/codes/standard_specifications_manual</=
+a><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra [mailto:<a href=3D"mailto=
+:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>]
+<br>
+<b>Sent:</b> Wednesday, August 1, 2018 2:10 PM<br>
+<b>To:</b> Alan Green &lt;<a href=3D"mailto:Alan.Green@cedarparktexas.gov" =
+target=3D"_blank">Alan.Green@cedarparktexas.gov</a>&gt;<br>
+<b>Cc:</b> Darwin Marchell &lt;<a href=3D"mailto:darwin.marchell@cedarparkt=
+exas.gov" target=3D"_blank">darwin.marchell@cedarparktexas.gov</a>&gt;; dka=
+lra111 &lt;<a href=3D"mailto:dkalra111@gmail.com" target=3D"_blank">dkalra1=
+11@gmail.com</a>&gt;<u></u><u></u></p>
+</div>
+</div>
+<div>
+<div>
+<p class=3D"MsoNormal"><br>
+<b>Subject:</b> Re: Project : Anderson Mill Rd Expansion<u></u><u></u></p>
+</div>
+</div>
+<div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">As of now, I need a copy of following items mentione=
+d in specifications Item#512, 514, 529, 530, 531, 536, and 542.<u></u><u></=
+u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I may come back for more information.<u></u><u></u><=
+/p>
+</div>
+<div>
+<p class=3D"MsoNormal"><br clear=3D"all">
+<u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Aug 1, 2018 at 11:57 AM Alan Green &lt;<a hr=
+ef=3D"mailto:Alan.Green@cedarparktexas.gov" target=3D"_blank">Alan.Green@ce=
+darparktexas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Attached is the=
+ requested estimate and specifications.</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Thanks,</span><=
+u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Alan</span><u><=
+/u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra [mailto:<a href=3D"mailto=
+:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>]
+<br>
+<b>Sent:</b> Wednesday, August 01, 2018 1:49 PM<br>
+<b>To:</b> Darwin Marchell &lt;<a href=3D"mailto:darwin.marchell@cedarparkt=
+exas.gov" target=3D"_blank">darwin.marchell@cedarparktexas.gov</a>&gt;<br>
+<b>Cc:</b> Alan Green &lt;<a href=3D"mailto:Alan.Green@cedarparktexas.gov" =
+target=3D"_blank">Alan.Green@cedarparktexas.gov</a>&gt;; dkalra111 &lt;<a h=
+ref=3D"mailto:dkalra111@gmail.com" target=3D"_blank">dkalra111@gmail.com</a=
+>&gt;<br>
+<b>Subject:</b> Re: Project : Anderson Mill Rd Expansion<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">Section 1001.407 TBPE Guide for any license engineer=
+ working on &quot;Public Work&quot; must support his work with 3 parts (a) =
+Plan (b) Specifications and (3) Estimates.
+<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I am asking for the (b) and (c). They must be in you=
+r possession from the person who sealed the design plan.<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Am I wrong in assuming that licensed engineers have =
+to abide to the TBPE Rule guide?<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><br clear=3D"all">
+<u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Aug 1, 2018 at 11:27 AM Darwin Marchell &lt;=
+<a href=3D"mailto:darwin.marchell@cedarparktexas.gov" target=3D"_blank">dar=
+win.marchell@cedarparktexas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Sandeep,</span>=
+<u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Let address som=
+e of the issues that you mention below.=C2=A0
+</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">First, the dist=
+ance from the roadway to the property line is measured from the face of cur=
+b of the
+<b><u>through lane</u></b>, not the right turn lane.=C2=A0 As I mentioned i=
+n my earlier email, it is measured that way because the vehicles traveling =
+in the right turn lane are decelerating.</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Second, we have=
+ not lied, hidden information or misled you in any way.=C2=A0 In the drawin=
+g you have zoomed into below, your property line is the dashed one
+ below the bold line that is labeled as the handrail. =C2=A0=C2=A0The handr=
+ail is not located on the property line.=C2=A0 There are several feet betwe=
+en your property line and the sidewalk.=C2=A0 The wooden stake that you sho=
+w in your picture is an offset stake, not where the
+ edge of the roadway is going to be.=C2=A0 =C2=A0=C2=A0</span><u></u><u></u=
+></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Third, the 12 f=
+oot sitting right in the middle is there to keep opposing lanes of traffic =
+separated.=C2=A0 These medians are used on most of our arterial
+ roadways.</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Fourth, I am no=
+t sure what specs and calculations you are looking for.=C2=A0 The roadway c=
+ross sections can be found in the City of Austin=E2=80=99s Transportation
+ Criteria Manual which the City of Cedar Park has adopted.=C2=A0 The cross =
+sections and other design parameters are what the design engineer uses to d=
+esign the roadways as they are based upon the AASHTO (American Association =
+of State Highway Transportation Officials)
+ design manual.=C2=A0 This manual is used all over the United States by pro=
+fessional engineers.=C2=A0
+</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Alan will be ha=
+ppy to meet you tomorrow morning at 9am to measure these distances as was d=
+iscussed in his earlier email.=C2=A0
+</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Darwin =C2=A0</=
+span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><b>From:</b> Sandeep Kalra [mailto:<a href=3D"mailto=
+:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gmail.com</a>]
+<br>
+<b>Sent:</b> Wednesday, August 1, 2018 12:25 PM<br>
+<b>To:</b> Alan Green &lt;<a href=3D"mailto:Alan.Green@cedarparktexas.gov" =
+target=3D"_blank">Alan.Green@cedarparktexas.gov</a>&gt;<br>
+<b>Cc:</b> dkalra111 &lt;<a href=3D"mailto:dkalra111@gmail.com" target=3D"_=
+blank">dkalra111@gmail.com</a>&gt;; Darwin Marchell &lt;<a href=3D"mailto:d=
+arwin.marchell@cedarparktexas.gov" target=3D"_blank">darwin.marchell@cedarp=
+arktexas.gov</a>&gt;<br>
+<b>Subject:</b> Re: Project : Anderson Mill Rd Expansion<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal">Alan, Darwin,<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">When I talked to you and others in first meeting at =
+CP main office, you all kept saying lies that there is a 10+ ft distance be=
+tween the property line and the any road... When I
+ asked for barrier you gave it but then removed because as per you they wan=
+ted them in other location... The drawings had only the distance of a walkw=
+ay between fence and turn road from day-01. You all traumatized us for 1.5 =
+yrs with lies about the plan and
+ deliberately keep it hidden so that you all can execute this without resis=
+tance. The drawings are clearly showing only a walkway distance and nothing=
+ more (zoomed part here).=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">There is a 12 ft sitting right in between the road f=
+or nothing. There can be a simple barrier from stopping southbound to enter=
+ but instead you all took that land from my side and
+ is now jeopardizing everyone life.<u></u><u></u></p>
+</div>
+<div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I am not buying your speculations and assumptions an=
+d speculation about the traffic. Send me the specs and calculations that we=
+re used to make this drawing and in determining that
+ the slow traffic on straight road in this situation will not cause a impac=
+t to human. What probability was calculated?<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">If I find flaw in calculations or no calculations to=
+ support at all, then I am going with this to the TBPE for reporting this. =
+If the engineers would have read the TBPE Lawrule
+ at least once they would have seen 32 places it&#39;s mentioned about safe=
+ty in clauses and sub-clauses.<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">ref:
+<a href=3D"https://nam02.safelinks.protection.outlook.com/?url=3Dhttps%3A%2=
+F%2Fengineers.texas.gov%2Fdownloads%2Flawrules.pdf&amp;data=3D04%7C01%7CLan=
+ce.Kinney%40pels.texas.gov%7Cf3c9173d60bd44f076b308d96d703362%7C1098c998733=
+14ccc8ef647a2d6b11045%7C0%7C0%7C637661151584290303%7CUnknown%7CTWFpbGZsb3d8=
+eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&a=
+mp;sdata=3Dnm%2FAxkvqdRSUEiXJZBwBV%2BUmcTvExxBMh%2BwjpXx%2FxJA%3D&amp;reser=
+ved=3D0" target=3D"_blank">
+https://engineers.texas.gov/downloads/lawrules.pdf</a><u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><br clear=3D"all">
+<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Aug 1, 2018 at 9:05 AM Alan Green &lt;<a hre=
+f=3D"mailto:Alan.Green@cedarparktexas.gov" target=3D"_blank">Alan.Green@ced=
+arparktexas.gov</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Deepshikha:</sp=
+an><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Attached are th=
+e requested plan sheets.=C2=A0 For your information when looking at these p=
+lan sheets, the turn lane has been reduced from 12 feet to 11 feet
+ wide and this change is not depicted.=C2=A0 I will be in the field at 9:00=
+ AM tomorrow morning to measure and I have requested that the contractor an=
+d our inspector be present as well.</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Thanks,</span><=
+u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">Alan=C2=A0
+</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:rgb(31,73,125)">=C2=A0</span><u=
+></u><u></u></p>
+<p class=3D"MsoNormal"><b>From:</b> Deepshikha Kalra [mailto:<a href=3D"mai=
+lto:dkalra111@gmail.com" target=3D"_blank">dkalra111@gmail.com</a>]
+<br>
+<b>Sent:</b> Wednesday, August 01, 2018 10:16 AM<br>
+<b>To:</b> Alan Green &lt;<a href=3D"mailto:Alan.Green@cedarparktexas.gov" =
+target=3D"_blank">Alan.Green@cedarparktexas.gov</a>&gt;; Darwin Marchell &l=
+t;<a href=3D"mailto:darwin.marchell@cedarparktexas.gov" target=3D"_blank">d=
+arwin.marchell@cedarparktexas.gov</a>&gt;<br>
+<b>Cc:</b> Sandeep Kalra &lt;<a href=3D"mailto:sandeep.kalra@gmail.com" tar=
+get=3D"_blank">sandeep.kalra@gmail.com</a>&gt;<br>
+<b>Subject:</b> Re: Project : Anderson Mill Rd Expansion<u></u><u></u></p>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">Darwin,<u></u><u></u></p>
+</div>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">I am a licensed P.E. and I want to evaluate the draw=
+ings for the Anderson mill road adjacent to our home.<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Please send me all revisions of the stamped =C2=A0dr=
+awings of the road adjacent to my property.<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Please call me at5129991426 before coming here to me=
+asure the distance of road to our property line.<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Regards=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Deepshikha<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Tue, Jul 31, 2018 at 9:52 PM Sandeep Kalra &lt;<a=
+ href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gm=
+ail.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Darwin,=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Are you available for coming down to the property an=
+d show us the 11 ft distance that you talked about? Also, Please send a cop=
+y of the drawings=C2=A0(or bring it for us to scan it)
+ of the road that shows the claimed distance from my property line.<u></u><=
+u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">My wife (in CC) who is also a P.E. Engineer and work=
+s with TMC will be there to see the drawings and confirm if the road is act=
+ually 11 ft from the property line.=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Please give me the window when you can be available.=
+<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Mon, Jul 30, 2018 at 11:10 PM Sandeep Kalra &lt;<=
+a href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@g=
+mail.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin:5pt 0in 5pt 4.8pt;border-left-color:rgb(20=
+4,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal">Hi Darwin,=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+<div>
+<div>
+<p class=3D"MsoNormal">There are a lot of &quot;assumptions&quot; you are m=
+aking (drivers will be slowing down, and as the=C2=A0road is straight, so t=
+hey will drive straight), and unless you have very solid stats to=C2=A0prov=
+e
+ it, I have every reason to believe that they do not always hold true.<u></=
+u><u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal">=C2=A0<u></u><u></u></p>
+</div>
+</div>
+<div>
+<p class=3D"MsoNormal">The fact is that the
+<b><u>only</u></b> safety aspect that you have in place is the <b>basic</b>=
+ &quot;<span style=3D"background-color:white;color:black"></span></p></div>=
+</div></blockquote></div></blockquote></div></div></div></div></blockquote>=
+</div></div></div></blockquote></div></div></div></blockquote></div></div><=
+/div></blockquote></div></div></blockquote></div></blockquote></div></div><=
+/div></div></div></div></div></div></blockquote></div></div></div></blockqu=
+ote></div></div></div></div></blockquote></div></blockquote></div></div></d=
+iv></div></blockquote></div></div></blockquote></div></div></div></blockquo=
+te></div></blockquote></div></div></div></blockquote></div></div></div></di=
+v></blockquote></div></div></div></blockquote></div></blockquote></div></di=
+v></div></div></div></div>-- <br><div dir=3D"ltr" class=3D"gmail_signature"=
+ data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr">=
+<div><div dir=3D"ltr"><div><div dir=3D"ltr"><font face=3D"arial, helvetica,=
+ sans-serif" size=3D"2">---</font></div><div dir=3D"ltr"><font face=3D"aria=
+l, helvetica, sans-serif" size=3D"2">Best Regards,<br>Sandeep Kalra<br></fo=
+nt><div><br></div></div></div></div></div></div></div></div></div>
+
+--000000000000cf553305cb0a9958--
+--000000000000cf553405cb0a9959
+Content-Type: image/jpeg; name="image001.jpg"
+Content-Disposition: inline; filename="image001.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <17ba899c32c4cd34f0f1>
+X-Attachment-Id: 17ba899c32c4cd34f0f1
+
+/9j/4AAQSkZJRgABAQEAeAB4AAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIf
+IiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABGAPADASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDtf+Ee
+8TLk/wDCRSHHtXGXHinxBBdSQf2jIxiYqTXr7Dg/SvDNQONWu/8Arq3869TBy9q2pJfcjxccnRjF
+wb+9nX+HH8ReI7eWZNakh2HFbH/CP+Jx08QyZ+lU/hj/AMg+6/367rBrnr1HCq4pK3odOGoqdJSk
+3f1Z51qWq+LfC7K13Kl5Ax4kPb61q6D49tNRlW1vU+yzt90/wtWz4ms0vdBuopF3fJke1eLgZXr8
+yng+hFbUKdPEU3dWZhiKtTDVFZ3Xmev61pWs310kun6q1rCF5Re9cb4h1PxF4fvltX1aSXcuc113
+gbVX1TQI/O5kh+RjnrXI/EQf8VDEc/wVOHT9r7OSWnkViWvY+1i3d+YeH9T8ReIL9rRdYki2ruzX
+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
+2Q==
+--000000000000cf553405cb0a9959
+Content-Type: image/jpeg; name="image003.jpg"
+Content-Disposition: inline; filename="image003.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <17ba899c32c155f77113>
+X-Attachment-Id: 17ba899c32c155f77113
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIf
+IiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAA4AMADASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDtNS0H
+UNP0y4u08RXzNChYBm4NcPbeItdnnhjbVLhVlcKcN0zXqniIf8U7f/8AXBv5V4zYH/TbT/rqv869
+XCP2kJOX5I8PGJ06kVF/iepjwvfsA3/CR3/I/vVl63beJfDls19aaxJeQJ/rEnGSo9a7iNf3a/QV
+U1eFZdKukbkNE2a4I1XzJSV0ejKjFQvG6fqcr4c8ex6hOllqUawzPwkq/db29jVzVNCv4Ibu+TX7
+xdqs6oG4HtXle4ou5chkbIx1BBr2NrhrvwWZ3OWe13E+vFddekqUlKGzOLD1XWg4z3R5rZeINdur
+u3gbVrlVmkCEhq9B/wCEVvjyPEmoD/gdeX6Uf+JpY/8AXcfzr3QD5R9KeMbptKP5BgY+1Tc/zOI1
+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
+--000000000000cf553405cb0a9959
+Content-Type: image/jpeg; name="image002.jpg"
+Content-Disposition: inline; filename="image002.jpg"
+Content-Transfer-Encoding: base64
+Content-ID: <17ba899c32cb11963102>
+X-Attachment-Id: 17ba899c32cb11963102
+
+/9j/4AAQSkZJRgABAQEAeAB4AAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIf
+IiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7
+Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCABGAPADASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDtf+Ee
+8TLk/wDCRSHHtXGXHinxBBdSQf2jIxiYqTXsDDg/SvC9QONWu/8Arq3869TBy9q2pJfcjxcenRjF
+wb+9nX+HH8ReI7eWZNakh2HFbH/CP+Jx08QyZ+lVPhh/yD7r/frucGuevUcKrikreh04aip0lKTd
+/VnnWpar4t8LsrXcqXkDHiQ9vrWtoPj601GVbW9T7LO33T/C1bPiazS90C6ikXd8mR7V4sBlevzK
+eD6EVvQp08RTd1ZmGIq1MNUVndeZ7BrWlazfXaS6fqzWsIXlF71xniHU/EXh++W1fVpJdy5zXXeB
+tVfVNAj87mSH5GOetcj8RR/xUMRz/BUYdP2vs5JaeRWJa9j7WLd35h4f1PxF4gv2tF1iSLau7NdJ
+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
+ln//2Q==
+--000000000000cf553405cb0a9959--

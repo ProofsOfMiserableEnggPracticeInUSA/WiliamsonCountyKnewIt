@@ -1,0 +1,1238 @@
+Delivered-To: anderson.mill.road@gmail.com
+Received: by 2002:ab0:6595:0:0:0:0:0 with SMTP id v21csp23541130uam;
+        Mon, 6 Jan 2020 22:17:00 -0800 (PST)
+X-Received: by 2002:a2e:3a0c:: with SMTP id h12mr55452338lja.200.1578377820255;
+        Mon, 06 Jan 2020 22:17:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578377820; cv=none;
+        d=google.com; s=arc-20160816;
+        b=HKAiYK+FRHUduk6JeOIhFumsNVUVPRcfmzkM/VWuYhCnrGj8bmAOnNhND9UXbW/+Xj
+         N2BzCbo1ycDzzU1mtJiWs4thtM11s7afCgNeb+upw6/uhkADXaEdBUVpjnXG1OUph7Nu
+         Ktql2aU29OT92ltMZLHMqQtCH+izNJ7bnMcCerxjNSTpF7Df3d/sPsbjcQWis/7JrEMJ
+         wfKWzcb0nEn6NxMCcYsYX43q+mXBH0asE6zkNaNM7+aJMa6FTo9ULUygX9VMjdTODwsO
+         iC09DTvviVpqxoK4JOPHeqrIUnJStW/BDVF8wZlhmraOcVmW1YJZDMsqb7mZBFztTPvI
+         1xsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=tSoPVfUQyjFDV4SyU96awgnmTgJ5M84O5A2iS8iH4Lg=;
+        b=Awlyv0pXFX6vWHZ+E+JaDHh6KxHaZNGsG7wugLLj4DEouvh6oe8ZJNRSKDVE1wV3/0
+         Rdq1yjmPcfwSaJiZSP/eY/N54uv1YdcjrtUhPphRWqnE39166FJPy7JIPcSQ2ngl/h1T
+         iyq2EdID1Me+TajyMPPVm00Oy02VUNHqc8izu0VOtS87qqYZu9FCkgpLPg7nr7okkS0J
+         eyHstpzfTIFMGGmySm8p1coDblPSIZrDnkFf0RVEu/sGeUgt1dmv7UNJARMeis/XPf9O
+         RUgmqb8YxWSmFX4ihU2EY6o2FjjXBpSlGIefJ9jTlqea9OC+pxuY6vr4LtP+1/OREYPj
+         rfZQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Fw8U6w3e;
+       spf=pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=sandeep.kalra@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <sandeep.kalra@gmail.com>
+Received: from mail-sor-f65.google.com (mail-sor-f65.google.com. [209.85.220.65])
+        by mx.google.com with SMTPS id 189sor14718567lfi.6.2020.01.06.22.17.00
+        (Google Transport Security);
+        Mon, 06 Jan 2020 22:17:00 -0800 (PST)
+Received-SPF: pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.65 as permitted sender) client-ip=209.85.220.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Fw8U6w3e;
+       spf=pass (google.com: domain of sandeep.kalra@gmail.com designates 209.85.220.65 as permitted sender) smtp.mailfrom=sandeep.kalra@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=tSoPVfUQyjFDV4SyU96awgnmTgJ5M84O5A2iS8iH4Lg=;
+        b=Fw8U6w3eVXkeO+5C+gEJrkfjZAcGF6DnPBCen3bj17P2i3kIzGlIgd8yAJeHWy8Fly
+         tDurXhh44iWo67mq7ByVFeGD1BQBlcNe9MlIgaDAhS3iBYowXz8hoD4Ou5u3YRiMPJ2B
+         BYk11aAnoTj6m8gzIDqmZG6DCCtnETuyo8Vel/kaCORb4AmW1UGcgUrYyDsutij/KfeP
+         7zqdmxPwTFh0sZxOYy3Ih0edjf+e5zP8xuqzhWTVp4H103S/zgm8LIJEXaRgJMOeGKrx
+         LUJw2p1SpbbUoBRtOLN9w4GGPP9FfYqX/dk5i+vXTYUhEsgsJlnM+QuT1BouEiEDU/KU
+         TsSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=tSoPVfUQyjFDV4SyU96awgnmTgJ5M84O5A2iS8iH4Lg=;
+        b=XIaoLIjS0VAkKkALwBo2XgiMvPCgKiINNw5uN4a5zfVBlTdUrJEV3hpTNbSCJipdVG
+         obREmqhbkCFUBg0dKossPZxPQ72JyjpGBUuiErbEMxUBGfHumxTdJiTBkP5oCQB0ZC0H
+         lVraF8by17iKRI3tGfHVcIaRuMbG/NYkjl6HDFWZrAhSfEKA27j4skFIqQGyKkClKYXg
+         MQt2JdW+UcZrx48vYjtBsaRu058BCX6y3fRpAL0D2WgU2HFq1H7Qx8cka1mio3yv/xVa
+         nyRk7y5VMhLtewnpmoc41ebA4M5t1NIeTp4DRQKRs/tin8ElDQVPKtnzU46mOttq048m
+         w7sA==
+X-Gm-Message-State: APjAAAVp5KFG5QgaG3FwfOugENF/jtjGhQrG+d/q86XNmwzyuGyI/ZsQ
+	6iBilMbqNQ0RUOG2KoWTCUSHRbk4usKvFOUn+JSxGQeeouA=
+X-Google-Smtp-Source: APXvYqx/5dcD9Lmsn5/A0fh9R3Qnq5Wv5mcwhH3uYAe1vpzqxOeIr7AOJaPEENAZsMUOAsThGWIWd1/c4LC/5H/0UNU=
+X-Received: by 2002:a05:6512:25c:: with SMTP id b28mr5085089lfo.184.1578377819765;
+ Mon, 06 Jan 2020 22:16:59 -0800 (PST)
+MIME-Version: 1.0
+References: <CAKfW+R70YLJniYJeGkDj9iKPdw1z7r7LDE2DnMio1RLREWPD_Q@mail.gmail.com>
+ <5d6b02f86fe5417fa6f01170292476d4@cedarparktexas.gov> <CAKfW+R5oS0m=KAS2qbiR7PbMRJj+E2WA1Q9S-QCpmYMovmV1Tg@mail.gmail.com>
+ <678eddf9611746f5a0fc449de1fb3e2b@cedarparktexas.gov> <CAKfW+R4m-5zNLBM6tCt3CmWi4CQ=q=_LftHBMOB0Y9iv4faW5g@mail.gmail.com>
+ <CAKfW+R4gmCGcNCWpjCzN_Bq7=chS_OanaP3kHvtXgw64-Ns6nQ@mail.gmail.com>
+ <BN6PR04MB37465059F33852F194D0A2898E170@BN6PR04MB3746.namprd04.prod.outlook.com>
+ <CACt4teORsmA5fYg4+cr_-VHDGGO0+h3d0+--H9HvG71Zf8-0Sg@mail.gmail.com>
+ <CAKfW+R4URdG61-0JBBQrb6=-xwe2JfuhzpVNW4K4OD4qY3cZwg@mail.gmail.com>
+ <CE7E6FDA-2B85-4070-9AB0-212E412E608E@goodwintx.com> <CAKfW+R5nc6GnjmicgU0Li+UetWe+6r6Q04bHS1jffB12CxfpHg@mail.gmail.com>
+ <CAKfW+R4byxRDi0WGj32xbaCK8YvDtFUhsL78pgmLAQSXpjfecw@mail.gmail.com>
+ <CAKfW+R7t=65G4gk6pX3Emcxu4eSA6qyqdWUTXKgTuyOLSZX-Zw@mail.gmail.com>
+ <CAKfW+R6+881ZFp0iQwid56pVFRoexbRvyfSB=4aKEOv3CF9yUg@mail.gmail.com>
+ <CAKfW+R4fVzor9VBjBRO0v2W2Xr9Z7FEd5T6w_foyCQcyYfcpPA@mail.gmail.com>
+ <CAKfW+R66aSsGu1NzSyBvkn5m8nL3HysBLtfSW8VYYOnZmg6itA@mail.gmail.com>
+ <CAKfW+R5CxpcH3HDyUGdPeFvzOPvfZOcmqagAMQLZrH3ukRMJTg@mail.gmail.com>
+ <CAKfW+R6b3=fHAxp+j8LC9q2pxZihKcjmbsszxXVfzzGQNie6Jw@mail.gmail.com>
+ <CAKfW+R6M4U_tgdJ6pimf=SU5mruuLa60pwXSVR0EqDSgidRwqw@mail.gmail.com>
+ <CAKfW+R5JDiUnsUj3Sem=s_57+x0cOD2fEd+hbXXae-=8GRyUEw@mail.gmail.com>
+ <CAKfW+R7L6F5ksO5MDqwSJThhzAWG8sFmbwC7ZKQzMY8K9exjEQ@mail.gmail.com>
+ <CAKfW+R6U7oZkgTo4_i-4yrE18DSQo0r0d-GNYf4EwS+ZWKvXsg@mail.gmail.com>
+ <CAKfW+R5af_M8HaMXiFJBL33K1rpehkcLrwqV4-XxW7rdDtLH5g@mail.gmail.com>
+ <CAKfW+R6aK1FvxcW0oTXxkiJ3nYREAf4YcpF4KFn+3u7oF5WmWQ@mail.gmail.com>
+ <CAKfW+R4BGNmVTyvR+wipjHtF7f2HQRFAQkzzSg_vOVusWZBjgA@mail.gmail.com>
+ <CAKfW+R7CSJhTYTjt8ZH=4i+OVs7BGz5R=Ve+JRopFSDcnKfG6w@mail.gmail.com>
+ <CAKfW+R6fr4A7zf54+Y08AgRty0OtSe4SoYW4qZksnWheqFCWGA@mail.gmail.com>
+ <CAKfW+R4wkdo2dmFiK-jjEe-shQpRzv1wgjbFTrW_BbJzPySBoQ@mail.gmail.com>
+ <CAKfW+R7WipOgm-hWDJec4kmt+XL0B1MMOJ=3VXL5fZ6pOx_P+A@mail.gmail.com>
+ <cfe4cb6e1c6f4959ac3a90252f9f1a60@cedarparktexas.gov> <CAKfW+R4v=y+H7tH2zQ31WtXDF-CqsRSAJTQPZDUE4zp6VDe9gA@mail.gmail.com>
+ <CAKfW+R7yNkAy2CgL9An3K-aCS0OkwKW0k4Lu09jZkZbSVWizFw@mail.gmail.com>
+ <CAKfW+R5h8ydxqsNSyOuzXuqRpTF6tphJ8A+Fh3n6HBxpuwz+Ww@mail.gmail.com> <CAKfW+R7f1R7iO5o7AbLA3MtBOuLBfZK7U=v46YqjpL7+Lwh_yg@mail.gmail.com>
+In-Reply-To: <CAKfW+R7f1R7iO5o7AbLA3MtBOuLBfZK7U=v46YqjpL7+Lwh_yg@mail.gmail.com>
+From: Sandeep Kalra <sandeep.kalra@gmail.com>
+Date: Tue, 7 Jan 2020 00:16:48 -0600
+Message-ID: <CAKfW+R6OrNi1oz5Sh83kVbdPU_HMdM+w2d9hyzCoTBBg44hUoA@mail.gmail.com>
+Subject: Re: Request for Information on grave concerns from resident of the city.
+To: kevin.elliott@cedarparktexas.gov, amber.smith@cedarparktexas.gov, 
+	Robert.Henning@cedarparktexas.gov, code@cedarparktexas.gov
+Cc: Alan Green <Alan.Green@cedarparktexas.gov>, Christopher.Copple@cedarparktexas.gov, 
+	LeAnn Quinn <LeAnn.Quinn@cedarparktexas.gov>, 
+	Darwin Marchell <darwin.marchell@cedarparktexas.gov>, JP.LeCompte@cedarparktexas.gov, 
+	Jody Barr <Jody.Barr@kxan.com>, 
+	"anderson.mill.road@gmail.com" <anderson.mill.road@gmail.com>, asvillarreal@keyetv.com, 
+	bperdue@communityimpact.com, dkalra111 <dkalra111@gmail.com>, kgonzales@kvue.com, 
+	"mayor.vanarsdale@cedarparktexas.gov" <mayor.vanarsdale@cedarparktexas.gov>, ourtexasnewspaper@gmail.com, 
+	sag225@txstate.edu, Lauren.Gammon@wilco.org, TNRWeb@traviscountytx.gov
+Content-Type: multipart/alternative; boundary="00000000000044c3d7059b86b9a4"
+
+--00000000000044c3d7059b86b9a4
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+adding: code@cedarparktexas.gov
+Best Regards,
+Sandeep Kalra
+
+
+
+On Tue, Jan 7, 2020 at 12:14 AM Sandeep Kalra <sandeep.kalra@gmail.com>
+wrote:
+
+> Robert, Kevin and Amber:
+>
+> Please give me a complaint ID (for complaint against the city of cedar
+> park for excessive noise generation ) that I can use in future to call th=
+is
+> request or in case use it for filing a court order.
+>
+> Best Regards,
+> Sandeep Kalra
+>
+>
+>
+> On Sun, Jan 5, 2020 at 1:26 AM Sandeep Kalra <sandeep.kalra@gmail.com>
+> wrote:
+>
+>> Dear Robert, Kevin and Amber.
+>>
+>> You are mentioned as "Compliance Officers" on Cedar Park TX page. I am
+>> making a request for compliance with this email (with some journalist,
+>> Engineers and City Mayor in CC).
+>>
+>> The city of cedar park has expanded "Anderson Mill road".  By doing so,
+>> they have violated my rights. The city under their own compliance rules =
+of
+>> section 8.08 Noise regulations makes it mandatory for any party to make
+>> noise beyond these limits:
+>>
+>> (1)     Daytime: 70 dB(A) or 80 dB(C); or
+>>
+>> (2)     Nighttime: 50 dB(A) or 60 dB(C
+>>
+>> The construction from Anderson Mill road has now impacted me as now the
+>> noise level on my property is way above 100+db at night and 150+db at
+>> daytime. This is coming from the tires of the passing traffic. The
+>> compliance rule under exemption of 8.08.005 does allow noise from only t=
+he
+>> motor of the motor-vehicle to be unaccounted (which I did when I measure=
+d
+>> using my equipments). I want the city to comply to the nuisance of road =
+and
+>> vehicles by either disallowing the vehicles making noise to be stopped o=
+r
+>> make adjustments of the road and its boundaries to not produce this nois=
+e
+>> inside my property line.
+>>
+>> I have request city many times via email to come and test using beam
+>> forming microphones to do a  compliance reading but I guess I wasn't tak=
+ing
+>> to right people.
+>>
+>> Official procedure will require "Acoustic Beam forming" to measure noise=
+s
+>> other than of tires . I think there are plenty of contractors out there =
+who
+>> have this equipment ready and if not I am happy to refer to you few
+>> contractors who can do the compliance reading.
+>>
+>> A detail of procedure can be found in this book recommended by the US
+>> body of National Cooperative Highway Research Program(NCHRP):
+>>
+>> Acoustic Beamforming: Mapping Sources of Truck Noise , link:
+>> https://books.google.com/books?id=3DrDyhc7WhqqIC&pg=3DPA7&dq=3Dargument+=
+motor+vehicle+motor+sound+is+not+motor+vehicle+tyre+sound&hl=3Den&newbks=3D=
+1&newbks_redir=3D0&sa=3DX&ved=3D2ahUKEwj2uMbW9evmAhUZCs0KHZ9cCjQQ6AEwAXoECA=
+UQAg#v=3Donepage&q=3Dargument%20motor%20vehicle%20motor%20sound%20is%20not%=
+20motor%20vehicle%20tyre%20sound&f=3Dfalse
+>>
+>>
+>> Best Regards,
+>> Sandeep Kalra
+>>
+>>
+>>
+>> On Fri, Jan 3, 2020 at 1:00 AM Sandeep Kalra <sandeep.kalra@gmail.com>
+>> wrote:
+>>
+>>> Hi,
+>>>
+>>> I have been chasing the construction that was done by city of cedar par=
+k
+>>> in a hurry with no safety or property paperwork and have impacted lives=
+ of
+>>> many in and around my neighborhood and also wild life in Austin area. I
+>>> leave up to the media to decide what could be the reason for the urgenc=
+y.
+>>>
+>>> There was tip from one neighbor of mine: Deep pocket owners(such as HEB=
+)
+>>> may have bought a high valued property right at intersection of 1431 an=
+d
+>>> Anderson Mill road and may have pushed for better access for their own
+>>> benefits. Unfortunately he may be right. The city has treated us worse =
+than
+>>> wild life is treated in Austin area.
+>>>
+>>>  I have received a reply from City of Cedar park to my request made on
+>>> Dec-02nd with various requests asking for the details of construction (=
+and
+>>> follow up on previous emails where I exposed to the city management tha=
+t no
+>>> one followed any rules - noise ordinance , safety ordinance, etc).
+>>> I have reviewed the response I got to my Dec-02-2019 email. The city
+>>> response carried 0 weight. Here is the summary for the media people tha=
+t I
+>>> am marking in CC.
+>>>
+>>> The only document that had some details was a study that was done more
+>>> than a decade ago that shows that the Austin property is reserved under
+>>> BCCP and that is the reason city of cedar park could not persuade to ex=
+pand
+>>> on that side of corridor and eventually we all residents paid the price=
+.
+>>> - This road passes right next to *Balcones Canyonlands Preserve
+>>> system(BCCP Infrastructure)* and the road is on the corridor that is
+>>> allowed to expand but there were *0 details of clearance certificates
+>>> that city of cedar park has applied for* (If there were, then none were
+>>> provided to me, even when I asked for it) from Travis or Williamson Cou=
+nty,
+>>> and more-so, the road was expanded* to less than 16' to 30' from the
+>>> hard limit put by the BCCP Infrastructure *Corridor structure. The
+>>> exceptions are for low traffic area, whereas this road is a high traffi=
+c
+>>> area road (Way more than 750 cars in a day).
+>>>
+>>> Ref : Table 3 of book, and AASHTO std is already with you to guide.
+>>>
+>>> https://books.google.com/books?id=3DcTc3AQAAMAAJ&pg=3DRA6-PA1&lpg=3DRA6=
+-PA1&dq=3DBCCP+Infrastructure+Corridors&source=3Dbl&ots=3D_Eo3sbzQOK&sig=3D=
+ACfU3U0A-yfjuqfmPKHpOlkEV1gbKalGdA&hl=3Den&sa=3DX&ved=3D2ahUKEwi49ciP4ebmAh=
+WJGs0KHYrLANkQ6AEwBnoECAoQAQ#v=3Donepage&q=3DBCCP%20Infrastructure%20Corrid=
+ors&f=3Dfalse
+>>>
+>>> *I am marking CC to Wilco.org contact-personal (Lauren.Gammon@wilco.org
+>>> <Lauren.Gammon@wilco.org>) *
+>>> *and travis contact-personal (TNRWeb@traviscountytx.gov
+>>> <TNRWeb@traviscountytx.gov>) to notify them for further escalation on t=
+his.*
+>>> *Through this email reply, I request City of Cedar Park to produce the
+>>> clearance certificates and the permit to go even closer to 30' to the B=
+CCP.*
+>>>
+>>> Beside this above details that I could draw from the response. This
+>>> response
+>>> - *Does "not" show if the city of cedar park did any study of expansion
+>>> of road to the BCCP system in short or long term.*
+>>> -  *does "not" carry any detail *of any safety measures taken after I
+>>> showed them that mandatory safety checks are missing in documents.
+>>> - *did **"not"** carry any mention* of comparison to existing
+>>> properties that have gone through similar checks and thus this construc=
+tion
+>>> is deemed safe.
+>>> - shows *No action* was taken on Licensed engineers for their
+>>> ill-actions, and rather producing and submitting business calculations =
+in
+>>> place of engineering calculations (and more so admitting to be doing th=
+is
+>>> for 20+ years).
+>>> - shows *no mention of any plans to cross examine and validation of
+>>> city's own noise and safety regulation compliance* that clearly weren't
+>>> followed.. I am still waiting for an official reply on it. It will be s=
+hame
+>>> if I have to ask you to get this done by issuing court orders.
+>>>
+>>>
+>>> I request again to the  city of CP to please setup a 7 to 10 day
+>>> validation to cross examine the safety and noise level compliance as pe=
+r
+>>> city ordinances *inside my property line*. I have even given the link
+>>> of the procedure to do so by eliminating the noise generated by motors
+>>> inside motor vehicle.
+>>>
+>>>
+>>>
+>>> Best Regards,
+>>> Sandeep Kalra
+>>>
+>>>
+>>>
+>>> On Mon, Dec 2, 2019 at 7:25 PM Sandeep Kalra <sandeep.kalra@gmail.com>
+>>> wrote:
+>>>
+>>>> Received. Thank you
+>>>>
+>>>>
+>>>> On Mon, Dec 2, 2019 at 3:28 PM LeAnn Quinn <
+>>>> LeAnn.Quinn@cedarparktexas.gov> wrote:
+>>>>
+>>>>> The City of Cedar Park is in receipt of your request and it will be
+>>>>> processed in the order it was received.
+>>>>>
+>>>>> Once we have completed our review you will be contacted regarding the
+>>>>> responsive information.
+>>>>>
+>>>>> <https://www.google.com/maps/search/450+Cypress+Creek+Road+%0D%0A+Ced=
+ar+Park,+TX+78613?entry=3Dgmail&source=3Dg>
+>>>>>
+>>>>>
+>>>>>
+>>>>> Thank you.
+>>>>>
+>>>>>
+>>>>>
+>>>>> LeAnn M. Quinn, TRMC
+>>>>>
+>>>>> City Secretary
+>>>>>
+>>>>> City of Cedar Park
+>>>>>
+>>>>> 450 Cypress Creek Road
+>>>>> <https://www.google.com/maps/search/450+Cypress+Creek+Road+%0D%0A+Ced=
+ar+Park,+TX+78613?entry=3Dgmail&source=3Dg>
+>>>>>
+>>>>> Cedar Park, TX 78613
+>>>>> <https://www.google.com/maps/search/450+Cypress+Creek+Road+%0D%0A+Ced=
+ar+Park,+TX+78613?entry=3Dgmail&source=3Dg>
+>>>>>
+>>>>> 512-401-5002 Phone
+>>>>>
+>>>>> 512-401-5003 FAX
+>>>>>
+>>>>>
+>>>>>
+>>>>> *From:* Sandeep Kalra <sandeep.kalra@gmail.com>
+>>>>> *Sent:* Monday, December 2, 2019 3:18 PM
+>>>>> *To:* LeAnn Quinn <LeAnn.Quinn@cedarparktexas.gov>
+>>>>> *Cc:* Alan Green <Alan.Green@cedarparktexas.gov>; Christopher Copple =
+<
+>>>>> Christopher.Copple@cedarparktexas.gov>; Darwin Marchell <
+>>>>> darwin.marchell@cedarparktexas.gov>; JP LeCompte <
+>>>>> JP.LeCompte@cedarparktexas.gov>; Jody Barr <Jody.Barr@kxan.com>;
+>>>>> anderson.mill.road@gmail.com; asvillarreal@keyetv.com;
+>>>>> bperdue@communityimpact.com; dkalra111 <dkalra111@gmail.com>;
+>>>>> kgonzales@kvue.com; Mayor Van Arsdale <
+>>>>> Mayor.vanarsdale@cedarparktexas.gov>; ourtexasnewspaper@gmail.com;
+>>>>> sag225@txstate.edu
+>>>>> *Subject:* Re: Request for Information on grave concerns from
+>>>>> resident of the city.
+>>>>>
+>>>>>
+>>>>>
+>>>>> Dear city officials: Can I expect a formal response in next 10
+>>>>> business days?
+>>>>>
+>>>>>
+>>>>>
+>>>>> On Wed, Nov 27, 2019 at 10:00 AM Sandeep Kalra <
+>>>>> sandeep.kalra@gmail.com> wrote:
+>>>>>
+>>>>> All:
+>>>>>
+>>>>> I will be marking few Local news media in CC now onwards (they are no=
+w
+>>>>> in CC).
+>>>>>
+>>>>> Some international news media has also expressed interest in covering
+>>>>> the news
+>>>>>
+>>>>> but I will only go to them if the City continue to not follow their
+>>>>> own ordinances and
+>>>>>
+>>>>> do not take enough actions even after the writing them for years.
+>>>>>
+>>>>>
+>>>>>
+>>>>> Best Regards,
+>>>>> Sandeep Kalra
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>> On Wed, Nov 27, 2019 at 8:48 AM Sandeep Kalra <sandeep.kalra@gmail.co=
+m>
+>>>>> wrote:
+>>>>>
+>>>>>
+>>>>>
+>>>>> To:  LeAnn Quinn, City Official at Cedar Park TX
+>>>>>
+>>>>> Subject: I need to get your official reply on couple of requests belo=
+w
+>>>>>
+>>>>>
+>>>>>
+>>>>> Dear City Officials, and City Engineers of City, and Legal Department
+>>>>> of Cedar Park TX:
+>>>>>
+>>>>>
+>>>>>
+>>>>> Request-0: If a resident provides a written concern, and/or request t=
+o
+>>>>> the city. Is there any "max"  time frame set by city to respond to th=
+e
+>>>>> concerns, and requests? What are the usual actions taken on the conce=
+rns
+>>>>> per city? What are your SLAs for city officials and what are those fo=
+r City
+>>>>> Engineering department. Are they in week, month or years? Please prov=
+ide me
+>>>>> with the min and max timeframes as per your guidance. Also, Please le=
+t me
+>>>>> know that for how long this data is maintained?
+>>>>>
+>>>>>
+>>>>>
+>>>>> Request-1: On May-22,2017 the City of Cedar Park invited all resident=
+s
+>>>>> to inform of Anderson Mill expansion project and asking for concerns.=
+ The
+>>>>> concerns from me were emailed, read-out in the meeting, and 3 printed
+>>>>> copies were given to the people who hosted the concerns. What were th=
+e
+>>>>> "actions" that were taken on those concerns? Please provide me with t=
+he
+>>>>> copy of the actions that were taken(all in last 3 years).
+>>>>>
+>>>>>          Were there any meeting records, emails to show that
+>>>>>
+>>>>>          there was any line of action thought to address the
+>>>>>
+>>>>>          concerns?
+>>>>>
+>>>>>
+>>>>>
+>>>>> Request-2: Around August 05, 2018, the city response shows that there
+>>>>> were "no calculations" done for any drawings for the project. This im=
+plies
+>>>>> that there were "safety flaws" in the design. What "actions" were tak=
+en by
+>>>>> city to mitigate the safety concern raised out of this findings?
+>>>>>
+>>>>>       Did the city engineers redo drawings with calculations to see
+>>>>> that the
+>>>>>
+>>>>>       structure is safe or will be safe? Were  there any design
+>>>>> modifications to
+>>>>>
+>>>>>       metigate the possibly of crash, reduce speed limits or placemen=
+t
+>>>>> of more
+>>>>>
+>>>>>       barriers to make the road and intersection safe for residents
+>>>>> and
+>>>>>
+>>>>>       pedestrians?
+>>>>>
+>>>>>       Were there any readings taken to see if the concerns were valid
+>>>>> or not?
+>>>>>
+>>>>> Please provide me with the copy of all the actions taken (All of thos=
+e
+>>>>> in last 3 years).
+>>>>>
+>>>>>
+>>>>>
+>>>>> Request-2a: If the city has any comparable data from other sites to
+>>>>> show that the city does not need safety calculations or is
+>>>>> in compliance then please provide the statistics with readings, level=
+ of
+>>>>> confidence, correlation and all other information to support your cla=
+im.
+>>>>>
+>>>>>
+>>>>>
+>>>>> Request-3: Were there any environmental study performed (per section
+>>>>> 8.12 regulations of city code) to see the impact of road on the healt=
+h of
+>>>>> people and/or the wildlife next to the now extended Anderson Mill roa=
+d?
+>>>>> Please provide the copy of the reports (any in last 3 year).
+>>>>>
+>>>>>               If there were none, then request you to perform one
+>>>>> right now.
+>>>>>
+>>>>>
+>>>>>
+>>>>> Request-4: Per City code section-8.08 Noise regulations the city
+>>>>> guarantees the residents a upper limit on noise level at various time=
+ of
+>>>>> day. Were there any noise level checks performed after the expansion =
+was
+>>>>> completed? Please provide the copy of the previous 3 years of reports=
+.
+>>>>>
+>>>>>
+>>>>>
+>>>>> Request-5: The vehicles moving on the road are producing extremely
+>>>>> loud noise. The noise is in part produced by tyres, and other moving =
+parts
+>>>>> that are accountable as per the city codes. The noise level are above=
+ and
+>>>>> beyond the city permitted value for daytime and night times. City off=
+icials
+>>>>> were informed to all city officials in writing in Oct-30-2019 and req=
+uest
+>>>>> for compliance was made (if not, then please treat this email as the =
+one
+>>>>> for the level check).
+>>>>>
+>>>>> Standing inside my property line the noise level is very high and the
+>>>>> guarantees under section-8.08 are not meeting even after removing the=
+ noise
+>>>>> produced by "Motor Vehicle Motor" on the road.
+>>>>>
+>>>>> Please conduct a study "inside my property-line" at locations offered
+>>>>> by me to showcase that the city is in compliance to section-8.08 of n=
+oise
+>>>>> regulations. You will need "Acoustic beam-forming based sound level m=
+eters"
+>>>>> to claim by removing the noise produced by the motor of the vehicle.
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>>
+>>>>> Best Regards,
+>>>>> Sandeep Kalra
+>>>>>
+>>>>>
+>>>>>
+>>>>> --
+>>>> Best Regards,
+>>>> Sandeep Kalra
+>>>>
+>>>>
+
+--00000000000044c3d7059b86b9a4
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D"fon=
+t-family:tahoma,sans-serif;font-size:small">adding:=C2=A0<a href=3D"mailto:=
+code@cedarparktexas.gov" style=3D"background-color:transparent;box-sizing:b=
+order-box;color:rgb(189,89,23);font-family:Roboto,sans-serif;font-size:14px=
+">code@cedarparktexas.gov</a></div><div><div dir=3D"ltr" class=3D"gmail_sig=
+nature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div><=
+div dir=3D"ltr"><font face=3D"arial, helvetica, sans-serif" size=3D"2">Best=
+ Regards,<br>Sandeep Kalra<br></font><div><br></div></div></div></div></div=
+></div></div></div></div></div><br></div></div><br><div class=3D"gmail_quot=
+e"><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Jan 7, 2020 at 12:14 AM Sa=
+ndeep Kalra &lt;<a href=3D"mailto:sandeep.kalra@gmail.com">sandeep.kalra@gm=
+ail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"=
+margin:0px 0px 0px 0.8ex;border-left-width:1px;border-left-style:solid;bord=
+er-left-color:rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div clas=
+s=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:small"=
+>Robert, Kevin and Amber:</div><div class=3D"gmail_default" style=3D"font-f=
+amily:tahoma,sans-serif;font-size:small"><br></div><div class=3D"gmail_defa=
+ult" style=3D"font-family:tahoma,sans-serif;font-size:small">Please give me=
+ a complaint ID (for complaint against the city of cedar park for excessive=
+ noise generation ) that I can use in future to call this request or in cas=
+e use it for filing a court order.</div><div class=3D"gmail_default" style=
+=3D"font-family:tahoma,sans-serif;font-size:small"><br></div><div><div dir=
+=3D"ltr"><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>=
+<div dir=3D"ltr"><font face=3D"arial, helvetica, sans-serif" size=3D"2">Bes=
+t Regards,<br>Sandeep Kalra<br></font><div><br></div></div></div></div></di=
+v></div></div></div></div></div><br></div><br><div class=3D"gmail_quote"><d=
+iv dir=3D"ltr" class=3D"gmail_attr">On Sun, Jan 5, 2020 at 1:26 AM Sandeep =
+Kalra &lt;<a href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sand=
+eep.kalra@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quot=
+e" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-left-styl=
+e:solid;border-left-color:rgb(204,204,204);padding-left:1ex"><div dir=3D"lt=
+r"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div=
+ class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:s=
+mall">Dear Robert, Kevin and Amber.</div><div class=3D"gmail_default" style=
+=3D"font-family:tahoma,sans-serif;font-size:small"><br></div><div class=3D"=
+gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:small">You =
+are mentioned as &quot;Compliance Officers&quot; on Cedar Park TX page. I a=
+m making a request for compliance with this email (with some journalist, En=
+gineers and City Mayor in CC).</div><div class=3D"gmail_default" style=3D"f=
+ont-family:tahoma,sans-serif;font-size:small"><br></div><div class=3D"gmail=
+_default" style=3D"font-family:tahoma,sans-serif;font-size:small">The city =
+of cedar park has expanded &quot;Anderson Mill road&quot;.=C2=A0 By doing s=
+o, they have violated my rights. The city under their own compliance=C2=A0r=
+ules of section 8.08 Noise regulations makes it mandatory for any party to =
+make noise beyond these limits:</div><div class=3D"gmail_default" style=3D"=
+font-family:tahoma,sans-serif;font-size:small"><p style=3D"font-family:&quo=
+t;Times New Roman&quot;,serif;font-size:medium;text-align:justify;margin-le=
+ft:54pt;color:rgb(0,0,0)">(1)=C2=A0 =C2=A0 =C2=A0<span style=3D"text-decora=
+tion:underline">Daytime</span>: 70 dB(A) or 80 dB(C); or</p><p style=3D"col=
+or:rgb(0,0,0)"></p><p style=3D"font-family:&quot;Times New Roman&quot;,seri=
+f;font-size:medium;text-align:justify;margin-left:54pt;color:rgb(0,0,0)">(2=
+)=C2=A0 =C2=A0 =C2=A0<span style=3D"text-decoration:underline">Nighttime</s=
+pan>: 50 dB(A) or 60 dB(C</p></div><div class=3D"gmail_default" style=3D"fo=
+nt-family:tahoma,sans-serif;font-size:small"><br></div><div class=3D"gmail_=
+default" style=3D"font-family:tahoma,sans-serif;font-size:small">The constr=
+uction from Anderson Mill road has now impacted me as now the noise level o=
+n my property is way above 100+db at night and 150+db at daytime. This is c=
+oming from the tires of the passing traffic. The compliance rule under exem=
+ption of 8.08.005 does allow noise from only the motor of the motor-vehicle=
+ to be unaccounted (which I did when I measured using my equipments). I wan=
+t the city to comply to the nuisance of road and vehicles by either disallo=
+wing the vehicles making noise to be stopped or make adjustments of the roa=
+d and its boundaries to not produce this noise inside my property line.</di=
+v><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-=
+size:small"><br></div><div class=3D"gmail_default" style=3D"font-family:tah=
+oma,sans-serif;font-size:small">I have request city many times via email to=
+ come and test using beam forming microphones to do a =C2=A0compliance read=
+ing but I guess I wasn&#39;t taking to right people.=C2=A0</div><div class=
+=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:small">=
+<br></div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-ser=
+if;font-size:small">Official procedure will require &quot;Acoustic Beam for=
+ming&quot; to measure noises other than of tires . I think there are plenty=
+ of contractors out there who have this equipment ready and if not I am hap=
+py to refer to you few contractors who can do the compliance reading.=C2=A0=
+</div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;f=
+ont-size:small"><br></div><div class=3D"gmail_default" style=3D"font-family=
+:tahoma,sans-serif;font-size:small">A detail of procedure can be found in t=
+his book recommended by the US body of National Cooperative Highway Researc=
+h Program(NCHRP):=C2=A0</div><div class=3D"gmail_default" style=3D"font-fam=
+ily:tahoma,sans-serif;font-size:small"><br></div><h1 dir=3D"ltr" style=3D"f=
+ont-size:11.869000434875488px;margin:0px;color:rgb(51,51,51);font-family:Ar=
+ial,sans-serif"><span class=3D"gmail_default" style=3D"font-family:tahoma,s=
+ans-serif;font-size:small"></span>Acoustic Beamforming: Mapping Sources of =
+Truck Noise<span class=3D"gmail_default" style=3D"font-family:tahoma,sans-s=
+erif;font-size:small"> , link: <a href=3D"https://books.google.com/books?id=
+=3DrDyhc7WhqqIC&amp;pg=3DPA7&amp;dq=3Dargument+motor+vehicle+motor+sound+is=
++not+motor+vehicle+tyre+sound&amp;hl=3Den&amp;newbks=3D1&amp;newbks_redir=
+=3D0&amp;sa=3DX&amp;ved=3D2ahUKEwj2uMbW9evmAhUZCs0KHZ9cCjQQ6AEwAXoECAUQAg#v=
+=3Donepage&amp;q=3Dargument%20motor%20vehicle%20motor%20sound%20is%20not%20=
+motor%20vehicle%20tyre%20sound&amp;f=3Dfalse" target=3D"_blank">https://boo=
+ks.google.com/books?id=3DrDyhc7WhqqIC&amp;pg=3DPA7&amp;dq=3Dargument+motor+=
+vehicle+motor+sound+is+not+motor+vehicle+tyre+sound&amp;hl=3Den&amp;newbks=
+=3D1&amp;newbks_redir=3D0&amp;sa=3DX&amp;ved=3D2ahUKEwj2uMbW9evmAhUZCs0KHZ9=
+cCjQQ6AEwAXoECAUQAg#v=3Donepage&amp;q=3Dargument%20motor%20vehicle%20motor%=
+20sound%20is%20not%20motor%20vehicle%20tyre%20sound&amp;f=3Dfalse</a></span=
+></h1><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;f=
+ont-size:small"><br></div><div class=3D"gmail_default" style=3D"font-family=
+:tahoma,sans-serif;font-size:small"><br></div><div><div dir=3D"ltr"><div di=
+r=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"=
+><font face=3D"arial, helvetica, sans-serif" size=3D"2">Best Regards,<br>Sa=
+ndeep Kalra<br></font><div><br></div></div></div></div></div></div></div></=
+div></div></div><br></div></div></div></div></div><br><div class=3D"gmail_q=
+uote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Jan 3, 2020 at 1:00 AM =
+Sandeep Kalra &lt;<a href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_bla=
+nk">sandeep.kalra@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gm=
+ail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-l=
+eft-style:solid;border-left-color:rgb(204,204,204);padding-left:1ex"><div d=
+ir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"l=
+tr"><div dir=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D=
+"font-family:tahoma,sans-serif;font-size:small">Hi,</div><div class=3D"gmai=
+l_default" style=3D"font-family:tahoma,sans-serif;font-size:small"><br></di=
+v><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-=
+size:small">I have been chasing the construction that was done by city of c=
+edar park in a hurry with no safety or property paperwork and have impacted=
+ lives of many in and around my neighborhood and also wild life in Austin a=
+rea. I leave up to the media to decide what could be the reason for the urg=
+ency.=C2=A0</div><div class=3D"gmail_default" style=3D"font-family:tahoma,s=
+ans-serif;font-size:small"><br></div><div class=3D"gmail_default" style=3D"=
+font-family:tahoma,sans-serif;font-size:small">There was tip from one neigh=
+bor of mine: Deep pocket owners(such as HEB) may have bought a high valued =
+property right at intersection of 1431 and Anderson Mill road and may have =
+pushed for better access for their own benefits. Unfortunately he may be ri=
+ght. The city has treated us worse than wild life is treated in Austin area=
+.</div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;=
+font-size:small"><br></div><div class=3D"gmail_default" style=3D"font-famil=
+y:tahoma,sans-serif;font-size:small">=C2=A0I have received a reply from Cit=
+y of Cedar park to my request made on Dec-02nd with various requests asking=
+ for the details of construction (and follow up on previous emails where I =
+exposed to the city management that no one followed any rules - noise ordin=
+ance , safety ordinance, etc).=C2=A0</div><div class=3D"gmail_default" styl=
+e=3D"font-family:tahoma,sans-serif;font-size:small">I have reviewed the res=
+ponse I got to my Dec-02-2019 email. The city response carried 0 weight. He=
+re is the summary for the media people that I am marking in CC.</div><div c=
+lass=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:sma=
+ll"><br></div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans=
+-serif;font-size:small"><div class=3D"gmail_default" style=3D"color:rgb(0,0=
+,0)">The only document that had some details was a study that was done more=
+ than a decade ago that shows that the Austin property is reserved under BC=
+CP and that is the reason city of cedar park could not persuade to expand o=
+n that side of corridor and eventually we all residents paid the price.</di=
+v><div class=3D"gmail_default" style=3D"color:rgb(0,0,0)">- This road passe=
+s right next to=C2=A0<b><u><span style=3D"color:rgb(68,68,68);font-family:H=
+elvetica,Arial,sans-serif;font-size:12px;background-color:rgb(237,237,237)"=
+>Balcones Canyonlands Preserve system(</span>BCCP Infrastructure)</u></b> a=
+nd the road is on the corridor that is allowed to expand but there were=C2=
+=A0<b>0 details of clearance certificates that city of cedar park has appli=
+ed for</b>=C2=A0(If there were, then none were provided to me, even when I =
+asked for it) from Travis or Williamson County, and more-so, the road was e=
+xpanded<b>=C2=A0to less than 16&#39; to 30&#39; from the hard limit put by =
+the BCCP Infrastructure=C2=A0</b>Corridor structure. The exceptions=C2=A0ar=
+e for low traffic area, whereas this road is a high traffic area road (Way =
+more than 750 cars in a day).</div><div class=3D"gmail_default" style=3D"co=
+lor:rgb(0,0,0)"><br></div><div class=3D"gmail_default" style=3D"color:rgb(0=
+,0,0)">Ref : Table 3 of book, and AASHTO std is already with you to guide.<=
+/div><div class=3D"gmail_default" style=3D"color:rgb(0,0,0)">=C2=A0<a href=
+=3D"https://books.google.com/books?id=3DcTc3AQAAMAAJ&amp;pg=3DRA6-PA1&amp;l=
+pg=3DRA6-PA1&amp;dq=3DBCCP+Infrastructure+Corridors&amp;source=3Dbl&amp;ots=
+=3D_Eo3sbzQOK&amp;sig=3DACfU3U0A-yfjuqfmPKHpOlkEV1gbKalGdA&amp;hl=3Den&amp;=
+sa=3DX&amp;ved=3D2ahUKEwi49ciP4ebmAhWJGs0KHYrLANkQ6AEwBnoECAoQAQ#v=3Donepag=
+e&amp;q=3DBCCP%20Infrastructure%20Corridors&amp;f=3Dfalse" style=3D"font-fa=
+mily:Arial,Helvetica,sans-serif" target=3D"_blank">https://books.google.com=
+/books?id=3DcTc3AQAAMAAJ&amp;pg=3DRA6-PA1&amp;lpg=3DRA6-PA1&amp;dq=3DBCCP+I=
+nfrastructure+Corridors&amp;source=3Dbl&amp;ots=3D_Eo3sbzQOK&amp;sig=3DACfU=
+3U0A-yfjuqfmPKHpOlkEV1gbKalGdA&amp;hl=3Den&amp;sa=3DX&amp;ved=3D2ahUKEwi49c=
+iP4ebmAhWJGs0KHYrLANkQ6AEwBnoECAoQAQ#v=3Donepage&amp;q=3DBCCP%20Infrastruct=
+ure%20Corridors&amp;f=3Dfalse</a></div><div class=3D"gmail_default"><b><fon=
+t color=3D"#000000">I am marking CC to Wilco.org contact-personal (</font><=
+font color=3D"#ff0000"><a href=3D"mailto:Lauren.Gammon@wilco.org" target=3D=
+"_blank">Lauren.Gammon@wilco.org</a></font><font color=3D"#000000">)=C2=A0<=
+/font><br></b></div><div class=3D"gmail_default"><b><font color=3D"#000000"=
+>and travis contact-personal (</font><u><font color=3D"#ff0000"><a href=3D"=
+mailto:TNRWeb@traviscountytx.gov" target=3D"_blank">TNRWeb@traviscountytx.g=
+ov</a></font></u><font color=3D"#000000">) to notify them for further escal=
+ation on this.</font></b></div><div class=3D"gmail_default"><b><font color=
+=3D"#000000">Through this email reply, I request City of Cedar Park to prod=
+uce the clearance certificates and the permit to go even closer to 30&#39; =
+to the BCCP.</font></b></div><div class=3D"gmail_default" style=3D"color:rg=
+b(0,0,0)"><br></div><div class=3D"gmail_default" style=3D"color:rgb(0,0,0)"=
+>Beside this above details that I could draw from the response. This respon=
+se=C2=A0</div><div class=3D"gmail_default" style=3D"color:rgb(0,0,0)">- <b>=
+Does &quot;not&quot; show if the city of cedar park did any study of expans=
+ion of road to the BCCP system in short or long term.</b></div></div><div c=
+lass=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-size:sma=
+ll">- =C2=A0<b>does &quot;not&quot; carry any detail </b>of any safety meas=
+ures taken after I showed them that mandatory safety checks are missing in =
+documents.</div><div class=3D"gmail_default" style=3D"font-family:tahoma,sa=
+ns-serif;font-size:small">- <b>did=C2=A0</b><span style=3D"color:rgb(0,0,0)=
+;font-family:-webkit-standard;font-size:medium"><b>&quot;not&quot;</b></spa=
+n><b>=C2=A0carry any mention</b> of comparison=C2=A0to existing properties =
+that have gone through similar checks and thus this construction is deemed =
+safe.</div><div class=3D"gmail_default" style=3D"font-family:tahoma,sans-se=
+rif;font-size:small">- shows=C2=A0<b>No action</b> was taken on Licensed en=
+gineers for their ill-actions, and rather producing and submitting business=
+ calculations in place of engineering calculations (and more so admitting t=
+o be doing this for 20+ years).</div><div class=3D"gmail_default" style=3D"=
+font-family:tahoma,sans-serif;font-size:small">- shows=C2=A0<b>no mention o=
+f any plans to cross examine and validation of city&#39;s own noise and saf=
+ety regulation compliance</b> that clearly weren&#39;t followed.. I am stil=
+l waiting for an official reply on it. It will be shame if I have to ask yo=
+u to get this done by issuing court orders.=C2=A0</div><div class=3D"gmail_=
+default" style=3D"font-family:tahoma,sans-serif;font-size:small"><br></div>=
+<div class=3D"gmail_default" style=3D"font-family:tahoma,sans-serif;font-si=
+ze:small"><br></div><div class=3D"gmail_default" style=3D"font-family:tahom=
+a,sans-serif;font-size:small">I request again to the =C2=A0city of CP to pl=
+ease setup a 7 to 10 day validation to cross examine the safety and noise l=
+evel compliance as per city ordinances <b><u>inside my property line</u></b=
+>. I have even given the link of the procedure to do so by eliminating the =
+noise generated by motors inside motor vehicle.=C2=A0</div><div class=3D"gm=
+ail_default" style=3D"font-family:tahoma,sans-serif;font-size:small"><br></=
+div><div><div dir=3D"ltr"><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div =
+dir=3D"ltr"><div><div dir=3D"ltr"><font face=3D"arial, helvetica, sans-seri=
+f" size=3D"2"><br></font></div><div dir=3D"ltr"><font face=3D"arial, helvet=
+ica, sans-serif" size=3D"2"><br></font></div><div dir=3D"ltr"><font face=3D=
+"arial, helvetica, sans-serif" size=3D"2">Best Regards,<br>Sandeep Kalra<br=
+></font><div><br></div></div></div></div></div></div></div></div></div></di=
+v><br></div></div></div></div></div></div></div><br><div class=3D"gmail_quo=
+te"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Dec 2, 2019 at 7:25 PM Sa=
+ndeep Kalra &lt;<a href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank=
+">sandeep.kalra@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmai=
+l_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-lef=
+t-style:solid;border-left-color:rgb(204,204,204);padding-left:1ex"><div><di=
+v dir=3D"auto">Received. Thank you</div><div dir=3D"auto"><br></div></div><=
+div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On=
+ Mon, Dec 2, 2019 at 3:28 PM LeAnn Quinn &lt;<a href=3D"mailto:LeAnn.Quinn@=
+cedarparktexas.gov" target=3D"_blank">LeAnn.Quinn@cedarparktexas.gov</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left-width:1px;border-left-style:solid;padding-left:1ex;b=
+order-left-color:rgb(204,204,204)">
+
+
+
+
+
+<div lang=3D"EN-US">
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)">The City of Cedar Park is in receipt of your=
+ request and it will be processed in the order it was received.<u style=3D"=
+font-family:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-se=
+rif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)">Once we have completed our review you will b=
+e contacted regarding the responsive information.<u style=3D"font-family:Ca=
+libri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></spa=
+n></p><a href=3D"https://www.google.com/maps/search/450+Cypress+Creek+Road+=
+%0D%0A+Cedar+Park,+TX+78613?entry=3Dgmail&amp;source=3Dg" target=3D"_blank"=
+>
+</a><p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibr=
+i,sans-serif;color:rgb(31,73,125)"><u style=3D"font-family:Calibri,sans-ser=
+if"></u>=C2=A0<u style=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)">Thank you.<u style=3D"font-family:Calibri,sa=
+ns-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)"><u style=3D"font-family:Calibri,sans-serif">=
+</u>=C2=A0<u style=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)">LeAnn M. Quinn, TRMC<u style=3D"font-family:=
+Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></s=
+pan></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)">City Secretary<u style=3D"font-family:Calibr=
+i,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span></=
+p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)">City of Cedar Park<u style=3D"font-family:Ca=
+libri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></spa=
+n></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)"><a href=3D"https://www.google.com/maps/searc=
+h/450+Cypress+Creek+Road+%0D%0A+Cedar+Park,+TX+78613?entry=3Dgmail&amp;sour=
+ce=3Dg" style=3D"font-family:Calibri,sans-serif" target=3D"_blank">450 Cypr=
+ess Creek Road</a><u style=3D"font-family:Calibri,sans-serif"></u><u style=
+=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)"><a href=3D"https://www.google.com/maps/searc=
+h/450+Cypress+Creek+Road+%0D%0A+Cedar+Park,+TX+78613?entry=3Dgmail&amp;sour=
+ce=3Dg" style=3D"font-family:Calibri,sans-serif" target=3D"_blank">Cedar Pa=
+rk, TX 78613</a><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D=
+"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)">512-401-5002 Phone<u style=3D"font-family:Ca=
+libri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></spa=
+n></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)">512-401-5003 FAX<u style=3D"font-family:Cali=
+bri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span>=
+</p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt;font-family:Calibri,sa=
+ns-serif;color:rgb(31,73,125)"><u style=3D"font-family:Calibri,sans-serif">=
+</u>=C2=A0<u style=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11pt;font-family:Calibri=
+,sans-serif">From:</span></b><span style=3D"font-size:11pt;font-family:Cali=
+bri,sans-serif"> Sandeep Kalra &lt;<a href=3D"mailto:sandeep.kalra@gmail.co=
+m" style=3D"font-family:Calibri,sans-serif" target=3D"_blank">sandeep.kalra=
+@gmail.com</a>&gt;
+<br>
+<b style=3D"font-family:Calibri,sans-serif">Sent:</b> Monday, December 2, 2=
+019 3:18 PM<br>
+<b style=3D"font-family:Calibri,sans-serif">To:</b> LeAnn Quinn &lt;<a href=
+=3D"mailto:LeAnn.Quinn@cedarparktexas.gov" style=3D"font-family:Calibri,san=
+s-serif" target=3D"_blank">LeAnn.Quinn@cedarparktexas.gov</a>&gt;<br>
+<b style=3D"font-family:Calibri,sans-serif">Cc:</b> Alan Green &lt;<a href=
+=3D"mailto:Alan.Green@cedarparktexas.gov" style=3D"font-family:Calibri,sans=
+-serif" target=3D"_blank">Alan.Green@cedarparktexas.gov</a>&gt;; Christophe=
+r Copple &lt;<a href=3D"mailto:Christopher.Copple@cedarparktexas.gov" style=
+=3D"font-family:Calibri,sans-serif" target=3D"_blank">Christopher.Copple@ce=
+darparktexas.gov</a>&gt;; Darwin Marchell &lt;<a href=3D"mailto:darwin.marc=
+hell@cedarparktexas.gov" style=3D"font-family:Calibri,sans-serif" target=3D=
+"_blank">darwin.marchell@cedarparktexas.gov</a>&gt;; JP LeCompte &lt;<a hre=
+f=3D"mailto:JP.LeCompte@cedarparktexas.gov" style=3D"font-family:Calibri,sa=
+ns-serif" target=3D"_blank">JP.LeCompte@cedarparktexas.gov</a>&gt;; Jody Ba=
+rr &lt;<a href=3D"mailto:Jody.Barr@kxan.com" style=3D"font-family:Calibri,s=
+ans-serif" target=3D"_blank">Jody.Barr@kxan.com</a>&gt;; <a href=3D"mailto:=
+anderson.mill.road@gmail.com" style=3D"font-family:Calibri,sans-serif" targ=
+et=3D"_blank">anderson.mill.road@gmail.com</a>;
+ <a href=3D"mailto:asvillarreal@keyetv.com" style=3D"font-family:Calibri,sa=
+ns-serif" target=3D"_blank">asvillarreal@keyetv.com</a>; <a href=3D"mailto:=
+bperdue@communityimpact.com" style=3D"font-family:Calibri,sans-serif" targe=
+t=3D"_blank">bperdue@communityimpact.com</a>; dkalra111 &lt;<a href=3D"mail=
+to:dkalra111@gmail.com" style=3D"font-family:Calibri,sans-serif" target=3D"=
+_blank">dkalra111@gmail.com</a>&gt;; <a href=3D"mailto:kgonzales@kvue.com" =
+style=3D"font-family:Calibri,sans-serif" target=3D"_blank">kgonzales@kvue.c=
+om</a>; Mayor Van Arsdale &lt;<a href=3D"mailto:Mayor.vanarsdale@cedarparkt=
+exas.gov" style=3D"font-family:Calibri,sans-serif" target=3D"_blank">Mayor.=
+vanarsdale@cedarparktexas.gov</a>&gt;; <a href=3D"mailto:ourtexasnewspaper@=
+gmail.com" style=3D"font-family:Calibri,sans-serif" target=3D"_blank">ourte=
+xasnewspaper@gmail.com</a>; <a href=3D"mailto:sag225@txstate.edu" style=3D"=
+font-family:Calibri,sans-serif" target=3D"_blank">sag225@txstate.edu</a><br=
+>
+<b style=3D"font-family:Calibri,sans-serif">Subject:</b> Re: Request for In=
+formation on grave concerns from resident of the city.<u style=3D"font-fami=
+ly:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u>=
+</span></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">Dear city officials: Can I expect a formal response =
+in next 10 business days?<u></u><u></u></p>
+</div>
+</div>
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Nov 27, 2019 at 10:00 AM Sandeep Kalra &lt;<=
+a href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@g=
+mail.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin-left:4.8pt;margin-right:0in;border-left-co=
+lor:rgb(204,204,204)">
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:Tahoma,sans-serif">All:=
+=C2=A0<u style=3D"font-family:Tahoma,sans-serif"></u><u style=3D"font-famil=
+y:Tahoma,sans-serif"></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:Tahoma,sans-serif">I will=
+ be marking few Local news media in CC now onwards (they are now in CC).=C2=
+=A0<u style=3D"font-family:Tahoma,sans-serif"></u><u style=3D"font-family:T=
+ahoma,sans-serif"></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:Tahoma,sans-serif">Some i=
+nternational news media has also expressed interest in covering the news=C2=
+=A0<u style=3D"font-family:Tahoma,sans-serif"></u><u style=3D"font-family:T=
+ahoma,sans-serif"></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:Tahoma,sans-serif">but I =
+will only go to them if the City continue to not follow their own ordinance=
+s and<u style=3D"font-family:Tahoma,sans-serif"></u><u style=3D"font-family=
+:Tahoma,sans-serif"></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-family:Tahoma,sans-serif">do not=
+ take enough actions even after the writing them for years.<u style=3D"font=
+-family:Tahoma,sans-serif"></u><u style=3D"font-family:Tahoma,sans-serif"><=
+/u></span></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif;color:black">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<div>
+<div>
+<p class=3D"MsoNormal">On Wed, Nov 27, 2019 at 8:48 AM Sandeep Kalra &lt;<a=
+ href=3D"mailto:sandeep.kalra@gmail.com" target=3D"_blank">sandeep.kalra@gm=
+ail.com</a>&gt; wrote:<u></u><u></u></p>
+</div>
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;padding:0in 0in 0in 6pt;margin-left:4.8pt;margin-right:0in;border-left-co=
+lor:rgb(204,204,204)">
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">To: =C2=A0LeAnn Quinn, City Official at Cedar Park TX=
+</span><span style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color=
+:black"><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-fa=
+mily:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Subject: I need to get your official reply on couple =
+of requests below</span><span style=3D"font-size:13.5pt;font-family:Calibri=
+,sans-serif;color:black"><u style=3D"font-family:Calibri,sans-serif"></u><u=
+ style=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;color:black">=C2=A0<=
+/span><span style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:=
+black"><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Dear City Officials, and City Engineers of City, and =
+Legal Department of Cedar Park TX:</span><span style=3D"font-size:13.5pt;fo=
+nt-family:Calibri,sans-serif;color:black"><u style=3D"font-family:Calibri,s=
+ans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;color:black">=C2=A0<=
+/span><span style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:=
+black"><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Request-0: If a resident provides a written concern, =
+and/or request to the city. Is there any &quot;max&quot; =C2=A0time frame s=
+et by city to respond to the concerns, and requests?
+ What are the usual actions taken on the concerns per city? What are your S=
+LAs for city officials and what are those for City Engineering department. =
+Are they in week, month or years? Please provide me with the min and max ti=
+meframes as per your guidance. Also,
+ Please let me know that for how long this data is maintained?</span><span =
+style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:black"><u st=
+yle=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,=
+sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;color:black">=C2=A0<=
+/span><span style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:=
+black"><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Request-1: On May-22,2017 the City of Cedar Park invi=
+ted all residents to inform of Anderson Mill expansion project and asking f=
+or concerns. The concerns from me
+ were emailed, read-out in the meeting, and 3 printed copies were given to =
+the people who hosted the concerns. What were the &quot;actions&quot; that =
+were taken on those concerns? Please provide me with the copy of the action=
+s that were taken(all in last 3 years).</span><span style=3D"font-size:13.5=
+pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family:Cali=
+bri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span>=
+</p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0Were there any meet=
+ing records, emails to show that=C2=A0</span><span style=3D"font-size:13.5p=
+t;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family:Calib=
+ri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span><=
+/p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0there was any line =
+of action thought to address the=C2=A0</span><span style=3D"font-size:13.5p=
+t;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family:Calib=
+ri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span><=
+/p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0concerns?</span><sp=
+an style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:black"><u=
+ style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-family:Calib=
+ri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;color:black">=C2=A0<=
+/span><span style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:=
+black"><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Request-2: Around August 05, 2018, the city response =
+shows that there were &quot;no calculations&quot; done for any drawings for=
+ the project. This implies that there were &quot;safety
+ flaws&quot; in the design. What &quot;actions&quot; were taken by city to =
+mitigate the safety concern raised out of this findings?=C2=A0</span><span =
+style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:black"><u st=
+yle=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,=
+sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 Did the city engineers redo draw=
+ings with calculations to see that the=C2=A0</span><span style=3D"font-size=
+:13.5pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family=
+:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 structure is safe or will be saf=
+e? Were =C2=A0there any design modifications to</span><span style=3D"font-s=
+ize:13.5pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u=
+></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 metigate the possibly of crash, =
+reduce speed limits or placement of more=C2=A0</span><span style=3D"font-si=
+ze:13.5pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-fami=
+ly:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u>=
+</span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 barriers to make the road and in=
+tersection safe for residents and =C2=A0</span><span style=3D"font-size:13.=
+5pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family:Cal=
+ibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span=
+></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 pedestrians?=C2=A0</span><span s=
+tyle=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:black"><u sty=
+le=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,s=
+ans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 Were there any readings taken to=
+ see if the concerns were valid or not?=C2=A0</span><span style=3D"font-siz=
+e:13.5pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-famil=
+y:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u><=
+/span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Please provide me with the copy of all the actions ta=
+ken (All of those in last 3 years).</span><span style=3D"font-size:13.5pt;f=
+ont-family:Calibri,sans-serif;color:black"><u style=3D"font-family:Calibri,=
+sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal" style=3D"margin-bottom:13.5pt"><span style=3D"font-s=
+ize:13.5pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u>=C2=A0<u style=3D"font-family:Calibri,sans-seri=
+f"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Request-2a: If the city has any comparable data from =
+other sites to show that the city does not need safety calculations or is i=
+n=C2=A0compliance=C2=A0then please provide the
+ statistics with=C2=A0readings,=C2=A0level of confidence, correlation and a=
+ll other information to support your claim.</span><span style=3D"font-size:=
+13.5pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family:=
+Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></s=
+pan></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;color:black">=C2=A0<=
+/span><span style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:=
+black"><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Request-3: Were there any environmental study perform=
+ed (per section 8.12 regulations of city code) to see the impact of road on=
+ the health of people and/or the wildlife
+ next to the now extended Anderson Mill road? Please provide the copy of th=
+e reports (any in last 3 year).</span><span style=3D"font-size:13.5pt;font-=
+family:Calibri,sans-serif;color:black"><u style=3D"font-family:Calibri,sans=
+-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 If t=
+here were none, then request you to perform one right now.</span><span styl=
+e=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:black"><u style=
+=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,san=
+s-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;color:black">=C2=A0<=
+/span><span style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:=
+black"><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Request-4: Per City code section-8.08 Noise regulatio=
+ns the city guarantees the residents a upper limit on noise level at variou=
+s time of day. Were there any noise
+ level checks performed after the expansion was completed? Please provide t=
+he copy of the previous 3 years of reports.</span><span style=3D"font-size:=
+13.5pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family:=
+Calibri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></s=
+pan></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;color:black">=C2=A0<=
+/span><span style=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:=
+black"><u style=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-fam=
+ily:Calibri,sans-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Request-5: The vehicles moving on the road are produc=
+ing extremely loud noise. The noise is in part produced by tyres, and other=
+ moving parts that are accountable
+ as per the city codes. The noise level are above and beyond the city permi=
+tted value for daytime and night times. City officials were informed to all=
+ city officials in writing in Oct-30-2019 and request for compliance was ma=
+de (if not, then please treat this
+ email as the one for the level check).</span><span style=3D"font-size:13.5=
+pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family:Cali=
+bri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span>=
+</p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Standing inside my property line the noise level is v=
+ery high and the guarantees under section-8.08 are not meeting even after r=
+emoving the noise produced by &quot;Motor
+ Vehicle Motor&quot; on the road.=C2=A0</span><span style=3D"font-size:13.5=
+pt;font-family:Calibri,sans-serif;color:black"><u style=3D"font-family:Cali=
+bri,sans-serif"></u><u style=3D"font-family:Calibri,sans-serif"></u></span>=
+</p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Arial,sa=
+ns-serif;color:black">Please conduct a study &quot;inside my property-line&=
+quot; at locations offered by me to showcase that the city is in compliance=
+ to section-8.08 of noise regulations. You will
+ need &quot;Acoustic beam-forming based sound level meters&quot; to claim b=
+y removing the noise produced by the motor of the vehicle.</span><span styl=
+e=3D"font-size:13.5pt;font-family:Calibri,sans-serif;color:black"><u style=
+=3D"font-family:Calibri,sans-serif"></u><u style=3D"font-family:Calibri,san=
+s-serif"></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:13.5pt;font-family:Calibri,=
+sans-serif;color:black">=C2=A0<u style=3D"font-family:Calibri,sans-serif"><=
+/u><u style=3D"font-family:Calibri,sans-serif"></u></span></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div>
+<p class=3D"MsoNormal"><span style=3D"font-size:10pt;font-family:Arial,sans=
+-serif;color:black">Best Regards,<br>
+Sandeep Kalra</span><u></u><u></u></p>
+<div>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+
+</blockquote></div></div>-- <br><div dir=3D"ltr"><div dir=3D"ltr"><div><div=
+ dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><font face=3D"aria=
+l, helvetica, sans-serif" size=3D"2">Best Regards,<br>Sandeep Kalra<br></fo=
+nt><div><br></div></div></div></div></div></div></div></div></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div>
+</blockquote></div>
+
+--00000000000044c3d7059b86b9a4--
